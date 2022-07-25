@@ -1,0 +1,38 @@
+﻿<Window x:Class="immopport_desktop.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:immopport_desktop"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+     
+        <StackPanel Grid.Row="1" Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label>Matricule</Label>
+            <TextBox x:Name="txtMatricule" Width="167"/>
+            <Label>Mot de passe</Label>
+            <PasswordBox
+                Name="pwdBox" 
+                MaxLength="64"
+                PasswordChar="#" 
+/>
+            <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
+
+            <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" />
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>

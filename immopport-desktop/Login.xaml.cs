@@ -16,18 +16,31 @@ using System.Windows.Shapes;
 namespace immopport_desktop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
         }
 
+<<<<<<< HEAD:immopport-desktop/MainWindow.xaml.cs
         private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
 
+=======
+        
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (txtMatricule.Text.Length == 0)
+            {
+                errormessage.Text = "Veuillez renseigner votre matricule.";
+                txtMatricule.Focus();
+            }
+>>>>>>> f338624563760eafed8ce4ea64320532edaa9654:immopport-desktop/Login.xaml.cs
         }
     }
 }
