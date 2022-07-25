@@ -23,10 +23,9 @@
             <TextBox x:Name="txtMatricule" Width="167"/>
             <Label>Mot de passe</Label>
             <PasswordBox
-                Name="pwdBox" 
-                MaxLength="64"
-                PasswordChar="#" 
-/>
+                Name="pwdBox"
+                PasswordChar="*" 
+            />
             <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
 
             <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" />

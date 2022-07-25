@@ -1,4 +1,5 @@
-﻿using System;
+﻿using immopport_desktop.commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,8 @@ namespace immopport_desktop
                 errormessage.Text = "Veuillez renseigner votre matricule.";
                 txtMatricule.Focus();
             }
+            LoginCommand toto = new LoginCommand();
+            Task task = toto.Main();
         }
     }
 }
