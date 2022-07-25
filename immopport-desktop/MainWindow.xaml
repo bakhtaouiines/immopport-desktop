@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label>Employé</Label>
+        <ListBox Grid.Row="1" x:Name="lstNames" />
+        
+        <StackPanel Grid.Row="1" Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Width="167">Matricule</TextBox>
+            <TextBox>Mot de Passe</TextBox>
+            <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnAdd_Click">Connexion</Button>
+
+            <TextBox x:Name="txtName" />
+        </StackPanel>
 
     </Grid>
+
 </Window>
