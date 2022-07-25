@@ -25,13 +25,6 @@ namespace immopport_desktop
             InitializeComponent();
         }
 
-<<<<<<< HEAD:immopport-desktop/MainWindow.xaml.cs
-        private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-=======
-        
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
@@ -40,7 +33,6 @@ namespace immopport_desktop
                 errormessage.Text = "Veuillez renseigner votre matricule.";
                 txtMatricule.Focus();
             }
->>>>>>> f338624563760eafed8ce4ea64320532edaa9654:immopport-desktop/Login.xaml.cs
         }
     }
 }

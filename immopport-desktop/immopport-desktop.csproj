@@ -9,4 +9,12 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="logo_immopport1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="logo_immopport1.png" />
+  </ItemGroup>
+
 </Project>

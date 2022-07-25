@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
-    <Grid Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+    <Grid VerticalAlignment="Center" Height="408" HorizontalAlignment="Center" Width="780">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -15,23 +15,24 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="780" />
         </Grid.ColumnDefinitions>
-     
-        <StackPanel Grid.Row="1" Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label>Matricule</Label>
-            <TextBox x:Name="txtMatricule" Width="167"/>
-            <Label>Mot de passe</Label>
-            <PasswordBox
-                Name="pwdBox" 
-                MaxLength="64"
-                PasswordChar="#" 
-/>
-            <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
 
-            <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" />
+        <StackPanel Grid.Row="2" Margin="0,168,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label x:Name="labelTxt1" Content="Matricule" FontFamily="Verdana" FontWeight="Bold" Padding="1,5,5,5" Width="200" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="30" HorizontalAlignment="Stretch" Margin="0,0,0,0"/>
+            <TextBox x:Name="txtMatricule" Width="200" BorderThickness="2,2,2,2" Padding="0,2,0,0" Height="35" Margin="0,0,0,5" VerticalAlignment="Center" FontFamily="Verdana"/>
+            <Label x:Name="labelTxt2" Content="Mot de passe" FontFamily="Verdana" FontWeight="Bold" Padding="1,5,5,5" Margin="0,0,0,0" Width="200" Height="30"/>
+            <PasswordBox
+                x:Name="pwdBox" 
+                MaxLength="64"
+                PasswordChar="#" BorderThickness="2,2,2,2" Padding="0,2,0,0" Width="200" Height="35" Margin="0,0,0,10" 
+/>
+            <Button x:Name="btnAdd" Margin="0,5,0,5" Click="btnLogin_Click" Content="Connexion" BorderBrush="#FF707070" Background="#FF707070" Foreground="White" BorderThickness="2,2,2,2" Padding="2,2,2,2" UseLayoutRounding="False" FontFamily="Verdana" FontSize="14" FontWeight="Normal" Width="200" Height="35"/>
+
+            <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,2" FontFamily="Verdana" FontWeight="Bold" Height="35" />
 
         </StackPanel>
+        <Image x:Name="logoPicture" HorizontalAlignment="Center" Height="150" Margin="0,10,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.52,0.532" Source="/logo_immopport1.png" Stretch="Fill" StretchDirection="Both"/>
 
     </Grid>
 
