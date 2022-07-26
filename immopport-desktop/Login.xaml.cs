@@ -1,4 +1,5 @@
-﻿using System;
+﻿using immopport_desktop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,9 @@ namespace immopport_desktop
                 errormessage.Text = "Veuillez renseigner votre matricule.";
                 txtMatricule.Focus();
             }
+            string input = txtMatricule.Text;
+            API login = new API();
+            Task task = login.Auth();
         }
     }
 }
