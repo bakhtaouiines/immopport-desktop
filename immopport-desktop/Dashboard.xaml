@@ -20,9 +20,11 @@
             <Button Content="Annonces" HorizontalAlignment="Left" Margin="40,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141" Click="Button_Click"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="42,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.469,-0.737" FontFamily="Arial"><Run Language="fr-fr" Text="Taslima Ahamed Mze"/></TextBlock>
-        <TextBlock x:Name="welcome_message" HorizontalAlignment="Left" Height="70" Margin="415,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontWeight="Bold" FontSize="24"><Run Language="fr-fr" Text="welcome"/></TextBlock>
-        <Image x:Name="logo" HorizontalAlignment="Left" Height="115" Margin="405,47,0,0" VerticalAlignment="Top" Width="198" Source="logo_immopport1.webp" Stretch="Uniform" StretchDirection="Both"/>
         <Button Content="&#xD;&#xA;Utilisateurs" HorizontalAlignment="Left" Margin="45,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"/>
+        <Grid HorizontalAlignment="Left" Height="434" Margin="204,0,0,0" VerticalAlignment="Center" Width="596">
+            <ContentControl x:Name="contentControl" Grid.Row="1"/>
+
+        </Grid>
 
     </Grid>
 </Window>

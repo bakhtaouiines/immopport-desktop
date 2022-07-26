@@ -10,29 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
     /// <summary>
-    /// Logique d'interaction pour Dashboard.xaml
+    /// Logique d'interaction pour UserControl1.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class UserControl1 : UserControl
     {
-        public Dashboard()
+        public UserControl1()
         {
             InitializeComponent();
-            this.contentControl.Content = "Taslima";
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Hide(); 
-            //(new Login()).Show();
-            this.contentControl.Content = new UserControl1();
-
-
         }
     }
 }
