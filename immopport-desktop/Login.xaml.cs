@@ -33,10 +33,19 @@ namespace immopport_desktop
             {
                 errormessage.Text = "Veuillez renseigner votre matricule.";
                 txtMatricule.Focus();
+            } 
+            else
+            {
+                string matricule = txtMatricule.Text;
+                string password = txtPassword.Password;
+
+                API login = new API();
+                _ = login.Auth();
+
+                Hide();
+                (new Dashboard()).Show();
             }
-            string input = txtMatricule.Text;
-            API login = new API();
-            Task task = login.Auth();
+            
         }
     }
 }
