@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Immopport" Height="450" Width="800">
     <Grid Margin="10,10,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Center">
 
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
      
         <StackPanel Grid.Row="1" Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label>Matricule</Label>
-            <TextBox x:Name="txtMatricule" Width="167"/>
+            <TextBox Name="txtMatricule" Width="167"/>
             <Label>Mot de passe</Label>
             <PasswordBox
                 Name="pwdBox"

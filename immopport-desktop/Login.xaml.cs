@@ -1,4 +1,4 @@
-﻿using immopport_desktop.commands;
+﻿using immopport_desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +26,6 @@ namespace immopport_desktop
             InitializeComponent();
         }
 
-        
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
@@ -36,8 +34,9 @@ namespace immopport_desktop
                 errormessage.Text = "Veuillez renseigner votre matricule.";
                 txtMatricule.Focus();
             }
-            LoginCommand toto = new LoginCommand();
-            Task task = toto.Main();
+            string input = txtMatricule.Text;
+            API login = new API();
+            Task task = login.Auth();
         }
     }
 }
