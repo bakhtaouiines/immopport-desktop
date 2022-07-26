@@ -23,5 +23,12 @@ namespace immopport_desktop
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide(); 
+            (new Login()).Show();
+            
+        }
     }
 }
