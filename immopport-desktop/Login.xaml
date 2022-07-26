@@ -23,7 +23,7 @@
             <TextBox Name="txtMatricule" Width="167"/>
             <Label>Mot de passe</Label>
             <PasswordBox
-                Name="pwdBox"
+                Name="txtPassword"
                 PasswordChar="*" 
             />
             <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
