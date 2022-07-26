@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Immopport" Height="450" Width="800">
     <Grid VerticalAlignment="Center" Height="408" HorizontalAlignment="Center" Width="780">
 
         <Grid.RowDefinitions>
@@ -23,16 +23,10 @@
             <TextBox x:Name="txtMatricule" Width="200" BorderThickness="2,2,2,2" Padding="0,2,0,0" Height="35" Margin="0,0,0,5" VerticalAlignment="Center" FontFamily="Verdana"/>
             <Label x:Name="labelTxt2" Content="Mot de passe" FontFamily="Verdana" FontWeight="Bold" Padding="1,5,5,5" Margin="0,0,0,0" Width="200" Height="30"/>
             <PasswordBox
-<<<<<<< HEAD
-                Name="pwdBox" 
+                Name="txtPassword" 
                 MaxLength="64"
                 PasswordChar="#" 
 />
-=======
-                Name="txtPassword"
-                PasswordChar="*" 
-            />
->>>>>>> IB
             <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
 
             <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,2" FontFamily="Verdana" FontWeight="Bold" Height="35" />
