@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -8,19 +9,19 @@ using immopport_desktop.Type;
 
 namespace immopport_desktop
 {
-    public class API 
+    public class API
     {
-        static readonly string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
-        static readonly HttpClient client = new HttpClient();
+        private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
+        private HttpClient client = new HttpClient();
 
-        public object? Token //property
-        {
-            get;
-            set;
-        }
+        public string AccessToken {get;set;} = String.Empty;
+        private string ErrorMessage { get; set; } = String.Empty;
+        private string TokenType { get; set; } = String.Empty;
+        public HttpStatusCode StatusCode { get; set; }
 
         //Constructeur de la classe
-        public  API() {
+        public API()
+        {
             client.BaseAddress = new Uri(baseURL);
             // add content type
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -28,90 +29,74 @@ namespace immopport_desktop
             client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("UTF8"));
         }
 
-        private  async Task<T?> GetApi<T>(string URI)
+        private async Task<T?> GetApi<T>(string URI, bool isProtected = false)
         {
             try
             {
+                if (isProtected)
+                {
+                    // Set the authentication header. 
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
+                }
                 // fetch JTW token
                 HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
                 // save the token for further requests.
-                T? token = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
-                Application.Current.Properties["access_token"] = token;
+                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
+                //  Application.Current.Properties["access_token"] = token;
+                StatusCode = response.StatusCode;
+                if (content != null)
+                {
 
-                return token;
+                    return content;
+                }
+                else
+                {
+                    throw new Exception("Pas de contenu");
+                }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                ErrorMessage = e.Message;
                 return default(T);
             }
         }
 
-        public async Task<Token?> Auth()
+        private bool IsLogged()
         {
-            try
+            return AccessToken != null;
+        }
+        public async Task<bool> Auth(int matricule, string password)
+        {
+            Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule="+matricule+"&password="+password);
+            if (TokenResponse != null)
             {
-                return await GetApi<Token?>("/authentification/employee?matricule=14747&password=Password14!");
+                AccessToken = TokenResponse.AccessToken;
+                TokenType = TokenResponse.TokenType;
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return default(Token);
-            }
+            return true;
         }
 
         public async Task<EmployeeResponse?> GetProfile()
         {
-            try
+
+            if (IsLogged())
             {
-                if (Auth() != null)
+
+
+                // get employee informations
+                EmployeeResponse? employees = await GetApi<EmployeeResponse?>("/employee/dashboard", true);
+
+                if (employees != null)
                 {
-                    MessageBox.Show(TokenType);
-                    // Set the authentication header. 
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
-
-                    // get employee informations
-                    HttpResponseMessage employees = await GetApi<EmployeeResponse?>("/employee/dashboard");
-
-                    EmployeeResponse? responseBody = JsonSerializer.Deserialize<EmployeeResponse>(employees.Content.ReadAsStream());
-                    if (responseBody != null && responseBody.Employee != null)
-                    {
-                        MessageBox.Show(responseBody.Employee.Firstname);
-                    }
-                    else
-                    {
-                        throw new Exception("Pas de réponse d'employé " + employees.StatusCode);
-                    }
+                    return employees;
                 }
                 else
                 {
-                    throw new Exception("Identifiant invalide");
-                }      
+                    ErrorMessage = "Pas de réponse d'employé " + StatusCode;
+                }
             }
-            catch ( Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return default(EmployeeResponse);
-            }
+            return null;
         }
 
-        /*public async Task GetAllEmployees()
-        {
-            client.BaseAddress = new Uri(baseURL);
-
-            try
-            {
-                // add content type
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                // add UTF-8
-                client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("UTF8"));
-
-                HttpResponseMessage response = await client.GetAsync(client.BaseAddress + "/employee/");
-
-            } catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }*/
     }
 }
