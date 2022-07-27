@@ -40,7 +40,7 @@ namespace immopport_desktop
                 string password = txtPassword.Password;
 
                 API login = new API();
-                _ = login.Auth();
+                //_ = login.Auth();
 
                 Hide();
                 (new Dashboard()).Show();
