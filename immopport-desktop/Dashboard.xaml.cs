@@ -1,4 +1,5 @@
-﻿using System;
+﻿using immopport_desktop.Type;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,35 @@ namespace immopport_desktop
     {
         public Dashboard()
         {
+            API user;
+
+            if (Application.Current != null && Application.Current.Properties["user"] != null) 
+            {
+
+                user = (API)Application.Current.Properties["user"];
+
+                try
+                {
+                    
+                    MessageBox.Show("okk");
+                    MessageBox.Show(user.AccessToken);
+
+                    
+                    Task <Employee?>? employee = user?.GetProfile();
+                    if (employee != null)
+                    {
+                        MessageBox.Show(employee.Result.Firstname);
+                    }
+                    else
+                    {
+                        MessageBox.Show(user?.ErrorMessage);
+                    }
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
             InitializeComponent();
         }
 

@@ -13,9 +13,8 @@ namespace immopport_desktop
     {
         private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
         private HttpClient client = new HttpClient();
-
         public string AccessToken {get;set;} = String.Empty;
-        private string ErrorMessage { get; set; } = String.Empty;
+        public string ErrorMessage { get; set; } = String.Empty;
         private string TokenType { get; set; } = String.Empty;
         public HttpStatusCode StatusCode { get; set; }
 
@@ -29,6 +28,7 @@ namespace immopport_desktop
             client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("UTF8"));
         }
 
+        // generic method 
         private async Task<T?> GetApi<T>(string URI, bool isProtected = false)
         {
             try
@@ -42,11 +42,10 @@ namespace immopport_desktop
                 HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
                 // save the token for further requests.
                 T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
-                //  Application.Current.Properties["access_token"] = token;
                 StatusCode = response.StatusCode;
+                MessageBox.Show(StatusCode.ToString());
                 if (content != null)
                 {
-
                     return content;
                 }
                 else
@@ -65,30 +64,36 @@ namespace immopport_desktop
         {
             return AccessToken != null;
         }
+
+       
         public async Task<bool> Auth(int matricule, string password)
         {
+            MessageBox.Show("toto");
             Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule="+matricule+"&password="+password);
+            MessageBox.Show("token " + TokenResponse.AccessToken);
             if (TokenResponse != null)
             {
                 AccessToken = TokenResponse.AccessToken;
                 TokenType = TokenResponse.TokenType;
             }
+            else
+            {
+                ErrorMessage = "Ca va pas";
+                return false;
+            }
             return true;
         }
 
-        public async Task<EmployeeResponse?> GetProfile()
+        public async Task<Employee?> GetProfile()
         {
-
             if (IsLogged())
             {
-
-
                 // get employee informations
-                EmployeeResponse? employees = await GetApi<EmployeeResponse?>("/employee/dashboard", true);
+                Employee? employee = await GetApi<Employee?>("/employee/dashboard", true);
 
-                if (employees != null)
+                if (employee != null)
                 {
-                    return employees;
+                    return employee;
                 }
                 else
                 {
