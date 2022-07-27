@@ -31,8 +31,8 @@ namespace immopport_desktop
             //this.Hide(); 
             //(new Login()).Show();
             this.contentControl.Content = new UserControl1();
-
-
         }
+
+        
     }
 }

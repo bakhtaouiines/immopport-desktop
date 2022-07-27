@@ -6,25 +6,38 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800">
-    <Grid Background="#00000000">
-        <Grid HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="199" Background="#FFEA4141">
-            <Image HorizontalAlignment="Left" Height="57" Margin="68,35,0,0" VerticalAlignment="Top" Width="89" Source="user-login.png">
-                <Image.OpacityMask>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF6D1E1E" Offset="1"/>
-                    </LinearGradientBrush>
-                </Image.OpacityMask>
-            </Image>
-            <Button Content="Annonces" HorizontalAlignment="Left" Margin="40,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFE64C4C" Height="48" Width="104"/>
-            <Button Content="Annonces" HorizontalAlignment="Left" Margin="40,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141" Click="Button_Click"/>
-        </Grid>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="42,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.469,-0.737" FontFamily="Arial"><Run Language="fr-fr" Text="Taslima Ahamed Mze"/></TextBlock>
-        <Button Content="&#xD;&#xA;Utilisateurs" HorizontalAlignment="Left" Margin="45,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"/>
-        <Grid HorizontalAlignment="Left" Height="434" Margin="204,0,0,0" VerticalAlignment="Center" Width="596">
-            <ContentControl x:Name="contentControl" Grid.Row="1"/>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" />
+            <ColumnDefinition Width="3.3*" />
+        </Grid.ColumnDefinitions>
+        <Grid  Background="#FFEA4141">
+            <Image HorizontalAlignment="Center" Height="100" Margin="0,43,0,0" VerticalAlignment="Top" Width="100" Source="/logo_immopport1.png"/>
+            <Button Content="Annonces" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141" Click="Button_Click"/>
+            <Button Content="Users" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"  Margin="0,258,0,0"/>
+            <Button Content="RDV" HorizontalAlignment="Center" Margin="0,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"/>
+
 
         </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="3.5*" />
 
+            </Grid.RowDefinitions>
+
+            <Grid  Background="#FFEA4141" >
+                <TextBlock HorizontalAlignment="Left" Height="30" Margin="307,0,0,0" TextWrapping="Wrap" Text="Taslima Ahamed Mze                     44567" VerticalAlignment="Center" Width="375" FontWeight="Bold" FontSize="18" TextAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <ContentControl x:Name="contentControl" />
+            </Grid>
+
+
+        </Grid>
     </Grid>
 </Window>
