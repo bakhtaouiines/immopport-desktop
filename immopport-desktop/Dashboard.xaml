@@ -27,7 +27,7 @@
 
             </Grid.RowDefinitions>
 
-            <Image  Source="/logo_immopport1.png" />
+            <Image  Source="/logo_immopport.png" />
             <Button Grid.Column="1" Grid.Row="1" Content="Annonces"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" Click="Button_Click" FontSize="18" FontWeight="Bold"  />
             <Button Grid.Row="2"   Content="Employées"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" Click="Button_Click_1"/>
             <Button Grid.Row="3"  Content="Rdv"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" Click="Button_Click_2" />
