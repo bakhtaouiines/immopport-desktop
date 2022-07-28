@@ -21,34 +21,36 @@ namespace immopport_desktop
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
+    /// 
     public partial class Login : Window
     {
+        API api { get; set; }
         public Login()
         {
             InitializeComponent();
+            api = new API();
         }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void LogIn(int matricule, string password)
+        {
+             Task task = api.Auth(matricule, password);
+           /* int i = 0;
+            while (!task.IsCompleted)
+            {
+                //On affiche une baree de chargement
+
+                MessageBox.Show("On attend " +i);
+                i++;
+            }*/
+        }
+        private  void btnLogin_ClickAsync(object sender, RoutedEventArgs e)
         {
 
             if (txtMatricule.Text.Length != 0 && txtPassword.Password.Length != 0)
             {
                 int matricule = int.Parse(txtMatricule.Text);
                 string password = txtPassword.Password;
-                try
-                {
-                    API login = new API();
-                    Task<bool> task = login.Auth(matricule, password);
-                    task.Wait();
-                    if (task.IsFaulted)
-                    {
-                        MessageBox.Show("Erreur");
-                    }
-                    else if (task.IsCompleted)
-                    {
-                        MessageBox.Show(login.AccessToken);
-                        MessageBox.Show(login.ErrorMessage);
-                    }
-                }catch(Exception ex) { MessageBox.Show(ex.ToString()); }
+                LogIn(matricule,password);
+                MessageBox.Show(api.AccessToken);
 
                 /*_ = login.Auth(matricule, password).Wait(9000);*/
                 /* bool completed = login.Auth(matricule, password).IsCompleted;
@@ -77,6 +79,7 @@ namespace immopport_desktop
                     
                 }*/
             }
+            
             else
             {
                 errormessage.Text = "Le formulaire ne peut être vide.";

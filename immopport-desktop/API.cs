@@ -6,12 +6,12 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using immopport_desktop.Type;
-
 namespace immopport_desktop
 {
     public class API
     {
-        private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
+         private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
+        //private string baseURL = "http://api-immopport/";
         private HttpClient client = new HttpClient();
         public string AccessToken {get;set;} = String.Empty;
         public string ErrorMessage { get; set; } = String.Empty;
@@ -38,20 +38,21 @@ namespace immopport_desktop
                     // Set the authentication header. 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
                 }
-                // fetch JTW token
-                HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
-                // save the token for further requests.
-                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
-                StatusCode = response.StatusCode;
-                MessageBox.Show(StatusCode.ToString());
-                if (content != null)
-                {
-                    return content;
-                }
-                else
-                {
-                    throw new Exception("Pas de contenu");
-                }
+                    // fetch JTW token
+                    HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
+                    // save the token for further requests.
+                    T? content = JsonSerializer.DeserializeAsync<T>(response.Content.ReadAsStream()).Result;
+
+                    StatusCode = response.StatusCode;
+
+                    if (content != null)
+                    {
+                        return content;
+                    }
+                    else
+                    {
+                        throw new Exception("Pas de contenu");
+                    }
             }
             catch (Exception e)
             {
@@ -63,25 +64,34 @@ namespace immopport_desktop
         private bool IsLogged()
         {
             return AccessToken != null;
-        }
+        }   
 
        
-        public async Task<bool> Auth(int matricule, string password)
+        public async 
+       
+        Task
+Auth(int matricule, string password)
         {
-            MessageBox.Show("toto");
-            Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule="+matricule+"&password="+password);
-            MessageBox.Show("token " + TokenResponse.AccessToken);
-            if (TokenResponse != null)
+            try
             {
-                AccessToken = TokenResponse.AccessToken;
-                TokenType = TokenResponse.TokenType;
+                Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule=" + matricule + "&password=" + password);
+
+                if (TokenResponse != null)
+                {
+                    AccessToken = TokenResponse.AccessToken;
+                    TokenType = TokenResponse.TokenType;
+                    ErrorMessage = string.Empty;
+                }
+                else
+                {
+                    ErrorMessage = "Le token est vide!";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ErrorMessage = "Ca va pas";
-                return false;
+                MessageBox.Show(ex.Message);
             }
-            return true;
+           
         }
 
         public async Task<Employee?> GetProfile()
