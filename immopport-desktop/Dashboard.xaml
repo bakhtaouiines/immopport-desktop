@@ -13,11 +13,26 @@
             <ColumnDefinition Width="3.3*" />
         </Grid.ColumnDefinitions>
         <Grid  Background="#FFEA4141">
-            <Image HorizontalAlignment="Center" Height="100" Margin="0,43,0,0" VerticalAlignment="Top" Width="100" Source="/logo_immopport1.png"/>
-            <Button Content="Annonces" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141" Click="Button_Click"/>
-            <Button Content="Users" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"  Margin="0,258,0,0"/>
-            <Button Content="RDV" HorizontalAlignment="Center" Margin="0,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
 
+
+            </Grid.RowDefinitions>
+
+            <Image  Source="/logo_immopport1.png" />
+            <Button Grid.Column="1" Grid.Row="1" Content="Annonces"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" Click="Button_Click" FontSize="18" FontWeight="Bold"  />
+            <Button Grid.Row="2"   Content="Employées"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" Click="Button_Click_1"/>
+            <Button Grid.Row="3"  Content="Rdv"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" Click="Button_Click_2" />
+            <Button Grid.Row="4"  Content="Clients"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" />
+            <Button Grid.Row="5"  Content="Déconnexion"  RenderTransformOrigin="0.05,0.503" Background="#FFEA4141"  BorderBrush="#FFE0CACA" FontSize="18" FontWeight="Bold" />
 
         </Grid>
         <Grid Grid.Column="1">
