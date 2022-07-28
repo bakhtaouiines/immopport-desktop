@@ -28,11 +28,17 @@ namespace immopport_desktop
         public Login()
         {
             InitializeComponent();
+
             api = new API();
         }
         private async void LogIn(int matricule, string password)
         {
              Task task = api.Auth(matricule, password);
+
+            if (task.IsCompleted)
+            {
+                MessageBox.Show("OK");
+            }
            /* int i = 0;
             while (!task.IsCompleted)
             {
@@ -42,23 +48,23 @@ namespace immopport_desktop
                 i++;
             }*/
         }
-        private  void btnLogin_ClickAsync(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
 
             if (txtMatricule.Text.Length != 0 && txtPassword.Password.Length != 0)
             {
+                
                 int matricule = int.Parse(txtMatricule.Text);
                 string password = txtPassword.Password;
                 LogIn(matricule,password);
                 MessageBox.Show(api.AccessToken);
 
-<<<<<<< HEAD
                 /*_ = login.Auth(matricule, password).Wait(9000);*/
                 /* bool completed = login.Auth(matricule, password).IsCompleted;
-=======
+
                 API login = new API();
                 //_ = login.Auth();
->>>>>>> 01ec2696d6bede96540edd637f05b3520f9ad890
 
                  if (! completed)
                  {

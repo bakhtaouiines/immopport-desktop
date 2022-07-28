@@ -24,7 +24,6 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
 
-
             </Grid.RowDefinitions>
 
             <Image  Source="/logo_immopport1.png" />
