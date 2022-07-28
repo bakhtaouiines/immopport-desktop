@@ -49,7 +49,7 @@
             />
             <Button 
                 Style="{StaticResource BasicButtonStyle}" 
-                x:Name="btnAdd"
+                x:Name="loginBtn"
                 Click="btnLogin_Click"
                 IsDefault="true">
                     Connexion

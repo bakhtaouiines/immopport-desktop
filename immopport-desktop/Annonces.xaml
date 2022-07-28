@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <FlowDocumentReader >
+    <FlowDocumentReader>
         <FlowDocument ColumnWidth="999999">
 
             <Table CellSpacing="25" >
@@ -60,6 +60,12 @@
                             <Paragraph>true</Paragraph>
                         </TableCell>
                         <TableCell>
+                            <BlockUIContainer>
+                                <Button Height="50" Content="{StaticResource EyeIcon}" Click="Button_Click"></Button>
+                            </BlockUIContainer>
+                            <BlockUIContainer>
+                                <Button  HorizontalAlignment="Left">Publier</Button>
+                            </BlockUIContainer>
                         </TableCell>
                     </TableRow>
                     <TableRow Background="lightgray">
