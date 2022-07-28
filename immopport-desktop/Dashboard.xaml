@@ -6,21 +6,23 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="mainGrid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*" />
             <ColumnDefinition Width="3.3*" />
         </Grid.ColumnDefinitions>
-        <Grid  Background="#FFEA4141">
-            <Image HorizontalAlignment="Center" Height="100" Margin="0,43,0,0" VerticalAlignment="Top" Width="100" Source="/logo_immopport1.png"/>
-            <Button Content="Annonces" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141" Click="Button_Click"/>
-            <Button Content="Users" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"  Margin="0,258,0,0"/>
-            <Button Content="RDV" HorizontalAlignment="Center" Margin="0,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="48" Width="104" BorderBrush="#FFEA4141"/>
+        <Grid x:Name="leftPanelGrid"  Background="#FFABADB3">
+            <Image x:Name="logoDashboard" HorizontalAlignment="Center" Height="100" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/logo_immopport.png"/>
+            <Button x:Name="btnAnnonces" Content="Annonces" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Click="Button_Click" Foreground="White" Margin="0,109,0,0" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Button x:Name="btnEmployes" Content="Employés" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" Click="Button_Click_1" Margin="0,174,0,0" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Button x:Name="btnRDV" Content="RDV" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Button x:Name="btnClients" Content="Clients" HorizontalAlignment="Center" Margin="0,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
+            <Button x:Name="btnLogOut" Content="Déconnexion" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
 
 
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid x:Name="rightPanelGrid" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
@@ -30,11 +32,15 @@
 
             </Grid.RowDefinitions>
 
-            <Grid  Background="#FFEA4141" >
-                <TextBlock HorizontalAlignment="Left" Height="30" Margin="307,0,0,0" TextWrapping="Wrap" Text="Taslima Ahamed Mze                     44567" VerticalAlignment="Center" Width="375" FontWeight="Bold" FontSize="18" TextAlignment="Center"/>
+            <Grid x:Name="topBarGrid"  Background="#FFEA4141" >
+                <TextBlock x:Name="txtLogInfos" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="Taslima Ahamed Mze                     44567" VerticalAlignment="Center" Width="415" FontWeight="Bold" FontSize="18" TextAlignment="Center" Foreground="White" FontFamily="Verdana"/>
             </Grid>
-            <Grid Grid.Row="1" >
-                <ContentControl x:Name="contentControl" />
+            <Grid x:Name="contentGrid" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="41*"/>
+                </Grid.RowDefinitions>
+                <ContentControl x:Name="contentControl" Grid.RowSpan="2" />
             </Grid>
 
 

@@ -33,6 +33,9 @@ namespace immopport_desktop
             this.contentControl.Content = new UserControl1();
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,7 +5,7 @@
              StartupUri="Login.xaml">
     <Application.Resources>
 
-        <!-- BASIC BUTTON STYLE  -->
+        <!-- LEFT PANEL GRID STYLE -->
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
@@ -24,6 +24,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!-- BASIC BUTTON STYLE  -->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
