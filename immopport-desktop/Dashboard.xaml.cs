@@ -52,13 +52,27 @@ namespace immopport_desktop
                 }
             }
             InitializeComponent();
+            this.contentControl.Content = new Annonces();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide(); 
-            (new Login()).Show();
-            
+            //this.Hide(); 
+            //(new Login()).Show();
+            this.contentControl.Content = new Annonces();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new Employees();
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = "Hello";
+
         }
     }
 }

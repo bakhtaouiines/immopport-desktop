@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="immopport_desktop.Annonces"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:immopport_desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <FlowDocumentReader >
+        <FlowDocument ColumnWidth="999999">
+
+            <Table CellSpacing="25" >
+
+                <Table.Columns>
+                    <TableColumn  />
+                    <TableColumn />
+                    <TableColumn  />
+                    <TableColumn/>
+                    <TableColumn/>
+
+                </Table.Columns>
+
+                <TableRowGroup>
+
+                    
+
+                    <!-- Header row for the table. -->
+                    <TableRow Background="#FFEA4141">
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">ID</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Titre</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Adresse</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">is prospect</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Actions</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                    
+
+                    <!-- Four data rows for the inner planets. -->
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>1</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>Appartement1</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>true</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow Background="lightgray">
+                        <TableCell>
+                            <Paragraph>Venus</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>108,200,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>12,103.6 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>4.869e24 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Earth</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>149,600,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>12,756.3 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>5.972e24 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow Background="lightgray">
+                        <TableCell>
+                            <Paragraph>Mars</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>227,940,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>6,794 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>6.4219e23 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                </TableRowGroup>
+            </Table>
+        </FlowDocument>
+    </FlowDocumentReader>
+</UserControl>

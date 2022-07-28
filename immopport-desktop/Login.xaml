@@ -15,23 +15,25 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="780" />
+            <ColumnDefinition Width="82.764" />
+            <ColumnDefinition Width="697.236"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="2" Margin="0,168,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Label x:Name="labelTxt1" Content="Matricule" FontFamily="Verdana" FontWeight="Bold" Padding="1,5,5,5" Width="200" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="30" HorizontalAlignment="Stretch" Margin="0,0,0,0"/>
-            <TextBox x:Name="txtMatricule" Width="200" BorderThickness="2,2,2,2" Padding="0,2,0,0" Height="35" Margin="0,0,0,5" VerticalAlignment="Center" FontFamily="Verdana"/>
-            <Label x:Name="labelTxt2" Content="Mot de passe" FontFamily="Verdana" FontWeight="Bold" Padding="1,5,5,5" Margin="0,0,0,0" Width="200" Height="30"/>
-            <PasswordBox
-                Name="txtPassword"
-                PasswordChar="*" 
-            />
+        <Image Height="175" Width="175" Margin="219,5,302,244" Stretch="Fill" Source="/Assets/logo_immopport.png" Grid.Row="2" Grid.Column="1"/>
+        <StackPanel Grid.Row="2" Margin="40,183,123,20" Grid.Column="1">
+            <Label Style="{DynamicResource BasicLabelStyle}" x:Name="labelMatricule" Content="Matricule" Background="White" Width="200" Height="30" VerticalContentAlignment="Center" Padding="1,5,5,5" FontFamily="Verdana" FontSize="14" FontWeight="Bold" SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+            <TextBox Style="{DynamicResource BasicTextBoxStyle}" x:Name="txtMatricule" Width="200" BorderThickness="2,2,2,2" Padding="1,5,5,5" Height="30" Margin="0,0,0,10" VerticalAlignment="Stretch" FontFamily="Verdana" SelectionTextBrush="#FFDEE0E0" HorizontalAlignment="Stretch"/>
+            <Label Style="{DynamicResource BasicLabelStyle}" x:Name="labelPwdBox" Content="Mot de passe" Background="White" Width="200" Height="30" VerticalContentAlignment="Center" Padding="1,5,5,5" FontFamily="Verdana" FontSize="14" FontWeight="Bold" SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <PasswordBox Style="{DynamicResource BasicPasswordBoxStyle}" Name="txtPassword" 
+                MaxLength="64"
+                PasswordChar="#" SelectionTextBrush="#FFDEE0E0" Width="200" Height="30" VerticalAlignment="Stretch" Margin="0,0,0,10" Padding="1,5,5,5" FontFamily="Verdana" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" HorizontalAlignment="Stretch"/>
+            <Button Style="{DynamicResource BasicButtonStyle}" x:Name="btnAdd" Margin="0,10,0,5" Click="btnLogin_Click" Background="#FF707070" Width="200" Height="30" Padding="2,2,2,2" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Connexion</Button>
+            <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
             <Button x:Name="btnAdd" Margin="0,20,0,0" Click="btnLogin_Click">Connexion</Button>
 
-            <TextBox x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,2" FontFamily="Verdana" FontWeight="Bold" Height="35" />
+            <TextBox Style="{DynamicResource BasicErrorMessageStyle}" x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,0" FontFamily="Verdana" FontWeight="Bold" Height="30" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="#FFDEE0E0" Width="300" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
         </StackPanel>
-        <Image x:Name="logoPicture" HorizontalAlignment="Center" Height="150" Margin="0,10,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.52,0.532" Source="/logo_immopport1.png" Stretch="Fill" StretchDirection="Both"/>
 
     </Grid>
 

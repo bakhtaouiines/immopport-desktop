@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="logo_immopport1.png" />
+    <None Remove="Assets\logo_immopport.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="logo_immopport1.png" />
+    <Resource Include="Assets\logo_immopport.png" />
   </ItemGroup>
 
 </Project>
