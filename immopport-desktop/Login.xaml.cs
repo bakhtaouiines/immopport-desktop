@@ -39,7 +39,7 @@ namespace immopport_desktop
                 string matricule = txtMatricule.Text;
                 string password = txtPassword.Password;
 
-                API login = new API();
+                //API login = new API();
                 //_ = login.Auth();
 
                 Hide();

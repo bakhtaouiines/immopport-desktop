@@ -1,8 +1,7 @@
 {
   "profiles": {
     "immopport-desktop": {
-      "commandName": "Project",
-      "workingDirectory": "D:\\NOVEI_LA_MANU\\immopport-desktop\\immopport-desktop"
+      "commandName": "Project"
     }
   }
 }
