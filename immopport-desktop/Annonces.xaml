@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="immopport_desktop.UserControl1"
+﻿<UserControl x:Class="immopport_desktop.Annonces"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,7 +22,7 @@
 
                 <TableRowGroup>
 
-
+                    
 
                     <!-- Header row for the table. -->
                     <TableRow Background="#FFEA4141">
@@ -43,7 +43,7 @@
                         </TableCell>
                     </TableRow>
 
-
+                    
 
                     <!-- Four data rows for the inner planets. -->
                     <TableRow>
@@ -61,8 +61,8 @@
                         </TableCell>
 
                         <TableCell>
-
-
+                            
+                            
                         </TableCell>
                     </TableRow>
                     <TableRow Background="lightgray">

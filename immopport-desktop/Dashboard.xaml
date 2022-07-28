@@ -12,14 +12,13 @@
             <ColumnDefinition Width="0.7*" />
             <ColumnDefinition Width="3.3*" />
         </Grid.ColumnDefinitions>
-        <Grid x:Name="leftPanelGrid"  Background="#FFABADB3">
-            <Image x:Name="logoDashboard" HorizontalAlignment="Center" Height="100" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/logo_immopport.png"/>
-            <Button x:Name="btnAnnonces" Content="Annonces" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Click="Button_Click" Foreground="White" Margin="0,109,0,0" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
-            <Button x:Name="btnEmployes" Content="Employés" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" Click="Button_Click_1" Margin="0,174,0,0" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
-            <Button x:Name="btnRDV" Content="RDV" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
-            <Button x:Name="btnClients" Content="Clients" HorizontalAlignment="Center" Margin="0,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
-            <Button x:Name="btnLogOut" Content="Déconnexion" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" Height="65" Width="140" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold"/>
-
+        <Grid x:Name="leftPanelGrid"  Background="#FFABADB3" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="140" Height="433">
+            <Image x:Name="logoDashboard" Height="100" Width="100" Source="/Assets/logo_immopport.png" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,328"/>
+            <Button x:Name="btnAnnonces" Content="Annonces" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" BorderBrush="#FFABADB3" Click="Button_Click" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,104,0,265" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="65"/>
+            <Button x:Name="btnEmployes" Content="Employés" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" BorderBrush="#FFABADB3" Foreground="White" Click="Button_Click_1" FontFamily="Verdana" FontSize="18" FontWeight="Bold" Margin="0,169,0,199" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="65"/>
+            <Button x:Name="btnRDV" Content="RDV" Margin="0,235,0,133" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Height="65"/>
+            <Button x:Name="btnClients" Content="Clients" Margin="0,301,0,67" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Height="65"/>
+            <Button x:Name="btnLogOut" Content="Déconnexion" Margin="0,367,0,1" RenderTransformOrigin="0.05,0.503" Background="#FFEA4141" BorderBrush="#FFABADB3" Foreground="White" FontFamily="Verdana" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Height="65"/>
 
         </Grid>
         <Grid x:Name="rightPanelGrid" Grid.Column="1">
@@ -32,7 +31,7 @@
 
             </Grid.RowDefinitions>
 
-            <Grid x:Name="topBarGrid"  Background="#FFEA4141" >
+            <Grid x:Name="topBarGrid"  Background="#FFEA4141" Width="660" Margin="0,0,0,0" >
                 <TextBlock x:Name="txtLogInfos" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="Taslima Ahamed Mze                     44567" VerticalAlignment="Center" Width="415" FontWeight="Bold" FontSize="18" TextAlignment="Center" Foreground="White" FontFamily="Verdana"/>
             </Grid>
             <Grid x:Name="contentGrid" Grid.Row="1" >
@@ -40,7 +39,7 @@
                     <RowDefinition Height="35*"/>
                     <RowDefinition Height="41*"/>
                 </Grid.RowDefinitions>
-                <ContentControl x:Name="contentControl" Grid.RowSpan="2" />
+                <ContentControl x:Name="contentControl" Grid.RowSpan="2" Width="659" />
             </Grid>
 
 

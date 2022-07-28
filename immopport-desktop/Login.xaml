@@ -28,9 +28,7 @@
                 MaxLength="64"
                 PasswordChar="#" SelectionTextBrush="#FFDEE0E0" Width="200" Height="30" VerticalAlignment="Stretch" Margin="0,0,0,10" Padding="1,5,5,5" FontFamily="Verdana" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" HorizontalAlignment="Stretch"/>
             <Button Style="{DynamicResource BasicButtonStyle}" x:Name="btnAdd" Margin="0,10,0,5" Click="btnLogin_Click" Background="#FF707070" Width="200" Height="30" Padding="2,2,2,2" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Connexion</Button>
-
             <TextBox Style="{DynamicResource BasicErrorMessageStyle}" x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,0" FontFamily="Verdana" FontWeight="Bold" Height="30" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="#FFDEE0E0" Width="300" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-
         </StackPanel>
 
     </Grid>

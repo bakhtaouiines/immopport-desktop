@@ -6,16 +6,15 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using immopport_desktop.Type;
-
 namespace immopport_desktop
 {
     public class API
     {
-        private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
+         private string baseURL = "http://api.immopport.cda.ve.manusien-ecolelamanu.fr/api/public/";
+        //private string baseURL = "http://api-immopport/";
         private HttpClient client = new HttpClient();
-
         public string AccessToken {get;set;} = String.Empty;
-        private string ErrorMessage { get; set; } = String.Empty;
+        public string ErrorMessage { get; set; } = String.Empty;
         private string TokenType { get; set; } = String.Empty;
         public HttpStatusCode StatusCode { get; set; }
 
@@ -29,6 +28,7 @@ namespace immopport_desktop
             client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("UTF8"));
         }
 
+        // generic method 
         private async Task<T?> GetApi<T>(string URI, bool isProtected = false)
         {
             try
@@ -38,21 +38,21 @@ namespace immopport_desktop
                     // Set the authentication header. 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
                 }
-                // fetch JTW token
-                HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
-                // save the token for further requests.
-                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
-                //  Application.Current.Properties["access_token"] = token;
-                StatusCode = response.StatusCode;
-                if (content != null)
-                {
+                    // fetch JTW token
+                    HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
+                    // save the token for further requests.
+                    T? content = JsonSerializer.DeserializeAsync<T>(response.Content.ReadAsStream()).Result;
 
-                    return content;
-                }
-                else
-                {
-                    throw new Exception("Pas de contenu");
-                }
+                    StatusCode = response.StatusCode;
+
+                    if (content != null)
+                    {
+                        return content;
+                    }
+                    else
+                    {
+                        throw new Exception("Pas de contenu");
+                    }
             }
             catch (Exception e)
             {
@@ -64,31 +64,46 @@ namespace immopport_desktop
         private bool IsLogged()
         {
             return AccessToken != null;
-        }
-        public async Task<bool> Auth(int matricule, string password)
+        }   
+
+       
+        public async 
+       
+        Task
+Auth(int matricule, string password)
         {
-            Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule="+matricule+"&password="+password);
-            if (TokenResponse != null)
+            try
             {
-                AccessToken = TokenResponse.AccessToken;
-                TokenType = TokenResponse.TokenType;
+                Token? TokenResponse = await GetApi<Token?>("/authentification/employee?matricule=" + matricule + "&password=" + password);
+
+                if (TokenResponse != null)
+                {
+                    AccessToken = TokenResponse.AccessToken;
+                    TokenType = TokenResponse.TokenType;
+                    ErrorMessage = string.Empty;
+                }
+                else
+                {
+                    ErrorMessage = "Le token est vide!";
+                }
             }
-            return true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
-        public async Task<EmployeeResponse?> GetProfile()
+        public async Task<Employee?> GetProfile()
         {
-
             if (IsLogged())
             {
-
-
                 // get employee informations
-                EmployeeResponse? employees = await GetApi<EmployeeResponse?>("/employee/dashboard", true);
+                Employee? employee = await GetApi<Employee?>("/employee/dashboard", true);
 
-                if (employees != null)
+                if (employee != null)
                 {
-                    return employees;
+                    return employee;
                 }
                 else
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using immopport_desktop.Type;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,37 @@ namespace immopport_desktop
     {
         public Dashboard()
         {
+            API user;
+
+            if (Application.Current != null && Application.Current.Properties["user"] != null) 
+            {
+
+                user = (API)Application.Current.Properties["user"];
+
+                try
+                {
+                    
+                    MessageBox.Show("okk");
+                    MessageBox.Show(user.AccessToken);
+
+                    
+                    Task <Employee?>? employee = user?.GetProfile();
+                    if (employee != null)
+                    {
+                        MessageBox.Show(employee.Result.Firstname);
+                    }
+                    else
+                    {
+                        MessageBox.Show(user?.ErrorMessage);
+                    }
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
             InitializeComponent();
-            this.contentControl.Content = "Taslima";
+            this.contentControl.Content = new Annonces();
 
         }
 
@@ -30,10 +60,22 @@ namespace immopport_desktop
         {
             //this.Hide(); 
             //(new Login()).Show();
-            this.contentControl.Content = new UserControl1();
+            this.contentControl.Content = new Annonces();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new Employees();
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = "Hello";
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
         }
