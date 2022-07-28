@@ -22,7 +22,7 @@ namespace immopport_desktop
         public Dashboard()
         {
             InitializeComponent();
-            this.contentControl.Content = "Taslima";
+            this.contentControl.Content = new Annonces();
 
         }
 
@@ -30,9 +30,19 @@ namespace immopport_desktop
         {
             //this.Hide(); 
             //(new Login()).Show();
-            this.contentControl.Content = new UserControl1();
+            this.contentControl.Content = new Annonces();
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new Employees();
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = "Hello";
+
+        }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace immopport_desktop
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
+    /// Logique d'interaction pour Employee.xaml
     /// </summary>
-    public partial class Annonces : UserControl
+    public partial class Employees : UserControl
     {
-        public Annonces()
+        public Employees()
         {
             InitializeComponent();
         }
