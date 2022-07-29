@@ -31,67 +31,38 @@ namespace immopport_desktop
 
             api = new API();
         }
-        private async void LogIn(int matricule, string password)
-        {
-             Task task = api.Auth(matricule, password);
 
-            if (task.IsCompleted)
-            {
-                MessageBox.Show("OK");
-            }
-           /* int i = 0;
-            while (!task.IsCompleted)
-            {
-                //On affiche une baree de chargement
-
-                MessageBox.Show("On attend " +i);
-                i++;
-            }*/
-        }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (txtMatricule.Text.Length != 0 && txtPassword.Password.Length != 0)
             {
-                
-                int matricule = int.Parse(txtMatricule.Text);
                 string password = txtPassword.Password;
-                LogIn(matricule,password);
-                MessageBox.Show(api.AccessToken);
+                bool IsNumber = int.TryParse(txtMatricule.Text.Trim(), out int matricule);
 
-                /*_ = login.Auth(matricule, password).Wait(9000);*/
-                /* bool completed = login.Auth(matricule, password).IsCompleted;
-
-                API login = new API();
-
-                //API login = new API();
-
-                //_ = login.Auth();
-
-                 if (! completed)
-                 {
-                     MessageBox.Show("ok");
-                 }
-                 else
-                 {
-                     MessageBox.Show(login.AccessToken);
-                 }
- */
-
-                /*if (login.AccessToken != string.Empty)
+                if (IsNumber)
                 {
-                    MessageBox.Show(login.AccessToken);
-                    Application.Current.Properties["user"] = login;
+                    Task t = Task.Run(() => api.Auth(matricule, password));
 
-                    *//*Hide();
-                    (new Dashboard()).Show();*//*
-                } 
+                    t.Wait();
+
+                    if (api.AccessToken != string.Empty)
+                    {
+                        Application.Current.Properties["user"] = api;
+
+                        MessageBox.Show(api.AccessToken);
+
+                        /*Hide();
+                        (new Dashboard()).Show();*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur sur la récupération du token.");
+                    }
+                }
                 else
                 {
-                    MessageBox.Show("OKKKKKKKKKKKKKK");
-                    
-                }*/
+                    MessageBox.Show("Le matricule doit être un nombre.");
+                }
             }
             
             else
