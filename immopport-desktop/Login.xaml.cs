@@ -42,7 +42,7 @@ namespace immopport_desktop
                 i++;
             }*/
         }
-        private  void btnLogin_ClickAsync(object sender, RoutedEventArgs e)
+        private  void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
             if (txtMatricule.Text.Length != 0 && txtPassword.Password.Length != 0)
