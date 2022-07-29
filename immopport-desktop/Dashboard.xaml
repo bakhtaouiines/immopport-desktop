@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*" />
             <ColumnDefinition Width="3.3*" />
         </Grid.ColumnDefinitions>
-        <Grid Background="#FFEA4141">
+        <Grid x:Name="leftPanelGrid" Background="#FFEA4141">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
@@ -25,9 +25,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Image Source="/logo_immopport.png" />
+            <Image Style="{StaticResource DashboardLogoStyle}" x:Name="logoDashboard" />
             
-            <Button 
+            <Button x:Name="btnAnnonces" 
                 Grid.Column="1" 
                 Grid.Row="1" 
                 Content="Annonces"  
@@ -38,7 +38,7 @@
                 FontSize="18" 
                 FontWeight="Bold"  
             />
-            <Button 
+            <Button x:Name="btnEmployes" 
                 Grid.Row="2"  
                 Content="Employées"  
                 RenderTransformOrigin="0.05,0.503" 
@@ -48,7 +48,7 @@
                 FontWeight="Bold" 
                 Click="Button_Click_1"
             />
-            <Button 
+            <Button x:Name="btnRDV" 
                 Grid.Row="3"  
                 Content="Rdv"  
                 RenderTransformOrigin="0.05,0.503" 
@@ -58,7 +58,7 @@
                 FontWeight="Bold" 
                 Click="Button_Click_2" 
             />
-            <Button 
+            <Button x:Name="btnClients" 
                 Grid.Row="4"  
                 Content="Clients"  
                 RenderTransformOrigin="0.05,0.503" 
@@ -67,7 +67,7 @@
                 FontSize="18" 
                 FontWeight="Bold" 
             />
-            <Button 
+            <Button x:Name="btnLogOut" 
                 Grid.Row="5"  
                 Content="Déconnexion"  
                 RenderTransformOrigin="0.05,0.503" 
@@ -79,7 +79,7 @@
 
         </Grid>
         
-        <Grid Grid.Column="1">
+        <Grid x:Name="rightPanelGrid" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
@@ -88,8 +88,8 @@
                 <RowDefinition Height="3.5*" />
             </Grid.RowDefinitions>
 
-            <Grid  Background="#FFEA4141" >
-                <TextBlock 
+            <Grid x:Name="topBarGrid"  Background="#FFEA4141" >
+                <TextBlock x:Name="txtBlockUserName" 
                     HorizontalAlignment="Left" 
                     Height="30"
                     Margin="37,0,0,0"
@@ -100,7 +100,7 @@
                     FontSize="18" 
                     TextAlignment="Center"
                 />
-                <TextBlock
+                <TextBlock x:Name="txtBlockUserMatricule"
                     HorizontalAlignment="Right" 
                     Height="30" 
                     Margin="0,0,0,0"
@@ -112,7 +112,7 @@
                     Text="44567"
                 />
             </Grid>
-            <Grid Grid.Row="1" >
+            <Grid x:Name="contentGrid" Grid.Row="1" >
                 <ContentControl x:Name="contentControl" />
             </Grid>
         </Grid>

@@ -4,16 +4,80 @@
              xmlns:local="clr-namespace:immopport_desktop"
              StartupUri="Dashboard.xaml">
     <Application.Resources>
+        
+        <!--Inès/Taslima, j'ai réorganisé les ressources de cette façon pour plus de clarté: 
+        "NOM FAMILLE ELEMENT + Styles" > Nom élément spécifique > modèles de ressources--> 
 
+        <!-- WINDOW STYLES -->
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontFamily" Value="Colibri Light" />
             <Setter Property="FontSize" Value="16" />
         </Style>
 
-        <!-- IMAGES RESOURCES -->
-        <Image x:Key="EyeIcon" Stretch="UniformToFill" Source="/Assets/eye-solid.png"/>
+        <!-- IMAGES STYLES -->
+        <Style x:Key="EyeIcon" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="/Assets/eye-solid.png"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+        </Style>
 
-        <!-- BASIC BUTTON STYLE  -->
+        <!-- LOGOS STYLES -->
+        <!-- Login Logo -->
+        <Style x:Key="LoginLogoStyle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Margin" Value="249,10,332,404"/>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+        
+        <!-- Dashboard Logo -->
+        <Style x:Key="DashboardLogoStyle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
+            
+        <!-- LABEL STYLES  -->
+        <!-- Basic Label -->
+        <Style x:Key="BasicLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="Padding" Value="1,5,5,5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Padding="{TemplateBinding Padding}" 
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                RecognizesAccessKey="True" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- BASIC BUTTON STYLES  -->
+        <!-- Basic Button -->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFADB2B5"/>
@@ -69,7 +133,8 @@
             </Setter>
         </Style>
 
-        <!-- BASIC PASSWORDBOX STYLE  -->
+        <!-- BOXES STYLES  -->
+        <!-- Basic PasswordBox -->
         <Style x:Key="BasicPasswordBoxStyle" TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Width" Value="200"/>
@@ -117,7 +182,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- BASIC TEXTBOX STYLE  -->
+        <!-- Basic TextBox  -->
         <Style x:Key="BasicTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="30"/>
@@ -168,44 +233,8 @@
             </Style.Triggers>
         </Style>
 
-        <!-- BASIC LABEL STYLE  -->
-        <Style x:Key="BasicLabelStyle" TargetType="{x:Type Label}">
-            <Setter Property="Foreground" Value="#FF000000"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
-            <Setter Property="FlowDirection" Value="LeftToRight"/>
-            <Setter Property="Padding" Value="1,5,5,5"/>
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Label}">
-                        <Border 
-                            Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" 
-                            Padding="{TemplateBinding Padding}" 
-                            SnapsToDevicePixels="true">
-                            <ContentPresenter 
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                RecognizesAccessKey="True" 
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- BASIC TEXTBLOCK STYLE  -->
+        <!-- BLOCK STYLES  -->
+        <!-- TextBlock  -->
         <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="Crimson" />
             <Setter Property="FontWeight" Value="SemiBold" />
