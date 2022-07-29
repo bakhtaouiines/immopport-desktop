@@ -69,8 +69,7 @@ namespace immopport_desktop
        
         public async 
        
-        Task
-Auth(int matricule, string password)
+        Task Auth(int matricule, string password)
         {
             try
             {

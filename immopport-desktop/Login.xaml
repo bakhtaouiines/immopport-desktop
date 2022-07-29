@@ -19,16 +19,45 @@
             <ColumnDefinition Width="697.236"/>
         </Grid.ColumnDefinitions>
 
-        <Image Height="175" Width="175" Margin="219,5,302,244" Stretch="Fill" Source="/Assets/logo_immopport.png" Grid.Row="2" Grid.Column="1"/>
-        <StackPanel Grid.Row="2" Margin="40,183,123,20" Grid.Column="1">
-            <Label Style="{DynamicResource BasicLabelStyle}" x:Name="labelMatricule" Content="Matricule" Background="White" Width="200" Height="30" VerticalContentAlignment="Center" Padding="1,5,5,5" FontFamily="Verdana" FontSize="14" FontWeight="Bold" SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left"/>
-            <TextBox Style="{DynamicResource BasicTextBoxStyle}" x:Name="txtMatricule" Width="200" BorderThickness="2,2,2,2" Padding="1,5,5,5" Height="30" Margin="0,0,0,10" VerticalAlignment="Stretch" FontFamily="Verdana" SelectionTextBrush="#FFDEE0E0" HorizontalAlignment="Stretch"/>
-            <Label Style="{DynamicResource BasicLabelStyle}" x:Name="labelPwdBox" Content="Mot de passe" Background="White" Width="200" Height="30" VerticalContentAlignment="Center" Padding="1,5,5,5" FontFamily="Verdana" FontSize="14" FontWeight="Bold" SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            <PasswordBox Style="{DynamicResource BasicPasswordBoxStyle}" Name="txtPassword" 
-                MaxLength="64"
-                PasswordChar="#" SelectionTextBrush="#FFDEE0E0" Width="200" Height="30" VerticalAlignment="Stretch" Margin="0,0,0,10" Padding="1,5,5,5" FontFamily="Verdana" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" HorizontalAlignment="Stretch"/>
-            <Button Style="{DynamicResource BasicButtonStyle}" x:Name="btnAdd" Margin="0,10,0,5" Click="btnLogin_Click" Background="#FF707070" Width="200" Height="30" Padding="2,2,2,2" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderThickness="2,2,2,2" SnapsToDevicePixels="True" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Connexion</Button>
-            <TextBox Style="{DynamicResource BasicErrorMessageStyle}" x:Name ="errormessage" OpacityMask="Crimson" Foreground="#FFE5572C" BorderThickness="0" Margin="0,0,0,0" FontFamily="Verdana" FontWeight="Bold" Height="30" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="#FFDEE0E0" Width="300" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Image 
+            Margin="249,10,332,404" 
+            Stretch="Fill" 
+            Source="/Assets/logo_immopport.png" 
+            Grid.Row="2" 
+            Grid.Column="1"
+        />
+        
+        <StackPanel Grid.Row="2" Margin="40,141,123,62" Grid.Column="1" HorizontalAlignment="Center">
+            <Label 
+                Style="{StaticResource BasicLabelStyle}" 
+                x:Name="labelMatricule" 
+                Content="Matricule" 
+            />
+            <TextBox 
+                Style="{StaticResource BasicTextBoxStyle}" 
+                x:Name="txtMatricule"
+                AcceptsReturn="True"
+             />
+            <Label 
+                Style="{StaticResource BasicLabelStyle}" 
+                x:Name="labelPwdBox" 
+                Content="Mot de passe"
+             />
+            <PasswordBox 
+                Style="{StaticResource BasicPasswordBoxStyle}" 
+                Name="txtPassword"
+            />
+            <Button 
+                Style="{StaticResource BasicButtonStyle}" 
+                x:Name="loginBtn"
+                Click="btnLogin_Click"
+                IsDefault="true">
+                    Connexion
+            </Button>
+            <TextBlock 
+                Style="{StaticResource TextBlockStyle}" 
+                x:Name ="errormessage" Height="29" 
+            />
         </StackPanel>
 
     </Grid>
