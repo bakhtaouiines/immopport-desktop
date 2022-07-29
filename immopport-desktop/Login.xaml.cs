@@ -51,8 +51,8 @@ namespace immopport_desktop
 
                         MessageBox.Show(api.AccessToken);
 
-                        /*Hide();
-                        (new Dashboard()).Show();*/
+                        Hide();
+                        (new Dashboard()).Show();
                     }
                     else
                     {

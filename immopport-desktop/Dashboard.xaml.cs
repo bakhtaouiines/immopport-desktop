@@ -20,10 +20,11 @@ namespace immopport_desktop
     /// </summary>
     public partial class Dashboard : Window
     {
+        public string? EmployeeInfo { get; }
         public Dashboard()
         {
             API user;
-
+            this.DataContext = this;
             if (Application.Current != null && Application.Current.Properties["user"] != null) 
             {
 
@@ -31,15 +32,12 @@ namespace immopport_desktop
 
                 try
                 {
-                    
-                    MessageBox.Show("okk");
-                    MessageBox.Show(user.AccessToken);
+                    Task <EmployeeResponse?>? employee = Task.Run(() => user?.GetProfile());
+                    employee.Wait();
 
-                    
-                    Task <Employee?>? employee = user?.GetProfile();
                     if (employee != null)
                     {
-                        MessageBox.Show(employee.Result.Firstname);
+                        this.employeeName.Text = employee.Result.Employee.Lastname; // not working
                     }
                     else
                     {

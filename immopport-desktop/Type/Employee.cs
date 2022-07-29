@@ -8,7 +8,7 @@ namespace immopport_desktop.Type
         public int AgencyId { get; set; }
 
         [JsonPropertyName("lastname")]
-        public string Lastname { get; set; } = string.Empty;
+        public string? Lastname { get; set; } = string.Empty;
 
         [JsonPropertyName("firstname")]
         public string Firstname { get; set; } = string.Empty;
@@ -26,6 +26,6 @@ namespace immopport_desktop.Type
     public class EmployeeResponse
     {
         [JsonPropertyName("employee")]
-        public Employee? Employee { get; set; }
+        public Employee? Employee { get; set; } 
     }
 }

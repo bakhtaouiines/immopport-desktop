@@ -91,10 +91,10 @@
 
             <Grid  Background="#FFEA4141" >
                 <TextBlock 
+                    x:Name="employeeName"
                     HorizontalAlignment="Left" 
                     Height="30"
                     Margin="37,0,0,0"
-                    Text="Taslima Ahamed Mze"
                     VerticalAlignment="Center" 
                     Width="375" 
                     FontWeight="Bold" 

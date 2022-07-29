@@ -90,12 +90,12 @@ namespace immopport_desktop
            
         }
 
-        public async Task<Employee?> GetProfile()
+        public async Task<EmployeeResponse?> GetProfile()
         {
             if (IsLogged())
             {
                 // get employee informations
-                Employee? employee = await GetApi<Employee?>("/employee/dashboard", true);
+                EmployeeResponse? employee = await GetApi<EmployeeResponse?>("/employee/dashboard", true);
 
                 if (employee != null)
                 {
