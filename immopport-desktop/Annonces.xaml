@@ -61,17 +61,12 @@
                         </TableCell>
 
                         <TableCell>
-<<<<<<< HEAD
                             <BlockUIContainer>
                                 <Button Height="50" Content="{StaticResource EyeIcon}" Click="Button_Click"></Button>
                             </BlockUIContainer>
                             <BlockUIContainer>
                                 <Button  HorizontalAlignment="Left">Publier</Button>
                             </BlockUIContainer>
-=======
-                            
-                            
->>>>>>> e6c74290e52b081b777a70f15ec5f99dece9aed5
                         </TableCell>
                     </TableRow>
                     <TableRow Background="lightgray">
