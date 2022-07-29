@@ -60,10 +60,17 @@ namespace immopport_desktop
                 LogIn(matricule,password);
                 MessageBox.Show(api.AccessToken);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6c74290e52b081b777a70f15ec5f99dece9aed5
                 /*_ = login.Auth(matricule, password).Wait(9000);*/
                 /* bool completed = login.Auth(matricule, password).IsCompleted;
 
                 API login = new API();
+
+                //API login = new API();
+
                 //_ = login.Auth();
 
                  if (! completed)
