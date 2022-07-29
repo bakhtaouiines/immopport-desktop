@@ -72,5 +72,10 @@ namespace immopport_desktop
             this.contentControl.Content = "Hello";
 
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

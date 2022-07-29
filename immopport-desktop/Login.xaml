@@ -19,13 +19,7 @@
             <ColumnDefinition Width="697.236"/>
         </Grid.ColumnDefinitions>
 
-        <Image 
-            Margin="249,10,332,404" 
-            Stretch="Fill" 
-            Source="/Assets/logo_immopport.png" 
-            Grid.Row="2" 
-            Grid.Column="1"
-        />
+        <Image Style="{StaticResource LoginLogoStyle}"/>
         
         <StackPanel Grid.Row="2" Margin="40,141,123,62" Grid.Column="1" HorizontalAlignment="Center">
             <Label 

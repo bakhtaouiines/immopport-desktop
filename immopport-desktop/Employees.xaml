@@ -6,8 +6,125 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Vertical" Background="#FFC8BBBB" Margin="0,2,0,0">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
-        <TextBox TextWrapping="Wrap" Text="Employee" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
-    </StackPanel>
+    <FlowDocumentReader>
+        <FlowDocument ColumnWidth="999999">
+
+            <Table CellSpacing="25" >
+
+                <Table.Columns>
+                    <TableColumn  />
+                    <TableColumn />
+                    <TableColumn  />
+                    <TableColumn/>
+                    <TableColumn/>
+
+                </Table.Columns>
+
+                <TableRowGroup>
+
+                    <!-- Header row for the table. -->
+                    <TableRow Background="#FFEA4141">
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Nom</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Prénom</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Matricule</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Agence</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Téléphone</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">E-mail</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                    <!-- Four data rows for the inner planets. -->
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Ahamed Mza</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>Taslima</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>44576</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>Bastille</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>0722345678</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>taslimaz@gmail.com</Paragraph>
+                        </TableCell>
+
+                        <TableCell>
+                            <BlockUIContainer>
+                                <Button Height="35" Click="Button_Click">
+                                    <StackPanel>
+                                        <Image Style="{StaticResource EyeIcon}" Source="/Assets/eye-solid.png" />
+                                    </StackPanel>
+                                </Button>
+                            </BlockUIContainer>
+                            <BlockUIContainer>
+                                <Button  HorizontalAlignment="Left">Publier</Button>
+                            </BlockUIContainer>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow Background="lightgray">
+                        <TableCell>
+                            <Paragraph>Venus</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>108,200,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>12,103.6 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>4.869e24 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Earth</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>149,600,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>12,756.3 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>5.972e24 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow Background="lightgray">
+                        <TableCell>
+                            <Paragraph>Mars</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>227,940,000 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>6,794 km</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>6.4219e23 kg</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                </TableRowGroup>
+            </Table>
+        </FlowDocument>
+    </FlowDocumentReader>
+    
 </UserControl>
+    

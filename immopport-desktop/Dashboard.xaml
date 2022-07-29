@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Dashboard" Height="450" Width="800">
-    <Grid>
-
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*" />
             <ColumnDefinition Width="3.3*" />
         </Grid.ColumnDefinitions>
-        <Grid Background="#FFEA4141">
+        <Grid Style="{StaticResource LeftPanelStyle}" x:Name="leftPanelGrid" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*" />
                 <RowDefinition Height="*" />
@@ -25,70 +25,50 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Image Source="/logo_immopport.png" />
+            <Image Style="{StaticResource DashboardLogoStyle}" x:Name="logoDashboard" />
             
-            <Button 
-                Grid.Column="1" 
-                Grid.Row="1" 
-                Content="Annonces"  
-                RenderTransformOrigin="0.05,0.503" 
-                Background="#FFEA4141"  
-                BorderBrush="#FFE0CACA" 
-                Click="Button_Click" 
-                FontSize="18" 
-                FontWeight="Bold"  
+            <Button Style="{StaticResource LPNavButtonStyle}"
+                    x:Name="btnAnnonces" 
+                    Grid.Row="1" 
+                    Content="Annonces"    
+                    Click="Button_Click" Background="#FFEA4141" 
+                
             />
-            <Button 
-                Grid.Row="2"  
-                Content="Employées"  
-                RenderTransformOrigin="0.05,0.503" 
-                Background="#FFEA4141"  
-                BorderBrush="#FFE0CACA" 
-                FontSize="18" 
-                FontWeight="Bold" 
-                Click="Button_Click_1"
+            <Button Style="{StaticResource LPNavButtonStyle}" 
+                    x:Name="btnEmployes" 
+                    Grid.Row="2"  
+                    Content="Employées"  
+                    Click="Button_Click_1" 
             />
-            <Button 
-                Grid.Row="3"  
-                Content="Rdv"  
-                RenderTransformOrigin="0.05,0.503" 
-                Background="#FFEA4141"  
-                BorderBrush="#FFE0CACA" 
-                FontSize="18" 
-                FontWeight="Bold" 
-                Click="Button_Click_2" 
+            <Button Style="{StaticResource LPNavButtonStyle}"
+                    x:Name="btnRDV" 
+                    Grid.Row="3"  
+                    Content="Rdv"  
+                    RenderTransformOrigin="0.05,0.503"
+                    Click="Button_Click_2"  
             />
-            <Button 
-                Grid.Row="4"  
-                Content="Clients"  
-                RenderTransformOrigin="0.05,0.503" 
-                Background="#FFEA4141"  
-                BorderBrush="#FFE0CACA" 
-                FontSize="18" 
-                FontWeight="Bold" 
+            <Button Style="{StaticResource LPNavButtonStyle}" 
+                    x:Name="btnClients" 
+                    Grid.Row="4"  
+                    Content="Clients"   
             />
-            <Button 
-                Grid.Row="5"  
-                Content="Déconnexion"  
-                RenderTransformOrigin="0.05,0.503" 
-                Background="#FFEA4141"  
-                BorderBrush="#FFE0CACA" 
-                FontSize="18" 
-                FontWeight="Bold" 
+            <Button Style="{StaticResource LPNavButtonStyle}"
+                    x:Name="btnLogOut" 
+                    Grid.Row="5"  
+                    Content="Déconnexion"  
             />
-
         </Grid>
         
-        <Grid Grid.Column="1">
+        <Grid x:Name="rightPanelGrid" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*" />
                 <RowDefinition Height="3.5*" />
-
             </Grid.RowDefinitions>
 
+<<<<<<< HEAD
             <Grid  Background="#FFEA4141" >
                 <TextBlock 
                     x:Name="employeeName"
@@ -100,24 +80,24 @@
                     FontWeight="Bold" 
                     FontSize="18" 
                     TextAlignment="Center"
+=======
+            <Grid Style="{DynamicResource TopBarGridStyle}" x:Name="topBarGrid" >
+                <TextBlock Style="{StaticResource TBTextBlockStyle}" x:Name="txtBlockUserName" 
+                    Text="Taslima Ahamed Mze"
+                    
+>>>>>>> efe6daf274344dbada091e82234c1118c2f213b9
                 />
-                <TextBlock
-                    HorizontalAlignment="Right" 
-                    Height="30" 
-                    Margin="0,0,0,0"
-                    VerticalAlignment="Center" 
-                    Width="375" 
-                    FontWeight="Bold" 
-                    FontSize="18" 
-                    TextAlignment="Center"
-                    Text="44567"
+                <TextBlock Style="{DynamicResource TBTextBlockStyle}"
+                    x:Name="txtBlockUserMatricule"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Margin="0,0,70,0"       
+                    Text="44567" 
                 />
             </Grid>
-            <Grid Grid.Row="1" >
+            <Grid x:Name="contentGrid" Grid.Row="1" >
                 <ContentControl x:Name="contentControl" />
             </Grid>
-
-
         </Grid>
     </Grid>
 </Window>

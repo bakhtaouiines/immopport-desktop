@@ -4,15 +4,82 @@
              xmlns:local="clr-namespace:immopport_desktop"
              StartupUri="Login.xaml">
     <Application.Resources>
+        
+        <!--Inès/Taslima, j'ai réorganisé les ressources de cette façon pour plus de clarté: 
+        "NOM FAMILLE ELEMENT + Styles" > Nom élément spécifique > modèles de ressources--> 
 
+        <!-- WINDOW STYLES -->
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontFamily" Value="Colibri Light" />
             <Setter Property="FontSize" Value="16" />
         </Style>
 
-        <Image x:Key="EyeIcon" Stretch="UniformToFill" Source="/assets/eye-solid.png"/>
+        <!-- IMAGES STYLES -->
+        <Style x:Key="EyeIcon" TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+        </Style>
 
-        <!-- BASIC BUTTON STYLE  -->
+        <!-- LOGOS STYLES -->
+        <!-- Login Logo -->
+        <Style x:Key="LoginLogoStyle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Margin" Value="249,10,332,404"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Grid.Row" Value="2"/>
+        </Style>
+        
+        <!-- Dashboard Logo -->
+        <Style x:Key="DashboardLogoStyle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="100"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Grid.Row" Value="0"/>
+        </Style>
+            
+        <!-- LABEL STYLES  -->
+        <!-- Basic Label -->
+        <Style x:Key="BasicLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+            <Setter Property="FlowDirection" Value="LeftToRight"/>
+            <Setter Property="Padding" Value="1,5,5,5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Padding="{TemplateBinding Padding}" 
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                RecognizesAccessKey="True" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- BASIC BUTTON STYLES  -->
+        <!-- Basic Button -->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFADB2B5"/>
@@ -27,7 +94,7 @@
             <Setter Property="FontSize" Value="16" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="BorderThickness" Value="2,2,2,2"/>
+            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Padding" Value="12"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -68,7 +135,62 @@
             </Setter>
         </Style>
 
-        <!-- BASIC PASSWORDBOX STYLE  -->
+        <!-- Left Panel Button -->
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFEA4141"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#ff2d49 "/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FFE0E0E0"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#df0033"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FFADB2B5"/>
+        <Style x:Key="LPNavButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="RenderTransformOrigin" Value="0.05,0.503"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+   
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                SnapsToDevicePixels="true"
+                                >
+                            <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- BOXES STYLES  -->
+        <!-- Basic PasswordBox -->
         <Style x:Key="BasicPasswordBoxStyle" TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Width" Value="200"/>
@@ -116,7 +238,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- BASIC TEXTBOX STYLE  -->
+        <!-- Basic TextBox  -->
         <Style x:Key="BasicTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="30"/>
@@ -167,48 +289,42 @@
             </Style.Triggers>
         </Style>
 
-        <!-- BASIC LABEL STYLE  -->
-        <Style x:Key="BasicLabelStyle" TargetType="{x:Type Label}">
-            <Setter Property="Foreground" Value="#FF000000"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
-            <Setter Property="FlowDirection" Value="LeftToRight"/>
-            <Setter Property="Padding" Value="1,5,5,5"/>
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Label}">
-                        <Border 
-                            Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" 
-                            Padding="{TemplateBinding Padding}" 
-                            SnapsToDevicePixels="true">
-                            <ContentPresenter 
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                RecognizesAccessKey="True" 
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- BASIC TEXTBLOCK STYLE  -->
+        <!-- BLOCK STYLES  -->
+        <!-- ErrorMessageTextBlock  -->
         <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="Crimson" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <!-- TopBarTextBlock  -->
+        <SolidColorBrush x:Key="TextBlock.Static.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="TextBlock.Static.Foreground" Color="#FFFFFF"/>
+        <Style x:Key="TBTextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="{StaticResource TextBlock.Static.Background}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBlock.Static.Foreground}" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="375" />
+            <Setter Property="Margin" Value="38,0,0,0" />
+            <Setter Property="Padding" Value="0,5,0,5" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+
+        <!-- GRID STYLES -->
+        <!-- Left Panel Grid  -->
+        <SolidColorBrush x:Key="Grid.Static.Background" Color="#FFADB2B5"/>
+        <Style x:Key="LeftPanelStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="{StaticResource Grid.Static.Background}" />
+        </Style>
+        
+        <!-- Top Bar Grid  -->
+        <SolidColorBrush x:Key="Grid.Static.Background1" Color="#FFEA4141"/>
+        <Style x:Key="TopBarGridStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="{StaticResource Grid.Static.Background1}" />
         </Style>
 
     </Application.Resources>
