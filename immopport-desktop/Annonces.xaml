@@ -62,7 +62,7 @@
 
                         <TableCell>
                             <BlockUIContainer>
-                                <Button Height="50" Content="{StaticResource EyeIcon}" Click="Button_Click"></Button>
+                                <!--<Button Height="50" Content="{StaticResource EyeIcon}" Click="Button_Click"></Button>-->
                             </BlockUIContainer>
                             <BlockUIContainer>
                                 <Button  HorizontalAlignment="Left">Publier</Button>

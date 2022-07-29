@@ -10,7 +10,8 @@
             <Setter Property="FontSize" Value="16" />
         </Style>
 
-        <Image x:Key="EyeIcon" Stretch="UniformToFill" Source="/assets/eye-solid.png"/>
+        <!-- IMAGES RESOURCES -->
+        <Image x:Key="EyeIcon" Stretch="UniformToFill" Source="/Assets/eye-solid.png"/>
 
         <!-- BASIC BUTTON STYLE  -->
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FF707070"/>
