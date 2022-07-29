@@ -68,24 +68,14 @@
                 <RowDefinition Height="3.5*" />
             </Grid.RowDefinitions>
 
-<<<<<<< HEAD
-            <Grid  Background="#FFEA4141" >
+            <Grid 
+                Style="{DynamicResource TopBarGridStyle}" 
+                x:Name="topBarGrid"
+            >
                 <TextBlock 
-                    x:Name="employeeName"
-                    HorizontalAlignment="Left" 
-                    Height="30"
-                    Margin="37,0,0,0"
-                    VerticalAlignment="Center" 
-                    Width="375" 
-                    FontWeight="Bold" 
-                    FontSize="18" 
-                    TextAlignment="Center"
-=======
-            <Grid Style="{DynamicResource TopBarGridStyle}" x:Name="topBarGrid" >
-                <TextBlock Style="{StaticResource TBTextBlockStyle}" x:Name="txtBlockUserName" 
-                    Text="Taslima Ahamed Mze"
-                    
->>>>>>> efe6daf274344dbada091e82234c1118c2f213b9
+                    Style="{StaticResource TBTextBlockStyle}" 
+                    x:Name="txtBlockUserName"
+                    Text="{Binding ElementName}"
                 />
                 <TextBlock Style="{DynamicResource TBTextBlockStyle}"
                     x:Name="txtBlockUserMatricule"

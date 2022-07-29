@@ -37,7 +37,7 @@ namespace immopport_desktop
 
                     if (employee != null)
                     {
-                        this.employeeName.Text = employee.Result.Employee.Lastname; // not working
+                        this.txtBlockUserName.Text = employee.Result.Employee.Lastname; // not working
                     }
                     else
                     {
