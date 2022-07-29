@@ -48,7 +48,11 @@ namespace immopport_desktop
                 i++;
             }*/
         }
+<<<<<<< HEAD
         private void btnLogin_Click(object sender, RoutedEventArgs e)
+=======
+        private  void btnLogin_Click(object sender, RoutedEventArgs e)
+>>>>>>> ta
         {
 
 
