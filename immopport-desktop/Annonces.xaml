@@ -22,6 +22,8 @@
 
                 <TableRowGroup>
 
+
+
                     <!-- Header row for the table. -->
                     <TableRow Background="#FFEA4141">
                         <TableCell>
@@ -41,6 +43,8 @@
                         </TableCell>
                     </TableRow>
 
+
+
                     <!-- Four data rows for the inner planets. -->
                     <TableRow>
                         <TableCell>
@@ -57,16 +61,20 @@
                         </TableCell>
 
                         <TableCell>
-                            <BlockUIContainer>
-                                <Button Height="35" Click="Button_Click">
-                                    <StackPanel>
-                                        <Image Style="{StaticResource EyeIcon}" Source="/Assets/eye-solid.png" />
-                                    </StackPanel>
-                                </Button>
+                            <BlockUIContainer >
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
+
+
+                                    <Button >Publier</Button>
+                                    <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsDefault="True"  >
+                                        <Image Source="/Assets/eye-solid.png" HorizontalAlignment="Left" Height="18" Width="39" />
+                                    </Button>
+
+
+                                </StackPanel>
                             </BlockUIContainer>
-                            <BlockUIContainer>
-                                <Button  HorizontalAlignment="Left">Publier</Button>
-                            </BlockUIContainer>
+                            
+                            
                         </TableCell>
                     </TableRow>
                     <TableRow Background="lightgray">

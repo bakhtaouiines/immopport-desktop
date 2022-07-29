@@ -40,8 +40,9 @@ namespace immopport_desktop
                 }
                     // fetch JTW token
                     HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
+                    response.EnsureSuccessStatusCode();
                     // save the token for further requests.
-                    T? content = JsonSerializer.DeserializeAsync<T>(response.Content.ReadAsStream()).Result;
+                    T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
 
                     StatusCode = response.StatusCode;
 
@@ -65,11 +66,8 @@ namespace immopport_desktop
         {
             return AccessToken != null;
         }   
-
-       
-        public async 
-       
-        Task Auth(int matricule, string password)
+      
+        public async Task Auth(int matricule, string password)
         {
             try
             {
@@ -79,7 +77,6 @@ namespace immopport_desktop
                 {
                     AccessToken = TokenResponse.AccessToken;
                     TokenType = TokenResponse.TokenType;
-                    ErrorMessage = string.Empty;
                 }
                 else
                 {

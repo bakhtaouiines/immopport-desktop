@@ -10,10 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\eye-solid.png" />
     <None Remove="Assets\logo_immopport.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="assets\eye-solid.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\logo_immopport.png" />
   </ItemGroup>
 
