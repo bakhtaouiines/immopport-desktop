@@ -74,14 +74,14 @@
             >
                 <TextBlock 
                     Style="{StaticResource TBTextBlockStyle}" 
+                    HorizontalAlignment="Left"
                     x:Name="txtBlockLastname"
                     Text="{Binding Path=EmployeeLastname}"
                 />
                 <TextBlock 
-                    Style="{DynamicResource TBTextBlockStyle}" 
-                    HorizontalAlignment="Center"
+                    Style="{DynamicResource TBTextBlockStyle}"
                     x:Name="txtBlockFirstname"
-                    Margin="0,0,100,0"
+                    Margin="80,0,0,0"
                     Text="{Binding Path=EmployeeFirstname}"
                 />
                 <TextBlock Style="{DynamicResource TBTextBlockStyle}"
