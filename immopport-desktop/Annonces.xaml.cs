@@ -1,4 +1,5 @@
 ﻿using System;
+using immopport_desktop.Type;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,32 @@ namespace immopport_desktop
     {
         public Annonces()
         {
+            API user;
+            this.DataContext = this;
+
+            if (Application.Current != null && Application.Current.Properties["user"] != null)
+            {
+                user = (API)Application.Current.Properties["user"];
+
+                try
+                {
+                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetProperty());
+                    property.Wait();
+
+                    if (property != null)
+                    {
+                        MessageBox.Show(property.Result.Property.Titre);
+                    }
+                    else
+                    {
+                        MessageBox.Show(user?.ErrorMessage);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
             InitializeComponent();
         }
 

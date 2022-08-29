@@ -114,11 +114,14 @@ namespace immopport_desktop
             if (IsLogged())
             {
                 // get employee informations
-                PropertyResponse? properties = await GetApi<PropertyResponse?>("/property");
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property");
 
-                if (properties != null)
+                 MessageBox.Show("ok");
+                MessageBox.Show(property.ToString());
+
+                if (property != null)
                 {
-                    return properties;
+                    return property;
                 }
                 else
                 {
