@@ -12,18 +12,14 @@
             <Table CellSpacing="25" >
 
                 <Table.Columns>
-                    <TableColumn  />
-                    <TableColumn />
-                    <TableColumn  />
                     <TableColumn/>
                     <TableColumn/>
-
+                    <TableColumn/>
+                    <TableColumn/>
+                    <TableColumn/>
                 </Table.Columns>
 
                 <TableRowGroup>
-
-
-
                     <!-- Header row for the table. -->
                     <TableRow Background="#FFEA4141">
                         <TableCell>
@@ -43,8 +39,6 @@
                         </TableCell>
                     </TableRow>
 
-
-
                     <!-- Four data rows for the inner planets. -->
                     <TableRow>
                         <TableCell>
@@ -59,24 +53,18 @@
                         <TableCell>
                             <Paragraph>800$</Paragraph>
                         </TableCell>
-
                         <TableCell>
                             <BlockUIContainer >
-                                <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
-                                    
-
-                                    <Button >Publier</Button>
-                                    <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsDefault="True"  >
-                                        <Image Source="/Assets/eye-solid.png" HorizontalAlignment="Left" Height="18" Width="39" />
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
+                                    <Button Style="{DynamicResource ButtonActionDashboard}" Click="PostProperty">Publier</Button>
+                                    <Button Style="{DynamicResource ButtonActionDashboard}" Click="DisplayProperty" Margin="10,0,0,0" IsDefault="True">
+                                        <Image Source="/Assets/eye-solid.png" HorizontalAlignment="Center" Height="18" Width="39" />
                                     </Button>
-
-
                                 </StackPanel>
                             </BlockUIContainer>
-                            
-                            
                         </TableCell>
                     </TableRow>
+                    
                     <TableRow Background="lightgray">
                         <TableCell>
                             <Paragraph>Venus</Paragraph>

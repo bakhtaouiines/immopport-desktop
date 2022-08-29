@@ -25,7 +25,11 @@ namespace immopport_desktop
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void PostProperty(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DisplayProperty(object sender, RoutedEventArgs e)
         {
 
         }
