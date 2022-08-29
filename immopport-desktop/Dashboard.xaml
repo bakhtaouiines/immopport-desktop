@@ -74,15 +74,22 @@
             >
                 <TextBlock 
                     Style="{StaticResource TBTextBlockStyle}" 
-                    x:Name="txtBlockUserName"
-                    Text="{Binding ElementName}"
+                    x:Name="txtBlockLastname"
+                    Text="{Binding Path=EmployeeLastname}"
+                />
+                <TextBlock 
+                    Style="{DynamicResource TBTextBlockStyle}" 
+                    HorizontalAlignment="Center"
+                    x:Name="txtBlockFirstname"
+                    Margin="0,0,100,0"
+                    Text="{Binding Path=EmployeeFirstname}"
                 />
                 <TextBlock Style="{DynamicResource TBTextBlockStyle}"
-                    x:Name="txtBlockUserMatricule"
+                    x:Name="txtBlockMatricule"
                     HorizontalAlignment="Right"
                     Width="150"
                     Margin="0,0,70,0"       
-                    Text="44567" 
+                    Text="{Binding Path=EmployeeMatricule}" 
                 />
             </Grid>
             <Grid x:Name="contentGrid" Grid.Row="1" >

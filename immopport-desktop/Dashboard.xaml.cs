@@ -20,14 +20,16 @@ namespace immopport_desktop
     /// </summary>
     public partial class Dashboard : Window
     {
-        public string? EmployeeInfo { get; }
+        public string? EmployeeLastname { get; }
+        public string? EmployeeFirstname { get; }
+        public int? EmployeeMatricule { get; }
         public Dashboard()
         {
             API user;
             this.DataContext = this;
+
             if (Application.Current != null && Application.Current.Properties["user"] != null) 
             {
-
                 user = (API)Application.Current.Properties["user"];
 
                 try
@@ -37,7 +39,17 @@ namespace immopport_desktop
 
                     if (employee != null)
                     {
-                        this.txtBlockUserName.Text = employee.Result.Employee.Lastname; // not working
+                        TextBlock txtBlockLastname  = new TextBlock();
+                        TextBlock txtBlockFirstname = new TextBlock();
+                        TextBlock txtBlockMatricule = new TextBlock();
+
+                        txtBlockLastname.DataContext  = employee.Result.Employee.Lastname;
+                        txtBlockFirstname.DataContext = employee.Result.Employee.Firstname;
+                        txtBlockMatricule.DataContext = employee.Result.Employee.Matricule;
+
+                        EmployeeLastname  = (string?)txtBlockLastname.DataContext;
+                        EmployeeFirstname = (string?)txtBlockLastname.DataContext;
+                        EmployeeMatricule = (int?)txtBlockMatricule.DataContext;
                     }
                     else
                     {
