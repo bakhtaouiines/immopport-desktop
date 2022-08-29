@@ -67,7 +67,7 @@
 
                         <TableCell>
                             <BlockUIContainer>
-                                <Button Height="35" Click="Button_Click">
+                                <Button Height="35" Click="displayProperty">
                                     <StackPanel>
                                         <Image Style="{StaticResource EyeIcon}" Source="/Assets/eye-solid.png" />
                                     </StackPanel>

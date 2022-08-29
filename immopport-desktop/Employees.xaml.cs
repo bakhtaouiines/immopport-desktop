@@ -24,5 +24,10 @@ namespace immopport_desktop
         {
             InitializeComponent();
         }
+
+        private void displayProperty(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
