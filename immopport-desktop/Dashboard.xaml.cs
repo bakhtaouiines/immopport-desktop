@@ -48,7 +48,7 @@ namespace immopport_desktop
                         txtBlockMatricule.DataContext = employee.Result.Employee.Matricule;
 
                         EmployeeLastname  = (string?)txtBlockLastname.DataContext;
-                        EmployeeFirstname = (string?)txtBlockLastname.DataContext;
+                        EmployeeFirstname = (string?)txtBlockFirstname.DataContext;
                         EmployeeMatricule = (int?)txtBlockMatricule.DataContext;
                     }
                     else
