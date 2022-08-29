@@ -36,7 +36,7 @@
                             <Paragraph FontSize="14pt" FontWeight="Bold">Adresse</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">is prospect</Paragraph>
+                            <Paragraph FontSize="14pt" FontWeight="Bold">Prix</Paragraph>
                         </TableCell>
                         <TableCell>
                             <Paragraph FontSize="14pt" FontWeight="Bold">Actions</Paragraph>
@@ -57,13 +57,13 @@
                             <Paragraph>3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>true</Paragraph>
+                            <Paragraph>800$</Paragraph>
                         </TableCell>
 
                         <TableCell>
                             <BlockUIContainer >
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
-
+                                <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
+                                    
 
                                     <Button >Publier</Button>
                                     <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsDefault="True"  >

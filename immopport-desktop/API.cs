@@ -109,5 +109,30 @@ namespace immopport_desktop
             return null;
         }
 
+        public async Task<PropertyResponse?> GetProperty()
+        {
+            if (IsLogged())
+            {
+                // get employee informations
+                PropertyResponse? properties = await GetApi<PropertyResponse?>("/property");
+
+                if (properties != null)
+                {
+                    return properties;
+                }
+                else
+                {
+                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                }
+            }
+            return null;
+        }
+
+
+
+
+
+
+
     }
 }
