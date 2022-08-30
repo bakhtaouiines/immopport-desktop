@@ -32,10 +32,7 @@
         <!-- Dashboard Logo -->
         <Style x:Key="DashboardLogoStyle" TargetType="{x:Type Image}">
             <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
-            <Setter Property="MinWidth" Value="100"/>
-            <Setter Property="MinHeight" Value="100"/>
             <Setter Property="Grid.Column" Value="1"/>
-            <Setter Property="Grid.Row" Value="0"/>
         </Style>
             
         <!-- LABEL STYLES  -->
@@ -279,7 +276,7 @@
         <!-- BLOCK STYLES  -->
         <!-- ErrorMessageTextBlock  -->
         <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground" Value="f13d3d" />
+            <Setter Property="Foreground" Value="Crimson" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="FontSize" Value="16" />
         </Style>
@@ -290,14 +287,10 @@
         <Style x:Key="TBTextBlockStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Background" Value="{StaticResource TextBlock.Static.Background}"/>
             <Setter Property="Foreground" Value="{StaticResource TextBlock.Static.Foreground}" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="Width" Value="375" />
             <Setter Property="Margin" Value="38,0,0,0" />
-            <Setter Property="Padding" Value="0,5,0,5" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="18" />
         </Style>
 
@@ -305,7 +298,7 @@
         <!-- Left Panel Grid  -->
         <SolidColorBrush x:Key="Grid.Static.Background" Color="#FFADB2B5"/>
         <Style x:Key="LeftPanelStyle" TargetType="{x:Type Grid}">
-            <Setter Property="Background" Value="#FFFBF2E5" />
+            <Setter Property="Background" Value="white" />
         </Style>
         
         <!-- Top Bar Grid  -->
@@ -362,7 +355,7 @@
 
         <!-- FLOW DOCUMENT READER STYLE -->
         <Style x:Key="FlowDocumentReaderTemplate" TargetType="{x:Type FlowDocument}">
-            <Setter Property="Background" Value="#FFFBF2E5"/>
+            <Setter Property="Background" Value="white"/>
         </Style>
     </Application.Resources>
 </Application>
