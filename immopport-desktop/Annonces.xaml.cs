@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+
 
 namespace immopport_desktop
 {
@@ -21,6 +23,12 @@ namespace immopport_desktop
     /// </summary>
     public partial class Annonces : UserControl
     {
+        public int? IdProperty { get; set; }
+        public string? Titre { get; set; }
+        public string? Address { get; set; }
+
+
+
         public Annonces()
         {
             API user;
@@ -37,7 +45,30 @@ namespace immopport_desktop
 
                     if (property != null)
                     {
-                        MessageBox.Show(property.Result.Property.Titre);
+                        
+                        //PropertyResponse jsonObj = (PropertyResponse)JsonConvert.DeserializeObject(property.Result.ToString());
+
+                        foreach (var obj in property.Result.Property)
+                        {
+                            Run idP = new Run();
+                            Run titre = new Run();
+                            Run address = new Run();
+
+                            titre.DataContext = obj.Titre;
+                            idP.DataContext = obj.PropertyId;
+                            address.DataContext = obj.Adresse;
+
+                            IdProperty = (int?)idP.DataContext;
+                            Titre = (string?)titre.DataContext;
+                            Address = (string?)address.DataContext;
+
+                        }
+
+
+                        // PropertyResponse result = JsonConvert.DeserializeObject<Property>(property.Result.);
+                        //MessageBox.Show(property.Result.Property[0].Titre);
+
+
                     }
                     else
                     {

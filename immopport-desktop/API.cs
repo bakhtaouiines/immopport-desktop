@@ -116,9 +116,6 @@ namespace immopport_desktop
                 // get employee informations
                 PropertyResponse? property = await GetApi<PropertyResponse?>("/property");
 
-                 MessageBox.Show("ok");
-                MessageBox.Show(property.ToString());
-
                 if (property != null)
                 {
                     return property;
@@ -126,6 +123,7 @@ namespace immopport_desktop
                 else
                 {
                     ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
                 }
             }
             return null;

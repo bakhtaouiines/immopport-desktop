@@ -22,6 +22,6 @@ namespace immopport_desktop.Type
     public class PropertyResponse
     {
         [JsonPropertyName("property")]
-        public Property? Property { get; set; }
+        public Property[] ? Property { get; set; }
     }
 }

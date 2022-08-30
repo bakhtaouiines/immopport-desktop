@@ -48,13 +48,19 @@
                     <!-- Four data rows for the inner planets. -->
                     <TableRow>
                         <TableCell>
-                            <Paragraph>1</Paragraph>
+                            <Paragraph>
+                                <Run x:Name="idP" Text="{Binding Path=IdProperty}" />
+                            </Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>Appartement1</Paragraph>
+                            <Paragraph>
+                                <Run x:Name="titre" Text="{Binding Path=Titre}" />
+                            </Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
+                            <Paragraph>
+                                <Run x:Name="address" Text="{Binding Path=Address}" />
+                            </Paragraph>
                         </TableCell>
                         <TableCell>
                             <Paragraph>800$</Paragraph>
@@ -77,48 +83,7 @@
                             
                         </TableCell>
                     </TableRow>
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Venus</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>108,200,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,103.6 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>4.869e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Earth</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>149,600,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,756.3 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>5.972e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Mars</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>227,940,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6,794 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6.4219e23 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
+                    
 
                 </TableRowGroup>
             </Table>
