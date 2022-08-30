@@ -7,17 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <FlowDocumentReader>
-        <FlowDocument ColumnWidth="999999">
+        <FlowDocument ColumnWidth="999999" Style="{DynamicResource FlowDocumentReaderTemplate}">
 
-            <Table CellSpacing="25" >
+            <Table CellSpacing="25">
 
                 <Table.Columns>
-                    <TableColumn  />
-                    <TableColumn />
-                    <TableColumn  />
                     <TableColumn/>
                     <TableColumn/>
-
+                    <TableColumn/>
+                    <TableColumn/>
+                    <TableColumn/>
                 </Table.Columns>
 
                 <TableRowGroup>
@@ -25,56 +24,50 @@
                     <!-- Header row for the table. -->
                     <TableRow Background="#FFEA4141">
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Nom</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Nom</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Prénom</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Prénom</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Matricule</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Matricule</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Agence</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Agence</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Téléphone</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Téléphone</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">E-mail</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">E-mail</Paragraph>
                         </TableCell>
                     </TableRow>
 
-                    <!-- Four data rows for the inner planets. -->
                     <TableRow>
                         <TableCell>
-                            <Paragraph>Ahamed Mza</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">Ahamed Mza</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>Taslima</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">Taslima</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>44576</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">44576</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>Bastille</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">Bastille</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>0722345678</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">0722345678</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>taslimaz@gmail.com</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">taslimaz@gmail.com</Paragraph>
                         </TableCell>
 
                         <TableCell>
                             <BlockUIContainer>
-                                <Button Height="35" Click="displayProperty">
-                                    <StackPanel>
-                                        <Image Style="{StaticResource EyeIcon}" Source="/Assets/eye-solid.png" />
-                                    </StackPanel>
+                                <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Width="40">
+                                    <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="15" />
                                 </Button>
-                            </BlockUIContainer>
-                            <BlockUIContainer>
-                                <Button  HorizontalAlignment="Left">Publier</Button>
                             </BlockUIContainer>
                         </TableCell>
                     </TableRow>

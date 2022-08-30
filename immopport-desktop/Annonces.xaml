@@ -34,9 +34,6 @@
                         <TableCell>
                             <Paragraph Style="{DynamicResource ParagraphTable}">Prix</Paragraph>
                         </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Actions</Paragraph>
-                        </TableCell>
                     </TableRow>
 
                     <!-- Four data rows for the inner planets. -->
