@@ -23,42 +23,45 @@
                     <!-- Header row for the table. -->
                     <TableRow Background="#FFEA4141">
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">ID</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">ID</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Titre</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Titre</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Adresse</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Adresse</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Prix</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Prix</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Actions</Paragraph>
+                            <Paragraph Style="{DynamicResource ParagraphTable}">Actions</Paragraph>
                         </TableCell>
                     </TableRow>
 
                     <!-- Four data rows for the inner planets. -->
                     <TableRow>
                         <TableCell>
-                            <Paragraph>1</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">1</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>Appartement1</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">Appartement1</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
                         </TableCell>
                         <TableCell>
-                            <Paragraph>800$</Paragraph>
+                            <Paragraph Style="{DynamicResource TableCellStyle}">800$</Paragraph>
                         </TableCell>
                         <TableCell>
                             <BlockUIContainer >
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
-                                    <Button Style="{DynamicResource ButtonActionDashboard}" Click="PostProperty">Publier</Button>
-                                    <Button Style="{DynamicResource ButtonActionDashboard}" Click="DisplayProperty" Margin="10,0,0,0" IsDefault="True">
-                                        <Image Source="/Assets/eye-solid.png" HorizontalAlignment="Center" Height="18" Width="39" />
+                                    <Button Style="{DynamicResource ValidationButton}" Click="PostProperty">Publier</Button>
+                                    <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Margin="10,0,0,0">
+                                        <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
+                                    </Button>
+                                    <Button Style="{DynamicResource DeleteButton}" Click="DisplayProperty" Margin="10,0,0,0">
+                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
                                     </Button>
                                 </StackPanel>
                             </BlockUIContainer>

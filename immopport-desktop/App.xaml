@@ -13,10 +13,18 @@
             <Setter Property="FontFamily" Value="Colibri Light" />
             <Setter Property="FontSize" Value="26" />
         </Style>
+        
+        <!-- TABLE PARAGRAPH (TH) -->
+        <Style x:Key="ParagraphTable" TargetType="{x:Type Paragraph}">
+            <Setter Property="FontFamily" Value="Colibri Light"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
 
-        <Style TargetType="{x:Type UserControl}">
-            <Setter Property="FontFamily" Value="Colibri Light" />
-            <Setter Property="FontSize" Value="26" />
+        <!-- TABLE PARAGRAPH (TR) -->
+        <Style x:Key="TableCellStyle" TargetType="{x:Type Paragraph}">
+            <Setter Property="FontFamily" Value="Colibri Light"/>
+            <Setter Property="FontSize" Value="12"/>
         </Style>
 
         <!-- LOGOS STYLES -->
@@ -308,20 +316,22 @@
         </Style>
 
 
-        <!-- BUTTONS DASHBOARD STYLES  -->
-        <Style x:Key="ButtonActionDashboard" TargetType="{x:Type Button}">
-            <Setter Property="Padding" Value="10"/>
+    <!-- BUTTONS STYLES  -->
+        <!-- DEFAULT BUTTON -->
+        <Style x:Key="DefaultButton" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="8"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Margin" Value="0,0,0,0"/>
-            <Setter Property="BorderBrush" Value="#FFADB2B5" />
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Colibri Light"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border 
                             x:Name="border"
                             CornerRadius="10" 
-                            Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            Background="white" 
+                            BorderBrush="#94bee0" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             SnapsToDevicePixels="true"
                         >
@@ -340,12 +350,107 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="Background" Value="#FF64AAE3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#94bee0"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="#94bee0"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- DELETE BUTTON -->
+        <Style x:Key="DeleteButton" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Colibri Light"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border 
+                            x:Name="border"
+                            CornerRadius="10" 
+                            Background="white" 
+                            BorderBrush="#FFF43C3C" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            SnapsToDevicePixels="true"
+                        >
+                            <ContentPresenter 
+                                x:Name="contentPresenter" 
+                                Focusable="False" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                Margin="{TemplateBinding Padding}" 
+                                RecognizesAccessKey="True" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#FFF43C3C"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Crimson"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFF75555"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- VALIDATION BUTTON  -->
+        <Style x:Key="ValidationButton" TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Colibri Light"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border 
+                            x:Name="border"
+                            CornerRadius="10" 
+                            Background="White" 
+                            BorderBrush="#b7e5b0" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            SnapsToDevicePixels="true"
+                        >
+                            <ContentPresenter 
+                                x:Name="contentPresenter" 
+                                Focusable="False" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                Margin="{TemplateBinding Padding}" 
+                                RecognizesAccessKey="True" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#FF89DA7D"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#b7e5b0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#b7e5b0"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
