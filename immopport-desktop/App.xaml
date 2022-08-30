@@ -82,22 +82,22 @@
         </Style>
 
         <!-- BASIC BUTTON STYLES  -->
-        <!-- Basic Button -->
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF707070"/>
-        <Style x:Key="BasicButtonStyle" TargetType="{x:Type Button}">
+        <!-- Login Button -->
+        <SolidColorBrush x:Key="Button.Static.Background" Color="White"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#aaaba9"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#aaaba9"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#aaaba9"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF7B7C7A"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#aaaba9"/>
+        <Style x:Key="LoginButton" TargetType="{x:Type Button}">
             <Setter Property="Width" Value="200"/>
-            <Setter Property="Foreground" Value="#FFE0E0E0" />
+            <Setter Property="Foreground" Value="Black" />
             <Setter Property="Margin" Value="0,0,0,20"/>
             <Setter Property="Padding" Value="10"/>
             <Setter Property="FontSize" Value="16" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
             <Setter Property="Padding" Value="12"/>
             <Setter Property="Template">
                 <Setter.Value>

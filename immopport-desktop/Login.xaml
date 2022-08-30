@@ -42,11 +42,11 @@
                 Name="txtPassword"
             />
             <Button 
-                Style="{StaticResource BasicButtonStyle}" 
+                Style="{StaticResource LoginButton}" 
                 x:Name="loginBtn"
                 Click="btnLogin_Click"
-                IsDefault="true">
-                    Connexion
+            >
+                    CONNEXION
             </Button>
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}" 
