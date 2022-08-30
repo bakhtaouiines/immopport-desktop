@@ -37,7 +37,7 @@ namespace immopport_desktop
 
                     if (property != null)
                     {
-                        MessageBox.Show(property.Result.Property.Titre);
+                        MessageBox.Show(property.Result.Property[0].Name);
                     }
                     else
                     {

@@ -94,7 +94,6 @@ namespace immopport_desktop
         {
             if (IsLogged())
             {
-                // get employee informations
                 EmployeeResponse? employee = await GetApi<EmployeeResponse?>("/employee/dashboard", true);
 
                 if (employee != null)
@@ -111,22 +110,25 @@ namespace immopport_desktop
 
         public async Task<PropertyResponse?> GetProperty()
         {
-            if (IsLogged())
+            try
             {
-                // get employee informations
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/property");
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property", false);
 
-                 MessageBox.Show("ok");
-                MessageBox.Show(property.ToString());
-
+                MessageBox.Show("null");
+                
                 if (property != null)
                 {
+                    MessageBox.Show("ok, not null");
                     return property;
                 }
                 else
                 {
                     ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             return null;
         }

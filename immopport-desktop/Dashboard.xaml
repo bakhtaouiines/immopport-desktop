@@ -93,7 +93,7 @@
                 />
             </Grid>
             <Grid x:Name="contentGrid" Grid.Row="1" >
-                <ContentControl x:Name="contentControl" />
+                <ContentControl x:Name="contentControl" Visibility="Visible" />
             </Grid>
         </Grid>
     </Grid>

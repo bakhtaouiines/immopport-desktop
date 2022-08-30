@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <FlowDocumentReader>
-        <FlowDocument ColumnWidth="999999">
+    <FlowDocumentReader Margin="-311,0,-161,0">
+        <FlowDocument ColumnWidth="999999" Style="{DynamicResource FlowDocumentReaderTemplate}">
 
             <Table CellSpacing="25" >
 
