@@ -113,12 +113,9 @@ namespace immopport_desktop
             try
             {
                 PropertyResponse? property = await GetApi<PropertyResponse?>("/property", false);
-
-                MessageBox.Show("null");
                 
                 if (property != null)
                 {
-                    MessageBox.Show("ok, not null");
                     return property;
                 }
                 else
@@ -129,6 +126,28 @@ namespace immopport_desktop
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<EmployeesList?> GetEmployees()
+        {
+            try
+            {
+                EmployeesList? employees = await GetApi<EmployeesList?>("/employee", true);
+
+                if (employees != null)
+                {
+                    return employees;
+                }
+                else
+                {
+                    ErrorMessage = "Pas d'employés répertoriés. " + StatusCode;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
             return null;
         }

@@ -28,4 +28,10 @@ namespace immopport_desktop.Type
         [JsonPropertyName("employee")]
         public Employee? Employee { get; set; } 
     }
+
+    public class EmployeesList
+    {
+        [JsonPropertyName("employee")]
+        public Employee[]? Employee { get; set; }
+    }
 }

@@ -62,8 +62,8 @@ namespace immopport_desktop
                 }
             }
             InitializeComponent();
-            this.contentControl.Content = new Annonces();
-
+/*            this.contentControl.Content = new Annonces();
+*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
