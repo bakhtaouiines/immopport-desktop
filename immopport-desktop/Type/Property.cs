@@ -13,7 +13,7 @@ namespace immopport_desktop.Type
         public string? Titre { get; set; } = string.Empty;
 
         [JsonPropertyName("address")]
-        public string? Adresse { get; set; } = string.Empty;
+        public string? Address { get; set; } = string.Empty;
 
         [JsonPropertyName("price")]
         public int Prix { get; set; }

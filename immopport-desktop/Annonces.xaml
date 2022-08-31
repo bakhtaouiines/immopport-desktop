@@ -6,87 +6,18 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <FlowDocumentReader>
-        <FlowDocument ColumnWidth="999999">
+    <Grid>
+        <ListView Margin="10" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding PropertyId}" />
+                    <GridViewColumn Header="Titre" Width="120" DisplayMemberBinding="{Binding Titre}" />
+                    <GridViewColumn Header="Adresse" Width="50" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Prix" Width="150" DisplayMemberBinding="{Binding Prix}" />
+                    <GridViewColumn Header="Actions" Width="150"  />
 
-            <Table CellSpacing="25" >
-
-                <Table.Columns>
-                    <TableColumn  />
-                    <TableColumn />
-                    <TableColumn  />
-                    <TableColumn/>
-                    <TableColumn/>
-
-                </Table.Columns>
-
-                <TableRowGroup>
-
-
-
-                    <!-- Header row for the table. -->
-                    <TableRow Background="#FFEA4141">
-                        <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">ID</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Titre</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Adresse</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Prix</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph FontSize="14pt" FontWeight="Bold">Actions</Paragraph>
-                        </TableCell>
-                    </TableRow>
-
-
-
-                    <!-- Four data rows for the inner planets. -->
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>
-                                <Run x:Name="idP" Text="{Binding Path=IdProperty}" />
-                            </Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <Run x:Name="titre" Text="{Binding Path=Titre}" />
-                            </Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>
-                                <Run x:Name="address" Text="{Binding Path=Address}" />
-                            </Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>800$</Paragraph>
-                        </TableCell>
-
-                        <TableCell>
-                            <BlockUIContainer >
-                                <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
-                                    
-
-                                    <Button >Publier</Button>
-                                    <Button Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsDefault="True"  >
-                                        <Image Source="/Assets/eye-solid.png" HorizontalAlignment="Left" Height="18" Width="39" />
-                                    </Button>
-
-
-                                </StackPanel>
-                            </BlockUIContainer>
-                            
-                            
-                        </TableCell>
-                    </TableRow>
-                    
-
-                </TableRowGroup>
-            </Table>
-        </FlowDocument>
-    </FlowDocumentReader>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
 </UserControl>
