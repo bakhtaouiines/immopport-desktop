@@ -18,7 +18,7 @@
     <Resource Include="assets\eye-icon.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Assets\logo_immopport.png" />
+    <Resource Include="Assets\logo3.png" />
   </ItemGroup>
 
 </Project>
