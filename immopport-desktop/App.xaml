@@ -30,25 +30,25 @@
         <!-- LOGOS STYLES -->
         <!-- Login Logo -->
         <Style x:Key="LoginLogoStyle" TargetType="{x:Type Image}">
-            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
+            <Setter Property="Source" Value="Assets/logo3.png"/>
             <Setter Property="Stretch" Value="Fill"/>
-            <Setter Property="Margin" Value="249,10,332,404"/>
+            <Setter Property="Margin" Value="175,-66,258,355"/>
             <Setter Property="Grid.Column" Value="1"/>
-            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.Row" Value="3"/>
+
         </Style>
         
         <!-- Dashboard Logo -->
         <Style x:Key="DashboardLogoStyle" TargetType="{x:Type Image}">
-            <Setter Property="Source" Value="/Assets/logo_immopport.png"/>
-            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Source" Value="/Assets/logo3.png"/>
         </Style>
             
         <!-- LABEL STYLES  -->
         <!-- Basic Label -->
         <Style x:Key="BasicLabelStyle" TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="#FF000000"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="29"/>
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>

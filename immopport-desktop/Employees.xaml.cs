@@ -48,13 +48,6 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-
-            InitializeComponent();
-        }
-
-        private void DisplayProperty(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
