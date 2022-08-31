@@ -23,6 +23,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Image Style="{StaticResource DashboardLogoStyle}" x:Name="logoDashboard" />
@@ -31,7 +32,7 @@
                     x:Name="btnAnnonces" 
                     Grid.Row="1" 
                     Content="Annonces"    
-                    Click="Button_Click" Background="#FFEA4141" 
+                    Click="Button_Click" 
                 
             />
             <Button Style="{StaticResource LPNavButtonStyle}" 
@@ -53,8 +54,14 @@
                     Content="Clients"   
             />
             <Button Style="{StaticResource LPNavButtonStyle}"
-                    x:Name="btnLogOut" 
+                    x:Name="btnContact" 
                     Grid.Row="5"  
+                    Content="Contact"
+                    Click="Button_Click_Contact"
+            />
+            <Button Style="{StaticResource LPNavButtonStyle}"
+                    x:Name="btnLogOut" 
+                    Grid.Row="6"  
                     Content="Déconnexion"  
             />
         </Grid>

@@ -8,12 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <ListView Margin="10" Name="lvUsers">
+        <ListView Margin="10" Name="employeesList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Lastname}" />
-                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Firstname}" />
+                    <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Nom" Width="120" DisplayMemberBinding="{Binding Lastname}" />
+                    <GridViewColumn Header="Prénom" Width="50" DisplayMemberBinding="{Binding Firstname}" />
                     <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn Header="Téléphone" Width="150" DisplayMemberBinding="{Binding Phone}" />
+                    <GridViewColumn Header="Matricule" Width="150" DisplayMemberBinding="{Binding Matricule}" />
+                    <GridViewColumn Header="Agence" Width="150" DisplayMemberBinding="{Binding Name}" />
                 </GridView>
             </ListView.View>
         </ListView>

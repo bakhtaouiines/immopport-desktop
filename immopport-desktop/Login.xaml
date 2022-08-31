@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:immopport_desktop"
         mc:Ignorable="d"
         Title="Immopport" Height="450" Width="800">
-    <Grid VerticalAlignment="Center" Height="408" HorizontalAlignment="Center" Width="780">
+    <Grid VerticalAlignment="Center" Height="370" HorizontalAlignment="Center" Width="780">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -20,12 +20,12 @@
         </Grid.ColumnDefinitions>
 
         <Image Style="{StaticResource LoginLogoStyle}"/>
-        
+
         <StackPanel Grid.Row="2" Margin="40,141,123,62" Grid.Column="1" HorizontalAlignment="Center">
             <Label 
                 Style="{StaticResource BasicLabelStyle}" 
                 x:Name="labelMatricule" 
-                Content="Matricule" 
+                Content="Matricule"
             />
             <TextBox 
                 Style="{StaticResource BasicTextBoxStyle}" 
@@ -46,11 +46,11 @@
                 x:Name="loginBtn"
                 Click="btnLogin_Click"
             >
-                    CONNEXION
+                CONNEXION
             </Button>
             <TextBlock 
                 Style="{StaticResource TextBlockStyle}" 
-                x:Name ="errormessage" Height="29" 
+                x:Name ="errormessage"
             />
         </StackPanel>
 

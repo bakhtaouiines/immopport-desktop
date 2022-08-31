@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
@@ -143,6 +144,28 @@ namespace immopport_desktop
                 else
                 {
                     ErrorMessage = "Pas d'employés répertoriés. " + StatusCode;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+        public async Task<AgenciesList?> GetAgencies()
+        {
+            try
+            {
+                AgenciesList? agencies = await GetApi<AgenciesList?>("/contact", false);
+
+                if (agencies != null)
+                {
+                    return agencies;
+                }
+                else
+                {
+                    ErrorMessage = "Pas d'agences répertoriées. " + StatusCode;
                 }
             }
             catch (Exception e)

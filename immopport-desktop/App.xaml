@@ -90,7 +90,8 @@
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF7B7C7A"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#aaaba9"/>
         <Style x:Key="LoginButton" TargetType="{x:Type Button}">
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="261"/>
+            <Setter Property="Height" Value="48"/>
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="Margin" Value="0,0,0,20"/>
             <Setter Property="Padding" Value="10"/>
@@ -140,10 +141,10 @@
 
         <!-- Left Panel Button -->
         <SolidColorBrush x:Key="Button.Static.Background1" Color="#f13d3d"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#ff2d49 "/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FFE0E0E0"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#df0033"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FF5050"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF5050"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#DC2626"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#DC2626"/>
         <Style x:Key="LPNavButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
             <Setter Property="Foreground" Value="#FFFFFF"/>
@@ -286,7 +287,8 @@
         <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="Crimson" />
             <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Height" Value="29"/>
         </Style>
 
         <!-- TopBarTextBlock  -->
@@ -351,7 +353,6 @@
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" Value="#FF64AAE3"/>
-                                <Setter Property="Foreground" Value="White"/>
                                 <Setter Property="BorderBrush" Value="#94bee0"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
@@ -365,6 +366,12 @@
         </Style>
         
         <!-- DELETE BUTTON -->
+        <SolidColorBrush x:Key="Button.Static.Background.Delete" Color="white"/>
+        <SolidColorBrush x:Key="Button.Static.Border.Delete" Color="#FFF43C3C"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background.Delete" Color="#FFF43C3C"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border.Delete" Color="#FFF75555"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background.Delete" Color="#FFF75555"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border.Delete" Color="white"/>
         <Style x:Key="DeleteButton" TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="8"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -377,8 +384,8 @@
                         <Border 
                             x:Name="border"
                             CornerRadius="10" 
-                            Background="white" 
-                            BorderBrush="#FFF43C3C" 
+                            Background="{StaticResource Button.Static.Background.Delete}" 
+                            BorderBrush="{StaticResource Button.Static.Border.Delete}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             SnapsToDevicePixels="true"
                         >
@@ -397,13 +404,12 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="#FFF43C3C"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="BorderBrush" Value="Crimson"/>
+                                <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background.Delete}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border.Delete}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#FFF75555"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background.Delete}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border.Delete}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -412,6 +418,11 @@
         </Style>
 
         <!-- VALIDATION BUTTON  -->
+        <SolidColorBrush x:Key="Button.Static.Background.Validation" Color="white"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background.Validation" Color="#FF89DA7D"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border.Validation" Color="#b7e5b0"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background.Validation" Color="#b7e5b0"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border.Validation" Color="white"/>
         <Style x:Key="ValidationButton" TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="8"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -424,7 +435,6 @@
                         <Border 
                             x:Name="border"
                             CornerRadius="10" 
-                            Background="White" 
                             BorderBrush="#b7e5b0" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             SnapsToDevicePixels="true"
@@ -440,17 +450,13 @@
                             />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="#FF89DA7D"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="BorderBrush" Value="#b7e5b0"/>
+                                <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background.Validation}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border.Validation}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#b7e5b0"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background.Validation}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border.Validation}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

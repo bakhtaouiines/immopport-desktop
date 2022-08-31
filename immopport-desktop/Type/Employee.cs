@@ -4,6 +4,9 @@ namespace immopport_desktop.Type
 {
     public class Employee
     {
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+
         [JsonPropertyName("id_agency")]
         public int AgencyId { get; set; }
 
@@ -19,10 +22,13 @@ namespace immopport_desktop.Type
         [JsonPropertyName("phone")]
         public string Phone { get; set; } = string.Empty;
 
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
+
         [JsonPropertyName("matricule")]
         public int Matricule { get; set; }
     }
-    
+
     public class EmployeeResponse
     {
         [JsonPropertyName("employee")]

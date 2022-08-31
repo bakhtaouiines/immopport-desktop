@@ -85,9 +85,14 @@ namespace immopport_desktop
 
         }
 
+        private void Button_Click_Contact(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new Agencies();
+        }
+
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

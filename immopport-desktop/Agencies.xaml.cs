@@ -1,5 +1,4 @@
 ﻿using immopport_desktop.Type;
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    public partial class Employees : UserControl
+    public partial class Agencies : UserControl
     {
-        public Employees()
+        public Agencies()
         {
             API user;
 
@@ -31,12 +30,13 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<EmployeesList?>? employees = Task.Run(() => user?.GetEmployees());
-                    
-                    if (employees != null)
+                    Task<AgenciesList?>? agencies = Task.Run(() => user?.GetAgencies());
+
+                    if (agencies != null)
                     {
-                        List<Employee> items = new List<Employee>(employees.Result.Employee);
-                        employeesList.ItemsSource = items;
+                        MessageBox.Show(agencies.Result.Agency[0].Mail);
+                        List<Agency> items = new List<Agency>(agencies.Result.Agency);
+                        agenciesList.ItemsSource = items;
                     }
                     else
                     {
@@ -48,13 +48,6 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-
-            InitializeComponent();
-        }
-
-        private void DisplayProperty(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
