@@ -12,15 +12,15 @@ namespace immopport_desktop.Type
 
         [JsonPropertyName("address")]
         public string Address { get; set; } = string.Empty;
-    
+
+        [JsonPropertyName("zipcode")]
+        public int Zipcode { get; set; }
+
         [JsonPropertyName("mail")]
         public string Mail { get; set; } = string.Empty;
 
         [JsonPropertyName("phone")]
-        public int Phone { get; set; }
-
-        [JsonPropertyName("zipcode")]
-        public int Zipcode { get; set; }
+        public string Phone { get; set; } = string.Empty;        
     }
 
     public class AgenciesList

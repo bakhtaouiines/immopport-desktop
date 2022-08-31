@@ -11,6 +11,11 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Nom" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Adresse" Width="120" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Code postal" Width="120" DisplayMemberBinding="{Binding Zipcode}" />
+                    <GridViewColumn Header="Mail" Width="120" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn Header="Téléphone" Width="120" DisplayMemberBinding="{Binding Phone}" />
                 </GridView>
             </ListView.View>
         </ListView>
