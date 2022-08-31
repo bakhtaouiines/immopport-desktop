@@ -65,7 +65,7 @@
 
                         <TableCell>
                             <BlockUIContainer>
-                                <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Width="40">
+                                <Button Style="{DynamicResource DefaultButton}"  Width="40">
                                     <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="15" />
                                 </Button>
                             </BlockUIContainer>

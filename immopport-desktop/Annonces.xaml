@@ -7,15 +7,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView Margin="10" Name="lvUsers">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="783*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Margin="10,10,10,10" Name="lvUsers" Grid.ColumnSpan="2" BorderBrush="#FF4374CC">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding PropertyId}" />
-                    <GridViewColumn Header="Titre" Width="120" DisplayMemberBinding="{Binding Titre}" />
-                    <GridViewColumn Header="Adresse" Width="50" DisplayMemberBinding="{Binding Address}" />
-                    <GridViewColumn Header="Prix" Width="150" DisplayMemberBinding="{Binding Prix}" />
-                    <GridViewColumn Header="Actions" Width="150"  />
+                    <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding PropertyId}" />
+                    <GridViewColumn Header="Titre" Width="250" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Adresse" Width="250" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Prix" Width="130" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Actions" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
+                                    <Button Style="{DynamicResource ValidationButton}" Click="PostProperty">Publier</Button>
+                                    <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Margin="10,0,0,0">
+                                        <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
+                                    </Button>
+                                    <Button Style="{DynamicResource DeleteButton}" Click="DisplayProperty" Margin="10,0,0,0">
+                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
+                                    </Button>
+                                </StackPanel>
 
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

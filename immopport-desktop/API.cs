@@ -117,7 +117,7 @@ namespace immopport_desktop
 
                 if (property != null)
                 {
-                    MessageBox.Show("ok, not null");
+                    
                     return property;
                 }
                 else
