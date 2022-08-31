@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    /// <summary>
-    /// Logique d'interaction pour Dashboard.xaml
-    /// </summary>
     public partial class Dashboard : Window
     {
         public string? EmployeeLastname { get; }
@@ -66,22 +63,30 @@ namespace immopport_desktop
 */
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Annonce(object sender, RoutedEventArgs e)
         {
-            //this.Hide(); 
-            //(new Login()).Show();
             this.contentControl.Content = new Annonces();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_AnnonceEmploye(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Button_Click_Employe(object sender, RoutedEventArgs e)
         {
             this.contentControl.Content = new Employees();
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_RDV(object sender, RoutedEventArgs e)
         {
-            this.contentControl.Content = "Hello";
+            this.contentControl.Content = "TABLEAU RDV";
+
+        }
+
+        private void Button_Click_Client(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = "TABLEAU CLIENTS";
 
         }
 
@@ -90,7 +95,7 @@ namespace immopport_desktop
             this.contentControl.Content = new Agencies();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_Deconnexion(object sender, RoutedEventArgs e)
         {
             
         }

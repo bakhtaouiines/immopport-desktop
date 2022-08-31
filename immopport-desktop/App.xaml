@@ -5,9 +5,6 @@
              StartupUri="Login.xaml">
     <Application.Resources>
         
-        <!--Inès/Taslima, j'ai réorganisé les ressources de cette façon pour plus de clarté: 
-        "NOM FAMILLE ELEMENT + Styles" > Nom élément spécifique > modèles de ressources--> 
-
         <!-- WINDOW STYLES -->
         <Style TargetType="{x:Type Window}">
             <Setter Property="FontFamily" Value="Colibri Light" />
@@ -320,6 +317,12 @@
 
     <!-- BUTTONS STYLES  -->
         <!-- DEFAULT BUTTON -->
+        <SolidColorBrush x:Key="Button.Static.Background.Default" Color="white"/>
+        <SolidColorBrush x:Key="Button.Static.Border.Default" Color="#94bee0"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background.Default" Color="#FF64AAE3"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border.Default" Color="#94bee0"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background.Default" Color="#94bee0"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border.Default" Color="white"/>
         <Style x:Key="DefaultButton" TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="8"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -332,8 +335,8 @@
                         <Border 
                             x:Name="border"
                             CornerRadius="10" 
-                            Background="white" 
-                            BorderBrush="#94bee0" 
+                            Background="{StaticResource Button.Static.Background.Default}" 
+                            BorderBrush="{StaticResource Button.Static.Border.Default}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             SnapsToDevicePixels="true"
                         >
@@ -352,12 +355,12 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="#FF64AAE3"/>
-                                <Setter Property="BorderBrush" Value="#94bee0"/>
+                                <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background.Default}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border.Default}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#94bee0"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="white"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background.Default}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border.Default}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -419,6 +422,7 @@
 
         <!-- VALIDATION BUTTON  -->
         <SolidColorBrush x:Key="Button.Static.Background.Validation" Color="white"/>
+        <SolidColorBrush x:Key="Button.Static.Border.Validation" Color="#b7e5b0"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background.Validation" Color="#FF89DA7D"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border.Validation" Color="#b7e5b0"/>
         <SolidColorBrush x:Key="Button.Pressed.Background.Validation" Color="#b7e5b0"/>
@@ -435,7 +439,7 @@
                         <Border 
                             x:Name="border"
                             CornerRadius="10" 
-                            BorderBrush="#b7e5b0" 
+                            BorderBrush="{StaticResource Button.Static.Border.Validation}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             SnapsToDevicePixels="true"
                         >

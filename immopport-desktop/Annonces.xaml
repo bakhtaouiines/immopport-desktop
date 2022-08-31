@@ -27,7 +27,7 @@
                                         <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
                                     </Button>
                                     <Button Style="{DynamicResource DeleteButton}" Click="DisplayProperty" Margin="10,0,0,0">
-                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
+                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20"/>
                                     </Button>
                                 </StackPanel>
 

@@ -158,7 +158,7 @@ namespace immopport_desktop
         {
             try
             {
-                AgenciesList? agencies = await GetApi<AgenciesList?>("/contact", false);
+                AgenciesList? agencies = await GetApi<AgenciesList?>("/contact", true);
 
                 if (agencies != null)
                 {
@@ -166,7 +166,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'agences r�pertori�es. " + StatusCode;
+                    ErrorMessage = "Pas d'agences répertoriées. " + StatusCode;
                 }
             }
             catch (Exception e)

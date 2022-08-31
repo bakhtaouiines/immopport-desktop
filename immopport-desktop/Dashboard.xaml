@@ -34,21 +34,21 @@
                     x:Name="btnAnnonces" 
                     Grid.Row="1" 
                     Content="Annonces"    
-                    Click="Button_Click" 
+                    Click="Button_Click_Annonce" 
                 
             />
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnAnnoncesEmployee" 
                     Grid.Row="2" 
                     Content="Annonces Employee"    
-                    Click="Button_Click" Background="#FFEA4141" 
+                    Click="Button_Click_AnnonceEmploye" 
             />
             
             <Button Style="{StaticResource LPNavButtonStyle}" 
                     x:Name="btnEmployes" 
                     Grid.Row="3"  
                     Content="Employées"  
-                    Click="Button_Click_1" 
+                    Click="Button_Click_Employe" 
             />
             
             <Button Style="{StaticResource LPNavButtonStyle}"
@@ -56,12 +56,13 @@
                     Grid.Row="4"  
                     Content="Rdv"  
                     RenderTransformOrigin="0.05,0.503"
-                    Click="Button_Click_2"  
+                    Click="Button_Click_RDV"  
             />
             <Button Style="{StaticResource LPNavButtonStyle}" 
                     x:Name="btnClients" 
                     Grid.Row="5"  
-                    Content="Clients"   
+                    Content="Clients"
+                    Click="Button_Click_Client"
             />
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnContact" 
@@ -72,7 +73,8 @@
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnLogOut" 
                     Grid.Row="7"  
-                    Content="Déconnexion"  
+                    Content="Déconnexion"
+                    Click="Button_Click_Deconnexion"
             />
             
         </Grid>
