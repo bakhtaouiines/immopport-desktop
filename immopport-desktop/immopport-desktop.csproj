@@ -19,6 +19,7 @@
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\logo3.png" />
+	<Resource Include="Assets\trash-icon.png" />
   </ItemGroup>
 
 </Project>
