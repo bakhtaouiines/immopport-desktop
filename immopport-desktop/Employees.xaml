@@ -6,118 +6,18 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <FlowDocumentReader>
-        <FlowDocument ColumnWidth="999999" Style="{DynamicResource FlowDocumentReaderTemplate}">
 
-            <Table CellSpacing="25">
+    <Grid>
+        <ListView Margin="10" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Lastname}" />
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Firstname}" />
+                    <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
 
-                <Table.Columns>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                </Table.Columns>
-
-                <TableRowGroup>
-
-                    <!-- Header row for the table. -->
-                    <TableRow Background="#FFEA4141">
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Nom</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Prénom</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Matricule</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Agence</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Téléphone</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">E-mail</Paragraph>
-                        </TableCell>
-                    </TableRow>
-
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">Ahamed Mza</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">Taslima</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">44576</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">Bastille</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">0722345678</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">taslimaz@gmail.com</Paragraph>
-                        </TableCell>
-
-                        <TableCell>
-                            <BlockUIContainer>
-                                <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Width="40">
-                                    <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="15" />
-                                </Button>
-                            </BlockUIContainer>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Venus</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>108,200,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,103.6 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>4.869e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Earth</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>149,600,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,756.3 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>5.972e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Mars</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>227,940,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6,794 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6.4219e23 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-
-                </TableRowGroup>
-            </Table>
-        </FlowDocument>
-    </FlowDocumentReader>
-    
 </UserControl>
     

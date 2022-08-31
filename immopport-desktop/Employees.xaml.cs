@@ -1,4 +1,5 @@
 ﻿using immopport_desktop.Type;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace immopport_desktop
             API user;
             this.DataContext = this;
 
+            InitializeComponent();
+
             if (Application.Current != null && Application.Current.Properties["user"] != null)
             {
                 user = (API)Application.Current.Properties["user"];
@@ -30,23 +33,11 @@ namespace immopport_desktop
                 try
                 {
                     Task<EmployeesList?>? employees = Task.Run(() => user?.GetEmployees());
-/*                    employees.Wait();
- *                    
-*/                    if (employees != null)
-                    {
-
-                        MessageBox.Show(employees.Result.Employee[0].Phone);
-                        /*Parallel.ForEach<EmployeeResponse>(employees, employee =>
-                        {
-                            MessageBox.Show(employee.Employee.Lastname);
-
-                        });*/
-
-                        foreach(var employee in employees)
-                        {
-                            employee.Employees.Clear();
-                        }
-
+                    
+                    if (employees != null)
+                    {                        
+                        List<Employee> items = new List<Employee>(employees.Result.Employee);
+                        lvUsers.ItemsSource = items;
                     }
                     else
                     {
