@@ -103,7 +103,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas de réponse d'employé " + StatusCode;
+                    ErrorMessage = "Pas de rï¿½ponse d'employï¿½ " + StatusCode;
                 }
             }
             return null;
@@ -121,7 +121,8 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    ErrorMessage = "Pas de rÃ©ponse d'annonce " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
                 }
             }
             catch (Exception ex)
@@ -143,7 +144,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'employés répertoriés. " + StatusCode;
+                    ErrorMessage = "Pas d'employÃ©s rÃ©pertoriÃ©s. " + StatusCode;
                 }
             }
             catch (Exception e)
@@ -165,7 +166,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'agences répertoriées. " + StatusCode;
+                    ErrorMessage = "Pas d'agences rï¿½pertoriï¿½es. " + StatusCode;
                 }
             }
             catch (Exception e)
