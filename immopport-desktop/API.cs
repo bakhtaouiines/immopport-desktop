@@ -102,7 +102,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas de réponse d'employé " + StatusCode;
+                    ErrorMessage = "Pas de rï¿½ponse d'employï¿½ " + StatusCode;
                 }
             }
             return null;
@@ -112,10 +112,9 @@ namespace immopport_desktop
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/property", false);
+                // get employee informations
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property");
 
-                MessageBox.Show("null");
-                
                 if (property != null)
                 {
                     MessageBox.Show("ok, not null");
@@ -123,7 +122,8 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    ErrorMessage = "Pas de rï¿½ponse d'annonce " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
                 }
             }
             catch (Exception ex)

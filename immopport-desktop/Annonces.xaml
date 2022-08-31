@@ -6,110 +6,18 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <FlowDocumentReader>
-        <FlowDocument ColumnWidth="999999" Style="{DynamicResource FlowDocumentReaderTemplate}">
+    <Grid>
+        <ListView Margin="10" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding PropertyId}" />
+                    <GridViewColumn Header="Titre" Width="120" DisplayMemberBinding="{Binding Titre}" />
+                    <GridViewColumn Header="Adresse" Width="50" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Prix" Width="150" DisplayMemberBinding="{Binding Prix}" />
+                    <GridViewColumn Header="Actions" Width="150"  />
 
-            <Table CellSpacing="25" >
-
-                <Table.Columns>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                    <TableColumn/>
-                </Table.Columns>
-
-                <TableRowGroup>
-                    <!-- Header row for the table. -->
-                    <TableRow Background="#FFEA4141">
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">ID</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Titre</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Adresse</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource ParagraphTable}">Prix</Paragraph>
-                        </TableCell>
-                    </TableRow>
-
-                    <!-- Four data rows for the inner planets. -->
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">1</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">Appartement1</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">3 rue jean Monnet 94645 kremlin-Bicêtre</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph Style="{DynamicResource TableCellStyle}">800$</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <BlockUIContainer >
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
-                                    <Button Style="{DynamicResource ValidationButton}" Click="PostProperty">Publier</Button>
-                                    <Button Style="{DynamicResource DefaultButton}" Click="DisplayProperty" Margin="10,0,0,0">
-                                        <Image Source="/Assets/eye-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
-                                    </Button>
-                                    <Button Style="{DynamicResource DeleteButton}" Click="DisplayProperty" Margin="10,0,0,0">
-                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20" />
-                                    </Button>
-                                </StackPanel>
-                            </BlockUIContainer>
-                        </TableCell>
-                    </TableRow>
-                    
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Venus</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>108,200,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,103.6 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>4.869e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            <Paragraph>Earth</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>149,600,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>12,756.3 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>5.972e24 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow Background="lightgray">
-                        <TableCell>
-                            <Paragraph>Mars</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>227,940,000 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6,794 km</Paragraph>
-                        </TableCell>
-                        <TableCell>
-                            <Paragraph>6.4219e23 kg</Paragraph>
-                        </TableCell>
-                    </TableRow>
-
-                </TableRowGroup>
-            </Table>
-        </FlowDocument>
-    </FlowDocumentReader>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
 </UserControl>

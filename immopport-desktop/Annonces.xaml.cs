@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace immopport_desktop
 {
     /// <summary>
@@ -21,8 +22,15 @@ namespace immopport_desktop
     /// </summary>
     public partial class Annonces : UserControl
     {
+        public int? IdProperty { get; set; }
+        public string? Titre { get; set; }
+        public string? Address { get; set; }
+
+
+
         public Annonces()
         {
+            InitializeComponent();
             API user;
             this.DataContext = this;
 
@@ -35,9 +43,14 @@ namespace immopport_desktop
                     Task<PropertyResponse?>? property = Task.Run(() => user?.GetProperty());
                     property.Wait();
 
+                    // property.Result.Property tableau json
+
                     if (property != null)
                     {
-                        MessageBox.Show(property.Result.Property[0].Name);
+                        List<Property> items = new List<Property>(property.Result.Property);
+
+                        lvUsers.ItemsSource = items;
+
                     }
                     else
                     {
@@ -49,7 +62,7 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-            InitializeComponent();
+            
         }
 
         private void PostProperty(object sender, RoutedEventArgs e)
