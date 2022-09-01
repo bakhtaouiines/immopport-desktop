@@ -220,6 +220,10 @@ namespace immopport_desktop
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
         public async Task<PropertyResponse?> GetPropertyEmployee()
         {
             try
