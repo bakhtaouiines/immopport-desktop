@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    public partial class Agencies : UserControl
+    public partial class Customers : UserControl
     {
-        public Agencies()
+        public Customers()
         {
             API user;
 
@@ -30,16 +30,16 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<AgenciesList?>? agencies = Task.Run(() => user?.GetAgencies());
+                    Task<CustomerList?>? customers = Task.Run(() => user?.GetCustomers());
 
-                    if (agencies != null)
+                    if (customers != null)
                     {
-                        List<Agency> items = new List<Agency>(agencies.Result.Agency);
-                        agenciesList.ItemsSource = items;
+                        List<Customer> items = new List<Customer>(customers.Result.Customer);
+                        CustomersList.ItemsSource = items;
                     }
                     else
                     {
-                        MessageBox.Show("ERREUR");
+                        MessageBox.Show(user?.ErrorMessage);
                     }
                 }
                 catch (Exception e)

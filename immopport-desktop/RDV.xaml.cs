@@ -16,9 +16,12 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    public partial class Agencies : UserControl
+    /// <summary>
+    /// Logique d'interaction pour RDV.xaml
+    /// </summary>
+    public partial class RDV : UserControl
     {
-        public Agencies()
+        public RDV()
         {
             API user;
 
@@ -30,16 +33,16 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<AgenciesList?>? agencies = Task.Run(() => user?.GetAgencies());
+                    Task<RDVList?>? employeeRDV = Task.Run(() => user?.GetAuthEmployeeRDV());
 
-                    if (agencies != null)
+                    if (employeeRDV != null)
                     {
-                        List<Agency> items = new List<Agency>(agencies.Result.Agency);
-                        agenciesList.ItemsSource = items;
+                        List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
+                        RDVList.ItemsSource = items;
                     }
                     else
                     {
-                        MessageBox.Show("ERREUR");
+                        MessageBox.Show(user?.ErrorMessage);
                     }
                 }
                 catch (Exception e)

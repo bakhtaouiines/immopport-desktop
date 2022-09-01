@@ -32,7 +32,6 @@ namespace immopport_desktop
                 try
                 {
                     Task <EmployeeResponse?>? employee = Task.Run(() => user?.GetProfile());
-                    employee.Wait();
 
                     if (employee != null)
                     {
@@ -86,7 +85,7 @@ namespace immopport_desktop
 
         private void Button_Click_Client(object sender, RoutedEventArgs e)
         {
-            this.contentControl.Content = "TABLEAU CLIENTS";
+            this.contentControl.Content = new Customers();
 
         }
 

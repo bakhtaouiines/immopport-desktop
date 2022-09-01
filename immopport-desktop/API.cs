@@ -175,5 +175,49 @@ namespace immopport_desktop
             }
             return null;
         }
+
+        public async Task<CustomerList?> GetCustomers()
+        {
+            try
+            {
+                CustomerList? customers = await GetApi<CustomerList?>("/customer", true);
+
+                if (customers != null)
+                {
+                    return customers;
+                }
+                else
+                {
+                    ErrorMessage = "Pas de clients répertoriés. " + StatusCode;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+        public async Task<RDVList?> GetAuthEmployeeRDV()
+        {
+            try
+            {
+                RDVList? employeeRDV = await GetApi<RDVList?>("/rdv", true);
+
+                if (employeeRDV != null)
+                {
+                    return employeeRDV;
+                }
+                else
+                {
+                    ErrorMessage = "Pas de RDV répertoriés. " + StatusCode;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
     }
 }
