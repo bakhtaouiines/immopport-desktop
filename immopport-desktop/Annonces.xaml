@@ -18,6 +18,8 @@
                     <GridViewColumn Header="Titre" Width="250" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Adresse" Width="250" DisplayMemberBinding="{Binding Address}" />
                     <GridViewColumn Header="Prix" Width="130" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Employee" Width="130" DisplayMemberBinding="{Binding FisrtLasname }" />
+
                     <GridViewColumn Header="Actions" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
