@@ -35,6 +35,7 @@ namespace immopport_desktop
 
                     if (employeeRDV != null)
                     {
+                        MessageBox.Show(employeeRDV.Result.RDV[0].Phone);
                         List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
                         RDVList.ItemsSource = items;
                     }

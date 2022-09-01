@@ -8,10 +8,10 @@ namespace immopport_desktop.Type
         public int Id { get; set; }
 
         [JsonPropertyName("id_property")]
-        public int PropertyId { get; set; }
+        public int? PropertyId { get; set; }
 
         [JsonPropertyName("id_client")]
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         [JsonPropertyName("id_label")]
         public int LabelId { get; set; }
@@ -50,7 +50,7 @@ namespace immopport_desktop.Type
         public int Matricule { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = string.Empty;
 
         [JsonPropertyName("address")]
         public string Address { get; set; } = string.Empty;

@@ -159,18 +159,15 @@ namespace immopport_desktop
             try
             {
                 AgenciesList? agencies = await GetApi<AgenciesList?>("/contact", true);
-                //MessageBox.Show(agencies.ToString()+"1");
 
                 if (agencies != null)
                 {
-                    MessageBox.Show(agencies.ToString()+"2");
-
                     return agencies;
                 }
                 else
                 {
                     ErrorMessage = "Pas d'agences répertories. " + StatusCode;
-                    MessageBox.Show(ErrorMessage);
+                    
                 }
             }
             catch (Exception e)
@@ -210,6 +207,7 @@ namespace immopport_desktop
 
                 if (employeeRDV != null)
                 {
+                    MessageBox.Show(employeeRDV.RDV[0].Lastname);
                     return employeeRDV;
                 }
                 else

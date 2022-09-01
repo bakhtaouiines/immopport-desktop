@@ -41,7 +41,6 @@ namespace immopport_desktop
                 try
                 {
                     Task<PropertyResponse?>? property = Task.Run(() => user?.GetProperty());
-                    property.Wait();
 
                     // property.Result.Property tableau json
 
@@ -49,7 +48,7 @@ namespace immopport_desktop
                     {
                         List<Property> items = new List<Property>(property.Result.Property);
 
-                        lvUsers.ItemsSource = items;
+                        PropertiesList.ItemsSource = items;
 
                     }
                     else

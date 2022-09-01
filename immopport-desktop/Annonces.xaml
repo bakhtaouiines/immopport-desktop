@@ -11,7 +11,7 @@
             <ColumnDefinition Width="783*"/>
             <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
-        <ListView Margin="10,10,10,10" Name="lvUsers" Grid.ColumnSpan="2" BorderBrush="#FF4374CC">
+        <ListView Margin="10,10,10,10" Name="PropertiesList" Grid.ColumnSpan="2" BorderBrush="#FF4374CC">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding PropertyId}" />

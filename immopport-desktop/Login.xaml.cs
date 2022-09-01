@@ -18,10 +18,6 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
-    /// 
     public partial class Login : Window
     {
         API api { get; set; }
@@ -48,8 +44,6 @@ namespace immopport_desktop
                     if (api.AccessToken != string.Empty)
                     {
                         Application.Current.Properties["user"] = api;
-
-                        MessageBox.Show(api.AccessToken);
 
                         Hide();
                         (new Dashboard()).Show();
