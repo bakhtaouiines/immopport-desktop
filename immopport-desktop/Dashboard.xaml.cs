@@ -70,6 +70,8 @@ namespace immopport_desktop
 
         private void Button_Click_AnnonceEmploye(object sender, RoutedEventArgs e)
         {
+            this.contentControl.Content = new EmployeeAnnonces();
+
         }
 
         private void Button_Click_Employe(object sender, RoutedEventArgs e)

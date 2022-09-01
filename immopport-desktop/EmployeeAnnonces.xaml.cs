@@ -1,5 +1,5 @@
-﻿using System;
-using immopport_desktop.Type;
+﻿using immopport_desktop.Type;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace immopport_desktop
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
+    /// Logique d'interaction pour EmployeeAnnonces.xaml
     /// </summary>
-    public partial class Annonces : UserControl
+    public partial class EmployeeAnnonces : UserControl
     {
-        public int? IdProperty { get; set; }
-        public string? Titre { get; set; }
-        public string? Address { get; set; }
-
-
-
-        public Annonces()
+        public EmployeeAnnonces()
         {
             InitializeComponent();
             API user;
@@ -40,7 +33,7 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetProperty());
+                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetPropertyEmployee());
                     property.Wait();
 
                     // property.Result.Property tableau json
@@ -49,7 +42,7 @@ namespace immopport_desktop
                     {
                         List<Property> items = new List<Property>(property.Result.Property);
 
-                        annonces.ItemsSource = items;
+                        employeeAnnonces.ItemsSource = items;
 
                     }
                     else
@@ -62,9 +55,7 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-            
         }
-
         private void PostProperty(object sender, RoutedEventArgs e)
         {
 
