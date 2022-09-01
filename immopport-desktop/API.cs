@@ -242,5 +242,29 @@ namespace immopport_desktop
             }
             return null;
         }
+
+        public async Task<PropertyResponse?> GetSingleProperty()
+        {
+            try
+            {
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property/1", true);
+
+                if (property != null)
+                {
+                    MessageBox.Show(property.Property.ToString());
+                    return property;
+                }
+                else
+                {
+                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
     }
 }

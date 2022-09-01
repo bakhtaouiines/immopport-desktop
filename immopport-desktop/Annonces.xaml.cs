@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 namespace immopport_desktop
@@ -25,9 +26,6 @@ namespace immopport_desktop
         public int? IdProperty { get; set; }
         public string? Titre { get; set; }
         public string? Address { get; set; }
-
-
-
         public Annonces()
         {
             InitializeComponent();
@@ -46,9 +44,9 @@ namespace immopport_desktop
 
                     if (property != null)
                     {
-                        List<Property> items = new List<Property>(property.Result.Property);
+                        /*List<Property> items = new List<Property>(property.Result.Property);
 
-                        PropertiesList.ItemsSource = items;
+                        PropertiesList.ItemsSource = items;*/
 
                     }
                     else
@@ -68,9 +66,28 @@ namespace immopport_desktop
         {
 
         }
-        private void DisplayProperty(object sender, RoutedEventArgs e)
+        public void DisplayProperty(object sender, RoutedEventArgs e)
         {
+            API user;
 
+            if (Application.Current != null && Application.Current.Properties["user"] != null)
+            {
+                user = (API)Application.Current.Properties["user"];
+
+                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetSingleProperty());
+
+                    if (property != null)
+                    {
+                        MessageBox.Show(property.ToString());
+                       /* List<Property> items = new List<Property>(property.Result.Property);
+                        PropertiesList.ItemsSource = items;*/
+                    }
+                    else
+                    {
+                        MessageBox.Show(user?.ErrorMessage);
+                    }
+                
+            }
         }
     }
 }
