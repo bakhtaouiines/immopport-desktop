@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace immopport_desktop
 {
-    /// <summary>
-    /// Logique d'interaction pour RDV.xaml
-    /// </summary>
+
     public partial class RDV : UserControl
     {
         public RDV()

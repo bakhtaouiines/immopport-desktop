@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace immopport_desktop.Type
 {
@@ -52,7 +47,7 @@ namespace immopport_desktop.Type
         public string EmployeeFirstname { get; set; } = string.Empty;
 
         [JsonPropertyName("matricule")]
-        public string Matricule { get; set; } = string.Empty;
+        public int Matricule { get; set; }
 
         [JsonPropertyName("description")]
         public string Description { get; set; } = string.Empty;
@@ -78,5 +73,4 @@ namespace immopport_desktop.Type
         [JsonPropertyName("rdv")]
         public RDV[]? RDV { get; set; }
     }
-}
 }

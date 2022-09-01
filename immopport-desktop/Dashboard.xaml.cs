@@ -79,7 +79,7 @@ namespace immopport_desktop
 
         private void Button_Click_RDV(object sender, RoutedEventArgs e)
         {
-            this.contentControl.Content = "TABLEAU RDV";
+            this.contentControl.Content = new RDV();
 
         }
 
