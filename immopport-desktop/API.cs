@@ -113,7 +113,7 @@ namespace immopport_desktop
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/property", false);
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/employee/allProperties", true);
                 
                 if (property != null)
                 {
@@ -159,14 +159,18 @@ namespace immopport_desktop
             try
             {
                 AgenciesList? agencies = await GetApi<AgenciesList?>("/contact", true);
+                //MessageBox.Show(agencies.ToString()+"1");
 
                 if (agencies != null)
                 {
+                    MessageBox.Show(agencies.ToString()+"2");
+
                     return agencies;
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'agences répertoriées. " + StatusCode;
+                    ErrorMessage = "Pas d'agences répertories. " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
                 }
             }
             catch (Exception e)
