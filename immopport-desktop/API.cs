@@ -220,6 +220,25 @@ namespace immopport_desktop
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+        public async Task<PropertyResponse?> GetPropertyEmployee()
+        {
+            try
+            {
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/employee/properties", true);
+
+                if (property != null)
+                {
+                    return property;
+                }
+                else
+                {
+                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    MessageBox.Show(ErrorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             return null;
         }
