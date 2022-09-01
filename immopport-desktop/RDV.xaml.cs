@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 namespace immopport_desktop
 {
 
-    public partial class RDV : UserControl
+    public partial class EmployeeRDV : UserControl
     {
-        public RDV()
+        public EmployeeRDV()
         {
             API user;
 
@@ -35,8 +35,8 @@ namespace immopport_desktop
 
                     if (employeeRDV != null)
                     {
-                        MessageBox.Show(employeeRDV.Result.RDV[0].Phone);
-                        List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
+/*                        MessageBox.Show(employeeRDV.Result.RDV[0].IsVisit.ToString());
+*/                        List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
                         RDVList.ItemsSource = items;
                     }
                     else

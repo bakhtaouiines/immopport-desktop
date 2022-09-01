@@ -204,10 +204,8 @@ namespace immopport_desktop
             try
             {
                 RDVList? employeeRDV = await GetApi<RDVList?>("/rdv", true);
-
                 if (employeeRDV != null)
                 {
-                    MessageBox.Show(employeeRDV.RDV[0].Lastname);
                     return employeeRDV;
                 }
                 else

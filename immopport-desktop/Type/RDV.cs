@@ -62,10 +62,18 @@ namespace immopport_desktop.Type
         public int Zipcode { get; set; }
 
         [JsonPropertyName("is_visit")]
-        public bool IsVisit { get; set; } = false;
+        public bool IsVisit { get; }
 
         [JsonPropertyName("name")]
         public string AgencyName { get; set; } = string.Empty;
+
+        /*public string IsVisitToString
+        {
+            get
+            {
+                return IsVisit.ToString();
+            }
+        }*/
     }
 
     public class RDVList
