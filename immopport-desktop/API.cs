@@ -163,7 +163,7 @@ namespace immopport_desktop
 
                 if (agencies != null)
                 {
-                    MessageBox.Show(agencies.ToString()+"2");
+                    //MessageBox.Show(agencies.ToString()+"2");
 
                     return agencies;
                 }

@@ -35,8 +35,8 @@ namespace immopport_desktop
 
                     if (employeeRDV != null)
                     {
-                        List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
-                        RDVList.ItemsSource = items;
+                        //List<RDV> items = new List<RDV>(employeeRDV.Result.RDV);
+                        //RDVList.ItemsSource = items;
                     }
                     else
                     {

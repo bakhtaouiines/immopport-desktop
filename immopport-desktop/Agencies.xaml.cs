@@ -21,6 +21,7 @@ namespace immopport_desktop
         public Agencies()
         {
             API user;
+            InitializeComponent();
 
 
             if (Application.Current != null && Application.Current.Properties["user"] != null)
@@ -30,7 +31,7 @@ namespace immopport_desktop
                 try
                 {
                     Task<AgenciesList?>? agencies = Task.Run(() => user?.GetAgencies());
-                    agencies.Wait();
+                    //agencies.Wait();
 
                     if (agencies != null)
                     {
@@ -47,7 +48,7 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-            InitializeComponent();
+           
 
         }
     }
