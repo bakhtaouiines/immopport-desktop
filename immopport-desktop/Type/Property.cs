@@ -41,32 +41,35 @@ namespace immopport_desktop.Type
         [JsonPropertyName("id_employee")]
         public int IdEmployee { get; set; }
 
+        [JsonPropertyName("matricule")]
+        public int Matricule { get; set; }
+
         [JsonPropertyName("is_furnished")]
-        public bool IsFurnished { get; set; }
+        public bool IsFurnished { get; }
 
         [JsonPropertyName("is_available")]
-        public bool IsAvailable { get; set; }
+        public bool IsAvailable { get; }
 
         [JsonPropertyName("is_prospect")]
-        public bool IsProspect { get; set; }
+        public bool IsProspect { get; }
 
         /*[JsonPropertyName("rooms")]
         public Room[] Rooms { get; set; }*/
 
-        public string FirstLastName
+        public string AgentInfo
         {
             get
             {
-                return Firstname + " " + Lastname;
+                return Firstname + " " + Lastname + " -" + Matricule;
             }
         }
     }
 
-    public class PropertyCategories
+    /*public class PropertyCategories
     {
         [JsonPropertyName("property_categories")]
         public Property[] ? PropertyCategory { get; set; }
-    }
+    }*/
 
 /*    public class PropertyTypes
     {

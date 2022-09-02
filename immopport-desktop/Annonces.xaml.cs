@@ -18,9 +18,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace immopport_desktop
 {
-    /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
-    /// </summary>
+
     public partial class Annonces : UserControl
     {
         public int? IdProperty { get; set; }
@@ -44,10 +42,8 @@ namespace immopport_desktop
 
                     if (property != null)
                     {
-                        /*List<Property> items = new List<Property>(property.Result.Property);
-
-                        PropertiesList.ItemsSource = items;*/
-
+                        List<Property> items = new List<Property>(property.Result.Property);
+                        PropertiesList.ItemsSource = items;
                     }
                     else
                     {
