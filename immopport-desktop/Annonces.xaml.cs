@@ -69,7 +69,6 @@ namespace immopport_desktop
         {
             var propertyId = (sender as Button).Tag.ToString();
             API user;
-            this.DataContext = this;
 
             if (Application.Current != null && Application.Current.Properties["user"] != null)
             {
@@ -78,18 +77,15 @@ namespace immopport_desktop
 
                 if (property != null)
                 {
-                    MessageBox.Show(property.Result.Property.Address);
-                    TextBlock txtBlockAddress = new TextBlock();
-                    txtBlockAddress.DataContext = property.Result.Property.Address;
-                    PropertyAddress = (string?)txtBlockAddress.DataContext;
+                    Uri uri = new Uri(property.Result.Property.PropertyPictures[0].Path);
+                    ImageSource imgSource = new BitmapImage(uri);
+                    PropertyPicture.Source = imgSource;
 
-                    TextBlock txtBlockCity = new TextBlock();
-                    txtBlockCity.DataContext = property.Result.Property.City;
-                    PropertyCity = (string?)txtBlockCity.DataContext;
+                    txtBlockAddress.Text = property.Result.Property.Address;
 
-                    TextBlock txtBlockZipcode = new TextBlock();
-                    txtBlockZipcode.DataContext = property.Result.Property.Zipcode;
-                    PropertyZipcode = (int?)txtBlockZipcode.DataContext;
+                    txtBlockCity.Text = property.Result.Property.City;
+
+                    txtBlockZipcode.Text = property.Result.Property.Zipcode.ToString();
                 }
                 else
                 {
