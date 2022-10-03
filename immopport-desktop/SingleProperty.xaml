@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="immopport_desktop.SingleProperty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:immopport_desktop"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="783*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Margin="10,10,10,10" Name="PropertyDisplay" Grid.ColumnSpan="2" BorderBrush="#FF4374CC">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding PropertyId}" />
+                    <GridViewColumn Header="Titre" Width="250" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Adresse" Width="250" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Prix" Width="130" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Ville" Width="130" DisplayMemberBinding="{Binding City }" />
+                    <GridViewColumn Header="Code Postal" Width="130" DisplayMemberBinding="{Binding Zipcode }" />
+                    <GridViewColumn Header="Description" Width="130" DisplayMemberBinding="{Binding Description }" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
