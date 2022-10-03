@@ -8,10 +8,35 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="783*"/>
-            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
-        <ListView Margin="10,10,10,10" Name="PropertiesList" Grid.ColumnSpan="2" BorderBrush="#FF4374CC">
+
+        <Grid x:Name="PropertyCard" Background="White" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Height="430" Margin="10,0,0,0" Width="780" RenderTransformOrigin="0.497,0.535">
+            <Image x:Name="PropertyPicture" Margin="389,0,15,223" />
+            <TextBlock 
+                x:Name="txtBlockAddress"
+                Text="{Binding Path=PropertyAddress}"
+                Foreground="Black" Margin="420,226,34,0" VerticalAlignment="Top" 
+            />
+            <TextBlock 
+                Style="{StaticResource TBTextBlockStyle}"
+                HorizontalAlignment="Right"
+                x:Name="txtBlockCity"
+                Text="{Binding Path=PropertyCity}"
+                Foreground="Black" 
+                Margin="526,137,754,0" VerticalAlignment="Top" RenderTransformOrigin="-3.319,-0.276" 
+            />
+            <TextBlock 
+                Style="{StaticResource TBTextBlockStyle}"
+                x:Name="txtBlockZipcode"
+                Text="{Binding Path=PropertyZipcode}"
+                Foreground="Black" 
+                Margin="80,137,0,0" RenderTransformOrigin="-3.319,-0.276" VerticalAlignment="Top" 
+            />
+        </Grid>
+
+        <ListView Margin="10,10,10,10" Name="PropertiesList" Grid.ColumnSpan="1" BorderBrush="Crimson">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding PropertyId}" />

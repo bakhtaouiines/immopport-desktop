@@ -19,6 +19,7 @@ namespace immopport_desktop
 {
     public partial class SingleProperty : UserControl
     {
+        public string? PropertyAddress { get; }
         public SingleProperty(string propertyId)
         {
             InitializeComponent();
@@ -33,9 +34,9 @@ namespace immopport_desktop
                 if (property != null)
                 {
                     MessageBox.Show(property.Result.Property.Address);
-
-                    List<Property> items = new List<Property>((IEnumerable<Property>)property.Result.Property);
-                    PropertyDisplay.ItemsSource = items;
+                    TextBlock txtBlockAddress = new TextBlock();
+                    txtBlockAddress.DataContext = property.Result.Property.Address;
+                    PropertyAddress = (string?)txtBlockAddress.DataContext;
                 }
                 else
                 {

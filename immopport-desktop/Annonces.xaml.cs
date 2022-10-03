@@ -24,6 +24,10 @@ namespace immopport_desktop
         public int? IdProperty { get; set; }
         public string? Titre { get; set; }
         public string? Address { get; set; }
+
+        public string? PropertyAddress { get; set; }
+        public string? PropertyCity { get; set; }
+        public int? PropertyZipcode { get; set; }
         public Annonces()
         {
             InitializeComponent();
@@ -64,7 +68,35 @@ namespace immopport_desktop
         private void DisplayProperty(object sender, RoutedEventArgs e)
         {
             var propertyId = (sender as Button).Tag.ToString();
-            _ = new SingleProperty(propertyId).Content;
+            API user;
+            this.DataContext = this;
+
+            if (Application.Current != null && Application.Current.Properties["user"] != null)
+            {
+                user = (API)Application.Current.Properties["user"];
+                Task<PropertyResponse?>? property = Task.Run(() => user?.GetSingleProperty(propertyId));
+
+                if (property != null)
+                {
+                    MessageBox.Show(property.Result.Property.Address);
+                    TextBlock txtBlockAddress = new TextBlock();
+                    txtBlockAddress.DataContext = property.Result.Property.Address;
+                    PropertyAddress = (string?)txtBlockAddress.DataContext;
+
+                    TextBlock txtBlockCity = new TextBlock();
+                    txtBlockCity.DataContext = property.Result.Property.City;
+                    PropertyCity = (string?)txtBlockCity.DataContext;
+
+                    TextBlock txtBlockZipcode = new TextBlock();
+                    txtBlockZipcode.DataContext = property.Result.Property.Zipcode;
+                    PropertyZipcode = (int?)txtBlockZipcode.DataContext;
+                }
+                else
+                {
+                    MessageBox.Show(user?.ErrorMessage);
+                }
+
+            }
         }
     }
 }
