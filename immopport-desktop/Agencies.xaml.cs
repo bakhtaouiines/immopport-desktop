@@ -21,6 +21,7 @@ namespace immopport_desktop
         public Agencies()
         {
             API user;
+            InitializeComponent();
 
             InitializeComponent();
 
