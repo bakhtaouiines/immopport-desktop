@@ -33,16 +33,16 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetPropertyEmployee());
+                    Task<PropertyList?>? property = Task.Run(() => user?.GetPropertyEmployee());
                     property.Wait();
 
                     // property.Result.Property tableau json
 
                     if (property != null)
                     {
-                        List<Property> items = new List<Property>(property.Result.Property);
+                        /*List<Property> items = new List<Property>(property.Result.Property);*/
 
-                        employeeAnnonces.ItemsSource = items;
+                       /* employeeAnnonces.ItemsSource = items;*/
 
                     }
                     else

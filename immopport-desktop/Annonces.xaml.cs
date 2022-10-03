@@ -36,7 +36,7 @@ namespace immopport_desktop
 
                 try
                 {
-                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetProperty());
+                    Task<PropertyList?>? property = Task.Run(() => user?.GetProperty());
 
                     // property.Result.Property tableau json
 
@@ -54,36 +54,17 @@ namespace immopport_desktop
                 {
                     MessageBox.Show(e.Message);
                 }
-            }
-            
+            }            
         }
 
         private void PostProperty(object sender, RoutedEventArgs e)
         {
 
         }
-        public void DisplayProperty(object sender, RoutedEventArgs e)
+        private void DisplayProperty(object sender, RoutedEventArgs e)
         {
-            API user;
-
-            if (Application.Current != null && Application.Current.Properties["user"] != null)
-            {
-                user = (API)Application.Current.Properties["user"];
-
-                    Task<PropertyResponse?>? property = Task.Run(() => user?.GetSingleProperty());
-
-                    if (property != null)
-                    {
-                        MessageBox.Show(property.ToString());
-                       /* List<Property> items = new List<Property>(property.Result.Property);
-                        PropertiesList.ItemsSource = items;*/
-                    }
-                    else
-                    {
-                        MessageBox.Show(user?.ErrorMessage);
-                    }
-                
-            }
+            var propertyId = (sender as Button).Tag.ToString();
+            _ = new SingleProperty(propertyId).Content;
         }
     }
 }

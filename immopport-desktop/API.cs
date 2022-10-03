@@ -109,11 +109,11 @@ namespace immopport_desktop
             return null;
         }
 
-        public async Task<PropertyResponse?> GetProperty()
+        public async Task<PropertyList?> GetProperty()
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/employee/allProperties", true);
+                PropertyList? property = await GetApi<PropertyList?>("/employee/allProperties", true);
                 
                 if (property != null)
                 {
@@ -220,11 +220,11 @@ namespace immopport_desktop
             return null;
         }
 
-        public async Task<PropertyResponse?> GetPropertyEmployee()
+        public async Task<PropertyList?> GetPropertyEmployee()
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/employee/properties", true);
+                PropertyList? property = await GetApi<PropertyList?>("/employee/properties", true);
 
                 if (property != null)
                 {
@@ -232,6 +232,7 @@ namespace immopport_desktop
                 }
                 else
                 {
+                    MessageBox.Show(property.Property.ToString());
                     ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
                     MessageBox.Show(ErrorMessage);
                 }
@@ -243,20 +244,19 @@ namespace immopport_desktop
             return null;
         }
 
-        public async Task<PropertyResponse?> GetSingleProperty()
+        public async Task<PropertyResponse?> GetSingleProperty(string propertyId)
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/property/1", true);
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property/"+propertyId);
 
                 if (property != null)
                 {
-                    MessageBox.Show(property.Property.ToString());
                     return property;
                 }
                 else
                 {
-                    ErrorMessage = "Pas de réponse d'annonce " + StatusCode;
+                    ErrorMessage = "Pas de réponse d'annonce !!! " + StatusCode;
                     MessageBox.Show(ErrorMessage);
                 }
             }
