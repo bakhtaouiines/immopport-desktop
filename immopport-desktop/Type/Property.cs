@@ -53,8 +53,17 @@ namespace immopport_desktop.Type
         [JsonPropertyName("is_prospect")]
         public bool IsProspect { get; }
 
-        /*[JsonPropertyName("rooms")]
-        public Room[] Rooms { get; set; }*/
+        [JsonPropertyName("rooms")]
+        public Room[]? Rooms { get; set; }
+
+        [JsonPropertyName("property_pictures")]
+        public PropertyPictures[]? PropertyPictures { get; set; }
+
+        [JsonPropertyName("room_types")]
+        public RoomType[]? RoomType { get; set; }
+
+        [JsonPropertyName("features_lists")]
+        public FeaturesList[]? FeaturesList { get; set; }
 
         public string AgentInfo
         {
@@ -65,63 +74,45 @@ namespace immopport_desktop.Type
         }
     }
 
-    /*public class PropertyCategories
+    public class PropertyCategories
     {
         [JsonPropertyName("property_categories")]
-        public Property[] ? PropertyCategory { get; set; }
-    }*/
-
-/*    public class PropertyTypes
-    {
-        [JsonPropertyName("property_types")]
-        public Property[]? PropertyType { get; set; }
+        public Property[]? PropertyCategory { get; set; }
     }
 
-    public class EnergyAudits
-    {
-        [JsonPropertyName("energy_audits")]
-        public Property[]? EnergyAudit { get; set; }
-    }
+    /*    public class PropertyTypes
+        {
+            [JsonPropertyName("property_types")]
+            public Property[]? PropertyType { get; set; }
+        }
 
-    public class PropertyPictures
-    {
-        [JsonPropertyName("property_pictures")]
-        public Property[]? PropertyPicture { get; set; }
-    }
+        public class EnergyAudits
+        {
+            [JsonPropertyName("energy_audits")]
+            public Property[]? EnergyAudit { get; set; }
+        }
 
-    public class Kitchen
-    {
-        [JsonPropertyName("kitchen")]
-        public Property[]? PropertyKitchen { get; set; }
-    }
+        public class Kitchen
+        {
+            [JsonPropertyName("kitchen")]
+            public Property[]? PropertyKitchen { get; set; }
+        }
 
-    public class Heater
-    {
-        [JsonPropertyName("heater")]
-        public Property[]? PropertyHeater { get; set; }
-    }
-
-    public class Rooms
-    {
-        [JsonPropertyName("rooms")]
-        public Property[]? PropertyRoom { get; set; }
-    }
-
-    public class RoomType
-    {
-        [JsonPropertyName("room_types")]
-        public Property[]? PropertyRoomType { get; set; }
-    }
-
-    public class FeatureList
-    {
-        [JsonPropertyName("features_lists")]
-        public Property[]? PropertyFeatureList { get; set; }
-    }
-*/
-    public class PropertyResponse
+        public class Heater
+        {
+            [JsonPropertyName("heater")]
+            public Property[]? PropertyHeater { get; set; }
+        }
+    */
+    public class PropertyList
     {
         [JsonPropertyName("property")]
         public Property[] ? Property { get; set; }
+    }
+
+    public class PropertyResponse
+    {
+        [JsonPropertyName("property")]
+        public Property? Property { get; set; }
     }
 }
