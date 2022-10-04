@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Drawing;
 
 
 namespace immopport_desktop
@@ -21,13 +22,12 @@ namespace immopport_desktop
 
     public partial class Annonces : UserControl
     {
+        private int totalRooms;
+
         public int? IdProperty { get; set; }
         public string? Titre { get; set; }
         public string? Address { get; set; }
 
-        public string? PropertyAddress { get; set; }
-        public string? PropertyCity { get; set; }
-        public int? PropertyZipcode { get; set; }
         public Annonces()
         {
             InitializeComponent();
@@ -77,15 +77,31 @@ namespace immopport_desktop
 
                 if (property != null)
                 {
-                    Uri uri = new Uri(property.Result.Property.PropertyPictures[0].Path);
+                    Uri? uri = new Uri(property.Result.Property.PropertyPictures[0].Path);
                     ImageSource imgSource = new BitmapImage(uri);
                     PropertyPicture.Source = imgSource;
+                    txtBlockName.Text = property.Result.Property.Name;
+                    txtBlockAddress.Text = property.Result.Property.Address + ", " + property.Result.Property.City + ", " + property.Result.Property.Zipcode.ToString();
+                    txtBlockPrice.Text = property.Result.Property.Price.ToString() + " € | " + property.Result.Property.Surface?.ToString() + " m² | " + property.Result.Property.PropertyType?.Name + " | " + property.Result.Property.PropertyCategory?.Name;
+                    txtBlockDescription.Text = property.Result.Property.Description;
+                    txtBlockKitchen.Text = property.Result.Property.Kitchen.Name;
+                    txtBlockHeater.Text = property.Result.Property.Heater.Name;
 
-                    txtBlockAddress.Text = property.Result.Property.Address;
+                    RoomType[] rooms = property.Result.Property.RoomType;
+                    foreach (RoomType r in rooms)
+                    {
+                        totalRooms = property.Result.Property.Rooms.Count();
+                        txtBlockRoom.Text = totalRooms.ToString() + " pièces: " + r.RoomTypeName + ", ";
+                    }
 
-                    txtBlockCity.Text = property.Result.Property.City;
-
-                    txtBlockZipcode.Text = property.Result.Property.Zipcode.ToString();
+                    if (property.Result.Property.AdditionAddress != null)
+                    {
+                        txtBlockAddress.Text = property.Result.Property.AdditionAddress;
+                    }
+                    else
+                    {
+                        txtBlockAddress.Visibility = Visibility.Collapsed;
+                    }
                 }
                 else
                 {

@@ -65,6 +65,18 @@ namespace immopport_desktop.Type
         [JsonPropertyName("features_lists")]
         public FeaturesList[]? FeaturesList { get; set; }
 
+        [JsonPropertyName("property_types")]
+        public PropertyType? PropertyType { get; set; }
+
+        [JsonPropertyName("property_categories")]
+        public PropertyCategory? PropertyCategory { get; set; }
+
+        [JsonPropertyName("heater")]
+        public Heater? Heater { get; set; }
+
+        [JsonPropertyName("kitchen")]
+        public Kitchen? Kitchen { get; set; }
+
         public string AgentInfo
         {
             get
@@ -74,36 +86,6 @@ namespace immopport_desktop.Type
         }
     }
 
-    public class PropertyCategories
-    {
-        [JsonPropertyName("property_categories")]
-        public Property[]? PropertyCategory { get; set; }
-    }
-
-    /*    public class PropertyTypes
-        {
-            [JsonPropertyName("property_types")]
-            public Property[]? PropertyType { get; set; }
-        }
-
-        public class EnergyAudits
-        {
-            [JsonPropertyName("energy_audits")]
-            public Property[]? EnergyAudit { get; set; }
-        }
-
-        public class Kitchen
-        {
-            [JsonPropertyName("kitchen")]
-            public Property[]? PropertyKitchen { get; set; }
-        }
-
-        public class Heater
-        {
-            [JsonPropertyName("heater")]
-            public Property[]? PropertyHeater { get; set; }
-        }
-    */
     public class PropertyList
     {
         [JsonPropertyName("property")]
