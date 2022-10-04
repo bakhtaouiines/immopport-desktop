@@ -6,46 +6,114 @@
              xmlns:local="clr-namespace:immopport_desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="AntiqueWhite">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400*"/>
-            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="PropertyCard" Background="White" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Height="430" Margin="10,0,0,0" Width="780" RenderTransformOrigin="0.497,0.535">
-            <Image x:Name="PropertyPicture" Margin="389,0,15,223" />
-            <TextBlock 
-                x:Name="txtBlockAddress"
-                Text="{Binding Path=PropertyAddress}"
-                Foreground="Black" Margin="420,226,34,0" VerticalAlignment="Top" 
+        <Grid x:Name="PropertyCard" Background="White" Grid.Column="1" Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--header section-->
+            <TextBlock
+                Name="txtBlockName"
+                Text=""
+                Foreground="Black"
+                HorizontalAlignment="Center"
+                FontSize="20"
+                FontWeight="DemiBold"
+                Margin="0,8,0,0"
             />
-            <TextBlock 
-                Style="{StaticResource TBTextBlockStyle}"
-                HorizontalAlignment="Right"
-                x:Name="txtBlockCity"
-                Text="{Binding Path=PropertyCity}"
-                Foreground="Black" 
-                Margin="526,137,754,0" VerticalAlignment="Top" RenderTransformOrigin="-3.319,-0.276" 
-            />
-            <TextBlock 
-                Style="{StaticResource TBTextBlockStyle}"
-                x:Name="txtBlockZipcode"
-                Text="{Binding Path=PropertyZipcode}"
-                Foreground="Black" 
-                Margin="80,137,0,0" RenderTransformOrigin="-3.319,-0.276" VerticalAlignment="Top" 
-            />
+            <Grid Margin="10,10,10,10" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image 
+                    x:Name="PropertyPicture"
+                    HorizontalAlignment="Center"
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                />
+                <TextBlock 
+                Grid.Row="1"
+                Name="txtBlockAddress"
+                Text=""
+                Foreground="Black"
+                FontSize="15"
+                />
+                <TextBlock 
+                FontSize="14"
+                Grid.Row="2"
+                Name="txtBlockAddAddress"
+                Text=""
+                Foreground="Black"
+                />
+                <TextBlock 
+                FontSize="14"
+                Grid.Row="3"
+                Name="txtBlockPrice"
+                Text=""
+                Foreground="Black"
+                />
+                <TextBlock
+                Grid.Row="4"
+                Name="txtBlockDescription"
+                Text=""
+                Foreground="Black"
+                FontStyle="Italic"
+                FontSize="14"
+                TextWrapping="Wrap"
+                />
+                <TextBlock
+                Grid.Row="5"
+                Name="txtBlockKitchen"
+                Text=""
+                Foreground="Black"
+                FontStyle="Italic"
+                FontSize="14"
+                />
+                <TextBlock
+                Grid.Row="6"
+                Name="txtBlockHeater"
+                Text=""
+                Foreground="Black"
+                FontStyle="Italic"
+                FontSize="14"
+                />
+                <TextBlock
+                Grid.Row="7"
+                Name="txtBlockRoom"
+                Text=""
+                Foreground="Black"
+                FontStyle="Italic"
+                FontSize="14"
+                />
+            </Grid>
         </Grid>
 
-        <ListView Margin="10,10,10,10" Name="PropertiesList" Grid.ColumnSpan="1" BorderBrush="Crimson">
+        <ListView Margin="10,10,10,10" Name="PropertiesList" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="Crimson">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="70" DisplayMemberBinding="{Binding PropertyId}" />
-                    <GridViewColumn Header="Titre" Width="250" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Adresse" Width="250" DisplayMemberBinding="{Binding Address}" />
-                    <GridViewColumn Header="Prix" Width="130" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding PropertyId}" />
+                    <GridViewColumn Header="Titre" Width="200" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Adresse" Width="200" DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="Prix" Width="100" DisplayMemberBinding="{Binding Price}" />
                     <GridViewColumn Header="Agent" Width="130" DisplayMemberBinding="{Binding AgentInfo }" />
 
-                    <GridViewColumn Header="Actions" Width="300">
+                    <GridViewColumn Header="Actions" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
@@ -67,4 +135,5 @@
             </ListView.View>
         </ListView>
     </Grid>
+
 </UserControl>
