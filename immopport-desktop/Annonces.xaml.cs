@@ -84,16 +84,8 @@ namespace immopport_desktop
                     txtBlockAddress.Text = property.Result.Property.Address + ", " + property.Result.Property.City + ", " + property.Result.Property.Zipcode.ToString();
                     txtBlockPrice.Text = property.Result.Property.Price.ToString() + " € | " + property.Result.Property.Surface?.ToString() + " m² | " + property.Result.Property.PropertyType?.Name + " | " + property.Result.Property.PropertyCategory?.Name;
                     txtBlockDescription.Text = property.Result.Property.Description;
-                    txtBlockKitchen.Text = property.Result.Property.Kitchen.Name;
-                    txtBlockHeater.Text = property.Result.Property.Heater.Name;
-
-                    RoomType[] rooms = property.Result.Property.RoomType;
-                    foreach (RoomType r in rooms)
-                    {
-                        totalRooms = property.Result.Property.Rooms.Count();
-                        txtBlockRoom.Text = totalRooms.ToString() + " pièces: " + r.RoomTypeName + ", ";
-                    }
-
+                    txtBlockKitchen.Text = property.Result.Property.Kitchen?.Name;
+                    txtBlockHeater.Text = property.Result.Property.Heater?.Name;
                     if (property.Result.Property.AdditionAddress != null)
                     {
                         txtBlockAddress.Text = property.Result.Property.AdditionAddress;
@@ -101,6 +93,22 @@ namespace immopport_desktop
                     else
                     {
                         txtBlockAddress.Visibility = Visibility.Collapsed;
+                    }
+
+                    Room[] rooms = property.Result.Property.Rooms;
+                    txtBlockRoom.Text = "";
+                    int totalCount = property.Result.Property.Rooms.Count();
+                    int count = 0;
+                    foreach (Room r in rooms)
+                    {
+                        if ((count + 1) == totalCount)
+                        {
+                            txtBlockRoom.Text = r.Name + ".";
+                        }
+                        else
+                        {
+                            txtBlockRoom.Text += r.Name + ",";
+                        }
                     }
                 }
                 else
