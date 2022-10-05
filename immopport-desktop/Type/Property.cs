@@ -59,9 +59,6 @@ namespace immopport_desktop.Type
         [JsonPropertyName("property_pictures")]
         public PropertyPictures[]? PropertyPictures { get; set; }
 
-        [JsonPropertyName("room_types")]
-        public RoomType[]? RoomType { get; set; }
-
         [JsonPropertyName("features_lists")]
         public FeaturesList[]? FeaturesList { get; set; }
 

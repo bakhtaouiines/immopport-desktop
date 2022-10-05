@@ -17,5 +17,8 @@ namespace immopport_desktop.Type
 
         [JsonPropertyName("id_room_type")]
         public int RoomTypeId { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
     }
 }
