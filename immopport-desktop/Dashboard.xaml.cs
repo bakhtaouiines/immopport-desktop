@@ -17,9 +17,7 @@ namespace immopport_desktop
 {
     public partial class Dashboard : Window
     {
-        public string? EmployeeLastname { get; }
-        public string? EmployeeFirstname { get; }
-        public int? EmployeeMatricule { get; }
+        public string? EmployeeInfo { get; }
         public Dashboard()
         {
             API user;
@@ -35,17 +33,11 @@ namespace immopport_desktop
 
                     if (employee != null)
                     {
-                        TextBlock txtBlockLastname  = new TextBlock();
-                        TextBlock txtBlockFirstname = new TextBlock();
-                        TextBlock txtBlockMatricule = new TextBlock();
+                        TextBlock txtBlockEmployeeInfo = new TextBlock();
 
-                        txtBlockLastname.DataContext  = employee.Result.Employee.Lastname;
-                        txtBlockFirstname.DataContext = employee.Result.Employee.Firstname;
-                        txtBlockMatricule.DataContext = employee.Result.Employee.Matricule;
+                        txtBlockEmployeeInfo.DataContext  = employee.Result.Employee.Lastname + " " + employee.Result.Employee.Firstname + " - " + employee.Result.Employee.Matricule.ToString();
 
-                        EmployeeLastname  = (string?)txtBlockLastname.DataContext;
-                        EmployeeFirstname = (string?)txtBlockFirstname.DataContext;
-                        EmployeeMatricule = (int?)txtBlockMatricule.DataContext;
+                        EmployeeInfo  = (string?)txtBlockEmployeeInfo.DataContext;
                     }
                     else
                     {

@@ -6,7 +6,7 @@ namespace immopport_desktop.Type
     {
 
         [JsonPropertyName("id")]
-        public int PropertyId { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
@@ -64,6 +64,9 @@ namespace immopport_desktop.Type
 
         [JsonPropertyName("property_types")]
         public PropertyType? PropertyType { get; set; }
+
+        [JsonPropertyName("property_transaction_type")]
+        public PropertyTransactionType? PropertyTransactionType { get; set; }
 
         [JsonPropertyName("property_categories")]
         public PropertyCategory? PropertyCategory { get; set; }

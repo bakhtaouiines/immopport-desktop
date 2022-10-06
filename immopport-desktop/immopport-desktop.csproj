@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <None Remove="assets\eye-icon.png" />
-    <None Remove="Assets\logo_immopport.png" />
+	<None Remove="Assets\not-found-img.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +20,7 @@
     </Resource>
     <Resource Include="Assets\logo3.png" />
 	<Resource Include="Assets\trash-icon.png" />
+	<Resource Include="Assets\not-found-img.png" />
   </ItemGroup>
 
 </Project>

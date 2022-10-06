@@ -10,7 +10,7 @@ namespace immopport_desktop.Type
     public class PropertyType
     {
         [JsonPropertyName("id")]
-        public int PropertyTypeId { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;

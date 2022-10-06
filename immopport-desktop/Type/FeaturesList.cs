@@ -17,5 +17,8 @@ namespace immopport_desktop.Type
 
         [JsonPropertyName("id_property")]
         public int PropertyId { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = string.Empty;
     }
 }
