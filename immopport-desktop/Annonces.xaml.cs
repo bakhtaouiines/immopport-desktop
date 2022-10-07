@@ -17,6 +17,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using System.Drawing;
 using Image = System.Windows.Controls.Image;
 using System.Security.Policy;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace immopport_desktop
 {
@@ -30,6 +31,7 @@ namespace immopport_desktop
         public Annonces()
         {
             InitializeComponent();
+
             API user;
             this.DataContext = this;
 
@@ -55,17 +57,39 @@ namespace immopport_desktop
                 {
                     MessageBox.Show(e.Message);
                 }
-            }            
+            }
         }
 
-        private void PostProperty(object sender, RoutedEventArgs e)
+        void PostProperty(object sender, RoutedEventArgs e)
         {
+            var btn = sender as Button;
 
+            var propertyId = (sender as Button).Tag.ToString();
+            API user;
+            try
+            {
+                if (Application.Current != null && Application.Current.Properties["user"] != null)
+                {
+                    user = (API)Application.Current.Properties["user"];
+                    Task<PropertyResponse?>? property = Task.Run(() => user?.UpdatePropertyStatus(propertyId));
+
+                    MessageBox.Show("Le bien immobilier a bien été publié.");
+                    btn.IsEnabled = false;
+                    btn.Content = "Publié";
+                    btn.Background = Brushes.Gray;
+                    btn.BorderBrush = Brushes.Gray;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-        private void DisplayProperty(object sender, RoutedEventArgs e)
+
+        void DisplayProperty(object sender, RoutedEventArgs e)
         {
-            goNext(sender, e);
-            goBack(sender, e);
+            next.Visibility = Visibility.Visible;
+            back.Visibility = Visibility.Visible;
 
             var propertyId = (sender as Button).Tag.ToString();
             API user;
@@ -79,27 +103,34 @@ namespace immopport_desktop
                 {
                     PropertyPictures[] picture = property.Result.Property.PropertyPictures;
 
-                    PropertyPicture.Source = new BitmapImage(new Uri("/Assets/not-found-img.png", UriKind.Relative));
+                    /*PropertyPicture.Source = new BitmapImage(new Uri("/Assets/not-found-img.png", UriKind.Relative));*/
 
-                    foreach (PropertyPictures pic in picture)
+                    for (int i = 0; i < picture.Length; i++)
+                    {
+                        Uri? uri = new Uri(picture[i].Path);
+                        ImageSource imgSource = new BitmapImage(uri);
+                        PropertyPicture.Source = imgSource;
+                    }
+
+                    /*foreach (PropertyPictures pic in picture)
                     {
                         Uri? uri = new Uri(pic.Path);
                         ImageSource imgSource = new BitmapImage(uri);
                         PropertyPicture.Source = imgSource;
-                    }
+                    }*/
 
                     txtBlockName.Text = property.Result.Property.Name + " - " + property.Result.Property.PropertyTransactionType?.Name;
 
                     txtBlockAddress.Text = property.Result.Property.Address + ", " + property.Result.Property.City + ", " + property.Result.Property.Zipcode.ToString();
 
                     txtBlockPrice.Text = property.Result.Property.Price.ToString() + " € | " + property.Result.Property.Surface?.ToString() + " m² | " + property.Result.Property.PropertyType?.Name + " | " + property.Result.Property.PropertyCategory?.Name;
-                    
+
                     txtBlockDescription.Text = property.Result.Property.Description;
-                    
+
                     txtBlockKitchen.Text = property.Result.Property.Kitchen?.Name;
-                    
+
                     txtBlockHeater.Text = property.Result.Property.Heater?.Name;
-                    
+
                     if (property.Result.Property.AdditionAddress != null)
                     {
                         txtBlockAddAddress.Text = property.Result.Property.AdditionAddress;
@@ -108,14 +139,14 @@ namespace immopport_desktop
                     {
                         txtBlockAddAddress.Visibility = Visibility.Collapsed;
                     }
-                    
+
                     Room[] rooms = property.Result.Property.Rooms;
                     txtBlockRoom.Text = "Pièces: ";
                     foreach (Room r in rooms)
                     {
                         txtBlockRoom.Text += r.Name + " ";
                     }
-                    
+
                     FeaturesList[] features = property.Result.Property.FeaturesList;
                     txtBlockFeatures.Text = "Annexes: ";
 
@@ -143,14 +174,14 @@ namespace immopport_desktop
             }
         }
 
-        private void goNext(object sender, RoutedEventArgs e)
+        void goNext(object sender, RoutedEventArgs e)
         {
-            next.Visibility = Visibility.Visible;
+
         }
 
         private void goBack(object sender, RoutedEventArgs e)
         {
-            back.Visibility = Visibility.Visible;
+
         }
     }
 }

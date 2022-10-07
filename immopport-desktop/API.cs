@@ -39,22 +39,55 @@ namespace immopport_desktop
                     // Set the authentication header. 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
                 }
-                    // fetch JTW token
-                    HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
-                    response.EnsureSuccessStatusCode();
-                    // save the token for further requests.
-                    T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
+                // fetch JTW token
+                HttpResponseMessage response = await client.GetAsync(client.BaseAddress + URI);
+                response.EnsureSuccessStatusCode();
+                // save the token for further requests.
+                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
 
-                    StatusCode = response.StatusCode;
+                StatusCode = response.StatusCode;
 
-                    if (content != null)
-                    {
-                        return content;
-                    }
-                    else
-                    {
-                        throw new Exception("Pas de contenu.");
-                    }
+                if (content != null)
+                {
+                    return content;
+                }
+                else
+                {
+                    throw new Exception("Pas de contenu.");
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorMessage = e.Message;
+                return default(T);
+            }
+        }
+
+        private async Task<T?> PutApi<T>(string URI, bool isProtected = false)
+        {
+            try
+            {
+                if (isProtected)
+                {
+                    // Set the authentication header. 
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
+                }
+                // fetch JTW token
+                HttpResponseMessage response = await client.PutAsync(client.BaseAddress + URI, null);
+                response.EnsureSuccessStatusCode();
+                // save the token for further requests.
+                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
+
+                StatusCode = response.StatusCode;
+
+                if (content != null)
+                {
+                    return content;
+                }
+                else
+                {
+                    throw new Exception("Pas de contenu.");
+                }
             }
             catch (Exception e)
             {
@@ -66,8 +99,8 @@ namespace immopport_desktop
         private bool IsLogged()
         {
             return AccessToken != null;
-        }   
-      
+        }
+
         public async Task Auth(int matricule, string password)
         {
             try
@@ -88,7 +121,7 @@ namespace immopport_desktop
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
         }
 
         public async Task<EmployeeResponse?> GetProfile()
@@ -115,7 +148,7 @@ namespace immopport_desktop
             try
             {
                 PropertyList? property = await GetApi<PropertyList?>("/employee/properties", true);
-                
+
                 if (property != null)
                 {
                     return property;
@@ -170,7 +203,7 @@ namespace immopport_desktop
                 else
                 {
                     ErrorMessage = "Pas de réponse d\'agences " + StatusCode;
-                    
+
                 }
             }
             catch (Exception e)
@@ -179,7 +212,7 @@ namespace immopport_desktop
             }
             return null;
         }
-        
+
         /* display all customers */
         public async Task<CustomerList?> GetCustomers()
         {
@@ -255,7 +288,7 @@ namespace immopport_desktop
         {
             try
             {
-                PropertyResponse? property = await GetApi<PropertyResponse?>("/property/"+propertyId);
+                PropertyResponse? property = await GetApi<PropertyResponse?>("/property/" + propertyId);
 
                 if (property != null)
                 {
@@ -266,6 +299,20 @@ namespace immopport_desktop
                     ErrorMessage = "Pas de réponse d'annonce !!! " + StatusCode;
                     MessageBox.Show(ErrorMessage);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        /* update status (is_prospect) */
+        public async Task<PropertyResponse?> UpdatePropertyStatus(string propertyId)
+        {
+            try
+            {
+                PropertyResponse? property = await PutApi<PropertyResponse?>("/property/status/" + propertyId, true);
             }
             catch (Exception ex)
             {
