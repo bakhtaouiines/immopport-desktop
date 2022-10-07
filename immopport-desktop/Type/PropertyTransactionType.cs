@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace immopport_desktop.Type
 {
-    public class FeaturesList
+    public class PropertyTransactionType
     {
         [JsonPropertyName("id")]
-        public int FeaturesListId { get; set; }
-
-        [JsonPropertyName("id_feature")]
-        public int FeatureId { get; set; }
-
-        [JsonPropertyName("id_property")]
-        public int PropertyId { get; set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;

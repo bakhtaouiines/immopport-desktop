@@ -15,15 +15,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Drawing;
-
+using Image = System.Windows.Controls.Image;
+using System.Security.Policy;
 
 namespace immopport_desktop
 {
 
     public partial class Annonces : UserControl
     {
-        private int totalRooms;
-
         public int? IdProperty { get; set; }
         public string? Titre { get; set; }
         public string? Address { get; set; }
@@ -41,8 +40,6 @@ namespace immopport_desktop
                 try
                 {
                     Task<PropertyList?>? property = Task.Run(() => user?.GetProperty());
-
-                    // property.Result.Property tableau json
 
                     if (property != null)
                     {
@@ -67,6 +64,9 @@ namespace immopport_desktop
         }
         private void DisplayProperty(object sender, RoutedEventArgs e)
         {
+            goNext(sender, e);
+            goBack(sender, e);
+
             var propertyId = (sender as Button).Tag.ToString();
             API user;
 
@@ -77,46 +77,80 @@ namespace immopport_desktop
 
                 if (property != null)
                 {
-                    Uri? uri = new Uri(property.Result.Property.PropertyPictures[0].Path);
-                    ImageSource imgSource = new BitmapImage(uri);
-                    PropertyPicture.Source = imgSource;
-                    txtBlockName.Text = property.Result.Property.Name;
+                    PropertyPictures[] picture = property.Result.Property.PropertyPictures;
+
+                    PropertyPicture.Source = new BitmapImage(new Uri("/Assets/not-found-img.png", UriKind.Relative));
+
+                    foreach (PropertyPictures pic in picture)
+                    {
+                        Uri? uri = new Uri(pic.Path);
+                        ImageSource imgSource = new BitmapImage(uri);
+                        PropertyPicture.Source = imgSource;
+                    }
+
+                    txtBlockName.Text = property.Result.Property.Name + " - " + property.Result.Property.PropertyTransactionType?.Name;
+
                     txtBlockAddress.Text = property.Result.Property.Address + ", " + property.Result.Property.City + ", " + property.Result.Property.Zipcode.ToString();
+
                     txtBlockPrice.Text = property.Result.Property.Price.ToString() + " € | " + property.Result.Property.Surface?.ToString() + " m² | " + property.Result.Property.PropertyType?.Name + " | " + property.Result.Property.PropertyCategory?.Name;
+                    
                     txtBlockDescription.Text = property.Result.Property.Description;
+                    
                     txtBlockKitchen.Text = property.Result.Property.Kitchen?.Name;
+                    
                     txtBlockHeater.Text = property.Result.Property.Heater?.Name;
+                    
                     if (property.Result.Property.AdditionAddress != null)
                     {
-                        txtBlockAddress.Text = property.Result.Property.AdditionAddress;
+                        txtBlockAddAddress.Text = property.Result.Property.AdditionAddress;
                     }
                     else
                     {
-                        txtBlockAddress.Visibility = Visibility.Collapsed;
+                        txtBlockAddAddress.Visibility = Visibility.Collapsed;
                     }
-
+                    
                     Room[] rooms = property.Result.Property.Rooms;
-                    txtBlockRoom.Text = "";
-                    int totalCount = property.Result.Property.Rooms.Count();
-                    int count = 0;
+                    txtBlockRoom.Text = "Pièces: ";
                     foreach (Room r in rooms)
                     {
-                        if ((count + 1) == totalCount)
-                        {
-                            txtBlockRoom.Text = r.Name + ".";
-                        }
-                        else
-                        {
-                            txtBlockRoom.Text += r.Name + ",";
-                        }
+                        txtBlockRoom.Text += r.Name + " ";
                     }
+                    
+                    FeaturesList[] features = property.Result.Property.FeaturesList;
+                    txtBlockFeatures.Text = "Annexes: ";
+
+                    foreach (FeaturesList fl in features)
+                    {
+                        txtBlockFeatures.Text += fl.Name + " ";
+                    }
+
+                    if (property.Result.Property.IsFurnished)
+                    {
+                        txtBlockFurnished.Text = "Bien meublé: oui";
+                    }
+                    else
+                    {
+                        txtBlockFurnished.Text = "Bien meublé: non";
+                    }
+
                 }
+
                 else
                 {
                     MessageBox.Show(user?.ErrorMessage);
                 }
 
             }
+        }
+
+        private void goNext(object sender, RoutedEventArgs e)
+        {
+            next.Visibility = Visibility.Visible;
+        }
+
+        private void goBack(object sender, RoutedEventArgs e)
+        {
+            back.Visibility = Visibility.Visible;
         }
     }
 }

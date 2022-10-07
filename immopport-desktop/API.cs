@@ -53,7 +53,7 @@ namespace immopport_desktop
                     }
                     else
                     {
-                        throw new Exception("Pas de contenu");
+                        throw new Exception("Pas de contenu.");
                     }
             }
             catch (Exception e)
@@ -103,17 +103,18 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas de r�ponse d'employ� " + StatusCode;
+                    ErrorMessage = "Pas de réponse d'employé " + StatusCode;
                 }
             }
             return null;
         }
 
+        /* display  all properties of an agency */
         public async Task<PropertyList?> GetProperty()
         {
             try
             {
-                PropertyList? property = await GetApi<PropertyList?>("/employee/allProperties", true);
+                PropertyList? property = await GetApi<PropertyList?>("/employee/properties", true);
                 
                 if (property != null)
                 {
@@ -132,6 +133,7 @@ namespace immopport_desktop
             return null;
         }
 
+        /* display all employees according to auth employee id_role */
         public async Task<EmployeesList?> GetEmployees()
         {
             try
@@ -144,7 +146,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'employés répertoriés. " + StatusCode;
+                    ErrorMessage = "Pas de réponse d'employés " + StatusCode;
                 }
             }
             catch (Exception e)
@@ -154,6 +156,7 @@ namespace immopport_desktop
             return null;
         }
 
+        /* display all agencies informations (contact page) */
         public async Task<AgenciesList?> GetAgencies()
         {
             try
@@ -166,7 +169,7 @@ namespace immopport_desktop
                 }
                 else
                 {
-                    ErrorMessage = "Pas d'agences répertories. " + StatusCode;
+                    ErrorMessage = "Pas de réponse d\'agences " + StatusCode;
                     
                 }
             }
@@ -176,7 +179,8 @@ namespace immopport_desktop
             }
             return null;
         }
-
+        
+        /* display all customers */
         public async Task<CustomerList?> GetCustomers()
         {
             try
@@ -199,6 +203,7 @@ namespace immopport_desktop
             return null;
         }
 
+        /* display auth employee rdv */
         public async Task<RDVList?> GetAuthEmployeeRDV()
         {
             try
@@ -220,11 +225,12 @@ namespace immopport_desktop
             return null;
         }
 
+        /* display all employee's properties */
         public async Task<PropertyList?> GetPropertyEmployee()
         {
             try
             {
-                PropertyList? property = await GetApi<PropertyList?>("/employee/properties", true);
+                PropertyList? property = await GetApi<PropertyList?>("/employee/my-properties", true);
 
                 if (property != null)
                 {
@@ -244,6 +250,7 @@ namespace immopport_desktop
             return null;
         }
 
+        /* display a property by its id */
         public async Task<PropertyResponse?> GetSingleProperty(string propertyId)
         {
             try

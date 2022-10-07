@@ -38,6 +38,8 @@
         <!-- Dashboard Logo -->
         <Style x:Key="DashboardLogoStyle" TargetType="{x:Type Image}">
             <Setter Property="Source" Value="/Assets/logo3.png"/>
+            <Setter Property="Height" Value="900"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
             
         <!-- LABEL STYLES  -->

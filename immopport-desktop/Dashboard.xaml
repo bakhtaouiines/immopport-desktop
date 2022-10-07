@@ -17,7 +17,7 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -27,7 +27,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Image Style="{StaticResource DashboardLogoStyle}" x:Name="logoDashboard" />
+            <Image Style="{StaticResource DashboardLogoStyle}" x:Name="logoDashboard"/>
             
 
             <Button Style="{StaticResource LPNavButtonStyle}"
@@ -81,10 +81,10 @@
 
         <Grid x:Name="rightPanelGrid" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.3*" />
                 <RowDefinition Height="3.5*" />
             </Grid.RowDefinitions>
 
@@ -94,22 +94,12 @@
             >
                 <TextBlock 
                     Style="{StaticResource TBTextBlockStyle}" 
-                    HorizontalAlignment="Left"
-                    x:Name="txtBlockLastname"
-                    Text="{Binding Path=EmployeeLastname}"
-                />
-                <TextBlock 
-                    Style="{DynamicResource TBTextBlockStyle}"
-                    x:Name="txtBlockFirstname"
-                    Margin="80,0,0,0"
-                    Text="{Binding Path=EmployeeFirstname}"
-                />
-                <TextBlock Style="{DynamicResource TBTextBlockStyle}"
-                    x:Name="txtBlockMatricule"
-                    HorizontalAlignment="Right"
-                    Width="150"
-                    Margin="0,0,70,0"       
-                    Text="{Binding Path=EmployeeMatricule}" 
+                    HorizontalAlignment="Center"
+                    FontFamily="Lato"
+                    FontSize="24"
+                    FontWeight="Light"
+                    x:Name="txtBlockEmployeeInfo"
+                    Text="{Binding Path=EmployeeInfo}"
                 />
             </Grid>
             <Grid x:Name="contentGrid" Grid.Row="1" >
