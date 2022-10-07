@@ -50,7 +50,7 @@ namespace immopport_desktop
                     }
                     else
                     {
-                        MessageBox.Show("Erreur sur la récupération du token.");
+                        MessageBox.Show("Authentification impossible. Veuillez vérifier vos informations de connexion.");
                     }
                 }
                 else

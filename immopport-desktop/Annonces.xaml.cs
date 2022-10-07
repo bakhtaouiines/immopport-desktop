@@ -64,6 +64,9 @@ namespace immopport_desktop
         }
         private void DisplayProperty(object sender, RoutedEventArgs e)
         {
+            goNext(sender, e);
+            goBack(sender, e);
+
             var propertyId = (sender as Button).Tag.ToString();
             API user;
 
@@ -140,9 +143,14 @@ namespace immopport_desktop
             }
         }
 
-        /*private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        private void goNext(object sender, RoutedEventArgs e)
         {
-            PropertyPicture.Source = new BitmapImage(new Uri("../assets/not-found-img.jpg", UriKind.Relative));
-        }*/
+            next.Visibility = Visibility.Visible;
+        }
+
+        private void goBack(object sender, RoutedEventArgs e)
+        {
+            back.Visibility = Visibility.Visible;
+        }
     }
 }

@@ -10,17 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="assets\eye-icon.png" />
-	<None Remove="Assets\not-found-img.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="assets\eye-icon.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\logo3.png" />
 	<Resource Include="Assets\trash-icon.png" />
 	<Resource Include="Assets\not-found-img.png" />
+    <Resource Include="Assets\arrow-back.png" />
+	<Resource Include="Assets\arrow-next.png" />
   </ItemGroup>
 
 </Project>
