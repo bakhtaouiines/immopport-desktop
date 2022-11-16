@@ -88,9 +88,6 @@ namespace immopport_desktop
 
         void DisplayProperty(object sender, RoutedEventArgs e)
         {
-            next.Visibility = Visibility.Visible;
-            back.Visibility = Visibility.Visible;
-
             var propertyId = (sender as Button).Tag.ToString();
             API user;
 
@@ -172,16 +169,6 @@ namespace immopport_desktop
                 }
 
             }
-        }
-
-        void goNext(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void goBack(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -48,5 +48,27 @@ namespace immopport_desktop
                 }
             }
         }
+
+        void DeleteClient(object sender, RoutedEventArgs e)
+        {
+            var customerId = (sender as Button).Tag.ToString();
+            API user;
+
+            try
+            {
+                if (Application.Current != null && Application.Current.Properties["user"] != null)
+                {
+                    user = (API)Application.Current.Properties["user"];
+                    Task<CustomerResponse?>? customer = Task.Run(() => user?.DeleteCustomer(customerId));
+
+                    MessageBox.Show("Le client a bien été supprimé");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
