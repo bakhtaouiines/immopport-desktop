@@ -34,16 +34,11 @@ namespace immopport_desktop
                 try
                 {
                     Task<PropertyList?>? property = Task.Run(() => user?.GetPropertyEmployee());
-                    property.Wait();
-
-                    // property.Result.Property tableau json
 
                     if (property != null)
                     {
-                        /*List<Property> items = new List<Property>(property.Result.Property);*/
-
-                       /* employeeAnnonces.ItemsSource = items;*/
-
+                        List<Property> items = new List<Property>(property.Result.Property);
+                        employeeAnnonces.ItemsSource = items;
                     }
                     else
                     {
@@ -55,14 +50,6 @@ namespace immopport_desktop
                     MessageBox.Show(e.Message);
                 }
             }
-        }
-        private void PostProperty(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void DisplayProperty(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

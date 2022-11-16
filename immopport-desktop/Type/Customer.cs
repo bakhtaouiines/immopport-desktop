@@ -28,4 +28,10 @@ namespace immopport_desktop.Type
         [JsonPropertyName("client")]
         public Customer[]? Customer { get; set; }
     }
+
+    public class CustomerResponse
+    {
+        [JsonPropertyName("client")]
+        public Customer? Customer { get; set; }
+    }
 }

@@ -16,6 +16,20 @@
                     <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
                     <GridViewColumn Header="Téléphone" Width="150" DisplayMemberBinding="{Binding Phone}" />
                     <GridViewColumn Header="Agence" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Actions" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="Auto" >
+                                    <Button Style="{DynamicResource DeleteButton}" Click="DeleteClient" Margin="10,0,0,0" Name="delete" Tag="{Binding Id}">
+                                        <Image Source="/Assets/trash-icon.png" HorizontalAlignment="Center" Height="15" Width="20"/>
+                                    </Button>
+                                </StackPanel>
+
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

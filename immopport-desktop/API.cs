@@ -96,6 +96,40 @@ namespace immopport_desktop
             }
         }
 
+        private async Task<T?> DeleteApi<T>(string URI, bool isProtected = false)
+        {
+            try
+            {
+                if (isProtected)
+                {
+                    // Set the authentication header. 
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(TokenType, AccessToken);
+                }
+                // fetch JTW token
+                HttpResponseMessage response = await client.DeleteAsync(client.BaseAddress + URI);
+                response.EnsureSuccessStatusCode();
+                // save the token for further requests.
+                T? content = JsonSerializer.Deserialize<T>(response.Content.ReadAsStream());
+
+                StatusCode = response.StatusCode;
+
+                if (content != null)
+                {
+                    MessageBox.Show(content.ToString());
+                    return content;
+                }
+                else
+                {
+                    throw new Exception("Pas de contenu.");
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorMessage = e.Message;
+                return default(T);
+            }
+        }
+        
         private bool IsLogged()
         {
             return AccessToken != null;
@@ -232,6 +266,20 @@ namespace immopport_desktop
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+        /* delete client by its id*/
+        public async Task<CustomerResponse?> DeleteCustomer(string customerId)
+        {
+            try
+            {
+                CustomerResponse? customer = await DeleteApi<CustomerResponse?>("/employee/customer/" + customerId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             return null;
         }

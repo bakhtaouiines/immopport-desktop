@@ -55,36 +55,12 @@
                         <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button 
-                        Grid.Column="0"
-                        Style="{DynamicResource DefaultButton}"
-                        Name="back" 
-                        Width="40" 
-                        Click="goBack" 
-                        VerticalAlignment="Bottom"
-                        Visibility="Collapsed"
-                        Margin="0,0,0,80"
-                    >
-                        <Image Source="/Assets/arrow-back.png" HorizontalAlignment="Center" Height="30" Width="30"/>
-                    </Button>
                     <Image 
                     Grid.Column="1"
                     x:Name="PropertyPicture"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,10"
                     />
-                    <Button 
-                        Grid.Column="2" 
-                        Style="{DynamicResource DefaultButton}" 
-                        Name="next" 
-                        Width="40" 
-                        Click="goNext" 
-                        VerticalAlignment="Bottom"
-                        Visibility="Collapsed"
-                        Margin="0,0,0,80"
-                    >
-                        <Image Source="/Assets/arrow-next.png" HorizontalAlignment="Center" Height="30" Width="30"/>
-                    </Button>
                     
                 </Grid>
                 <TextBlock 

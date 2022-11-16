@@ -33,14 +33,14 @@
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnAnnonces" 
                     Grid.Row="1" 
-                    Content="Annonces"    
+                    Content="Projets de l'agence"    
                     Click="Button_Click_Annonce" 
                 
             />
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnAnnoncesEmployee" 
                     Grid.Row="2" 
-                    Content="Annonces Employee"    
+                    Content="Mes projets"    
                     Click="Button_Click_AnnonceEmploye" 
             />
             
@@ -54,7 +54,7 @@
             <Button Style="{StaticResource LPNavButtonStyle}"
                     x:Name="btnRDV" 
                     Grid.Row="4"  
-                    Content="Rdv"  
+                    Content="Mes Rdv"  
                     RenderTransformOrigin="0.05,0.503"
                     Click="Button_Click_RDV"  
             />
